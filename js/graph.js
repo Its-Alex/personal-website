@@ -1,3 +1,5 @@
+particlesJS.load('particles-js', 'asset/particles.json');
+
 var doughnutOptions = {
   segmentShowStroke : true,
   segmentStrokeColor : "#333",
