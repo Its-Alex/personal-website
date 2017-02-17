@@ -8,7 +8,5 @@ My open source website
 Technologies Used:
 ==================
 
-* Vue.js
 * Particles.js
-* Axios.js
 * Chart.js
