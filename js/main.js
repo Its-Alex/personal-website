@@ -7,21 +7,23 @@ var vm = new Vue({
     .then((res) => {
       var tmp = JSON.parse(res.request.response);
 
+      console.log(tmp);
       for (var count=0; count < tmp.length; count++){
-        this.repos[count].name = tmp[count].name;
-        this.repos[count].link = tmp[count].url;
-        this.repos[count].description = tmp[count].description;
+        var obj = {}
+
+        obj.name = tmp[count].full_name.split('/')[1];
+        obj.link = tmp[count].html_url;
+        obj.description = tmp[count].description;
+        console.log(obj);
+        this.repos.push(obj);
       }
+      console.log(this.repo);
     })
     .catch((err) => {
       console.log(err);
     })
   },
   data: {
-    repos: [{
-        text: `CV`,
-        link: `https://github.com/its-alex/CV`,
-        description: `Salut!`
-    }]
+    repos: []
   }
 });
