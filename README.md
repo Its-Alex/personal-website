@@ -3,7 +3,7 @@
 Description
 ============
 
-My open source website that I use as CV
+My open source website
 
 Technologies Used:
 ==================
