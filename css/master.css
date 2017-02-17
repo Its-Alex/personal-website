@@ -14,14 +14,20 @@ html, body, #particles-js {
     color: #333;
 }
 
+h1 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+}
+
 #particles-js-canvas-el, .content {
 	position: absolute;
 }
 
-h1 {
-    margin: 5px;
-    padding: 0px;
-    font-size: 20px;
+ul {
+    margin: 0;
+    padding: 10px;
+    list-style-type: none;
 }
 
 .content {
@@ -38,13 +44,9 @@ h1 {
     border-radius: 10px;
     border: 1.2px #CCC solid;
     padding: 22px;
+    padding-right: 62px;
+    padding-left: 62px;
     position: absolute;
-}
-
-ul {
-    margin: 0;
-    padding: 10px;
-    list-style-type: none;
 }
 
 .profile {
@@ -61,6 +63,6 @@ ul {
 }
 
 .divlink {
-    margin: 5px;
+    margin-top: 20px;
     padding: 0px;
 }
