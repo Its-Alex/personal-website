@@ -1,0 +1,66 @@
+html, body, #particles-js {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #F3F3F3;
+	display: -webkit-flex;
+	display:         flex;
+	-webkit-align-items: center;
+    	align-items: center;
+	-webkit-justify-content: center;
+    	justify-content: center;
+    font-family: lato, sans-serif;
+    color: #333;
+}
+
+#particles-js-canvas-el, .content {
+	position: absolute;
+}
+
+h1 {
+    margin: 5px;
+    padding: 0px;
+    font-size: 20px;
+}
+
+.content {
+	max-width: 400px;
+	min-height: 175px;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	-webkit-align-items: center;
+    	align-items: center;
+	-webkit-justify-content: center;
+    	justify-content: center;
+	text-align: center;
+    border-radius: 10px;
+    border: 1.2px #CCC solid;
+    padding: 22px;
+    position: absolute;
+}
+
+ul {
+    margin: 0;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.profile {
+	overflow: hidden;
+	max-width: 150px;
+	border-radius: 75px;
+}
+
+.imglink {
+    overflow: hidden;
+	max-width: 30px;
+	min-width: 30px;
+    border-radius: 15px;
+}
+
+.divlink {
+    margin: 5px;
+    padding: 0px;
+}

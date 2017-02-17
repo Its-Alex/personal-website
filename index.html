@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Its Alex</title>
+		<link rel="stylesheet" type="text/css" href="css/master.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+	</head>
+	<body>
+		<div id="particles-js">
+			<div class="content">
+                <img class="profile" src="asset/img/profile.jpg">
+                <h1>Alexandre MARRE<br/>Developper C/C++ and Web</h1>
+                <ul>
+                    <li v-for="repo in repos">
+                      <a :href="repo.link">{{ repo.text }}</a>
+                      <br/>
+                      {{ repo.description }}
+                    </li>
+                </ul>
+                <div class="divlink">
+                    <a href="https://twitter.com/xskyzie"><img class="imglink" src="asset/img/twitter.svg"></a>
+                    <a href="https://github.com/Its-Alex"><img class="imglink" src="asset/img/github.svg"></a>
+                    <a href="https://www.linkedin.com/in/alexandre-marre-4ba39b132/"><img class="imglink" src="asset/img/linkedin.svg"></a>
+                </div>
+			</div>
+		</div>
+
+		<!-- JavaScript File -->
+		<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/axios@0.15.3/dist/axios.js"></script>
+        <script type="text/javascript" src="asset/particles.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
