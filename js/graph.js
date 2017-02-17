@@ -7,7 +7,7 @@ var doughnutOptions = {
   percentageInnerCutout : 60,
   animation : true,
   animationSteps : 100,
-  animationEasing : "easeOutBounce",
+  animationEasing : "easeOutExpo",
   animateRotate : true,
   animateScale : true,
 }
