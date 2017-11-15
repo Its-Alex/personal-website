@@ -1,9 +1,11 @@
-@keyframes escape {
+@keyframes escapeKey {
     0% {
-        -webkit-transform: translateY(0px);
+        @include transform(none);
+        top: 0px;
     }
-    100% {
-        -webkit-transform: translateY(30px);
+    100%{
+        @include transform(rotate(0.5turn));
+        top: 20px;
     }
 }
 
@@ -38,7 +40,7 @@
         }
 
         > span:hover {
-            animation: escape 1.5s ease-in-out; 
+            @include animation(escapeKey 1.5s ease-in-out);
         }
     }
 }

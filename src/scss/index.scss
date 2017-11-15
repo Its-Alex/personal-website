@@ -21,6 +21,8 @@ a {
     color: inherit;
 }
 
+@import 'mixin.scss';
+
 @import 'components/header.scss';
 @import 'components/profile.scss';
 @import 'components/footer.scss';

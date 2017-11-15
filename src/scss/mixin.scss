@@ -1,0 +1,12 @@
+@mixin transform($property) {
+    -ms-transform: $property;
+    -webkit-transform: $property;
+    transform: $property;
+}
+
+@mixin animation($property) {
+    -webkit-animation: $property;
+    -moz-animation: $property;
+    -o-animation: $property;
+    animation: $property;
+}
