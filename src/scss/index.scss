@@ -1,0 +1,26 @@
+:root {
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body, #root, #root-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: #343434;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@import 'components/header.scss';
+@import 'components/profile.scss';
+@import 'components/footer.scss';

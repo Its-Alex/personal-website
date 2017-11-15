@@ -1,0 +1,40 @@
+#header {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #304051;
+    color: #f4f4f4;
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-family: 'lato', monospace;
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-flow: row wrap;
+        
+        a {
+            margin: 0 6px;
+            padding: 4px;
+
+            li {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
