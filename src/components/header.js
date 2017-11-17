@@ -9,7 +9,7 @@ class Header extends Component {
           <a href=''><li>PROFILE</li></a>
           <a href=''><li>EXPERIENCES</li></a>
           <a href=''><li>EDUCATION</li></a>
-          <a href={`./CV_Alexandre_FR.pdf`} download='CV_fr.pdf' ><li>CV</li></a>
+          <a href={`./CV_Alexandre_EN.pdf`} download='CV_fr.pdf' ><li>CV</li></a>
         </ul>
       </div>
     )
