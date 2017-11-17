@@ -9,7 +9,7 @@ class Header extends Component {
           <a href=''><li>PROFILE</li></a>
           <a href=''><li>EXPERIENCES</li></a>
           <a href=''><li>ETUDES</li></a>
-          <a href=''><li>CV</li></a>
+          <a href={`${process.env.PUBLIC_URL} + '/CV_Alexandre_FR.pdf'`}><li>CV</li></a>
         </ul>
       </div>
     )
