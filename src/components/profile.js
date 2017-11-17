@@ -13,7 +13,7 @@ class Profile extends Component {
       <div id='profile' >
         <img src={profilePic} alt='profile' />
         <div>
-          <p className='work'>DEVELOPER - STUDENT</p>
+          <p className='work'>DEVELOPER</p>
           <div className='logo'>
             <div className='cut' />
             <img src={svg} alt='logo' />

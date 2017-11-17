@@ -6,6 +6,18 @@
     outline: none;
 }
 
+::-webkit-scrollbar-track {
+    background: #bdbdbd;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #757575;
+}
+
 html, body, #root, #root-container {
     margin: 0;
     padding: 0;
@@ -14,15 +26,17 @@ html, body, #root, #root-container {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
     color: #343434;
-}
+}    
 
 a {
     text-decoration: none;
     color: inherit;
-}
+}    
 
 @import 'mixin.scss';
 
 @import 'components/header.scss';
 @import 'components/profile.scss';
+@import 'components/skills.scss';
+@import 'components/projects.scss';
 @import 'components/footer.scss';
