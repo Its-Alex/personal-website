@@ -1,11 +1,18 @@
-@keyframes escapeKey {
+@keyframes escapeKeyRight {
     0% {
-        @include transform(none);
-        top: 0px;
+        @include transform(translateX(100%));
     }
     100%{
-        @include transform(rotate(0.5turn));
-        top: 20px;
+        @include transform(translateY(0));
+    }
+}
+
+@keyframes escapeKeyLeft {
+    0% {
+        @include transform(translateX(-100%));
+    }
+    100%{
+        @include transform(translateY(0));
     }
 }
 
@@ -19,8 +26,8 @@
     align-items: center;
 
     > img {
-        width: 20vw;
-        height: 20vw;
+        width: 18vw;
+        height: 18vw;
         min-width: 200px;
         min-height: 200px;
         border-radius: 100%;
@@ -28,19 +35,68 @@
         // clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
     }
 
-    > p {
-        margin-top: 50px;
+    > div {
+        margin-top: 30px;
         padding: 0;
+        width: 100%;
+        cursor: default;
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         font-size: 1.3rem;
+        overflow-x: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
 
-        > span {
-            cursor: default;
+        > .work {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            @include animation(escapeKeyRight 3s cubic-bezier(.04,.05,.03,1));
+            animation-fill-mode: forwards;
         }
 
-        > span:hover {
-            @include animation(escapeKey 1.5s ease-in-out);
+        > .language {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'lato', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            @include animation(escapeKeyLeft 3s cubic-bezier(.04,.05,.03,1));
+            animation-fill-mode: forwards;
+        }
+
+        > .logo {
+            margin: 10px 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+
+            > .cut {
+                margin: 2px 0;
+                width: 15%;
+                height: 2px;
+                background-color: #343434;
+                border-radius: 10px;
+            }
+
+            > img {
+                margin: 0 10px;
+                height: 100%;
+                width: auto;
+            }
         }
     }
 }
