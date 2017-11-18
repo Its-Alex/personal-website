@@ -12,16 +12,38 @@ import Footer from './components/footer'
 import './scss/index.scss'
 
 class Index extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      loaded: false
+    }
+    let self = this
+    window.onload = () => {
+      self.setState({ loaded: true })
+    }
+  }
+
   render () {
-    return (
-      <div id='root-container'>
-        <Header />
-        <Profile />
-        <Skills />
-        <Projects />
-        <Footer />
-      </div>
-    )
+    if (this.state.loaded) {
+      return (
+        <div id='root-container'>
+          <Header />
+          <Profile />
+          <Skills />
+          <Projects />
+          <Footer />
+        </div>
+      )
+    } else {
+      return (
+        <div id='loading'>
+          <div class='spinner'>
+            <div class='double-bounce1' />
+            <div class='double-bounce2' />
+          </div>
+        </div>
+      )
+    }
   }
 }
 
