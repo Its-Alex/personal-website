@@ -1,15 +1,41 @@
+@keyframes scaleHeaderIn {
+    from {
+        font-size: 3rem;
+    }
+    to {
+        font-size: 2rem;
+    }
+}
+
+@keyframes scaleHeaderOut {
+    from {
+        font-size: 2rem;
+    }
+    to {
+        font-size: 3rem;
+    }
+}
+
 #header {
     margin: 0;
     padding: 10px;
     width: 100%;
     position: fixed;
     top: 0;
+    z-index: 2;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     background-color: #304051;
     color: #f4f4f4;
+
+    .scaleIn {
+        @include animation(1.5s scaleHeaderIn cubic-bezier(.04,.05,.03,1) forwards);
+    }
+    .scaleOut {
+        @include animation(1.5s scaleHeaderOut cubic-bezier(.04,.05,.03,1) forwards);
+    }
 
     p {
         margin: 0;
@@ -33,7 +59,7 @@
             li {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: bold;
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
         }
     }
