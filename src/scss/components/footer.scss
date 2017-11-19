@@ -6,9 +6,14 @@
     background-color: #f5f5f5;
 
     > .links {
+        display: flex;
+        flex-flow: row nowrap;
         > a {
+            display: block;
+            margin: 5px;
+            width: 35px;
+            height: 35px;
             > img {
-                margin: 5px;
                 width: 35px;
                 height: 35px;
             }
@@ -17,11 +22,22 @@
 
     > .credit {
         > p {
-            > img {
-                width: 1.3rem;
-                height: 1.3rem;
+            margin: 5px;
+            padding: 0;
+            &.copyright {
+                font-size: 1rem;
+                > img {
+                    width: 0.8rem!important;
+                    height: 0.8rem!important;
+                }
             }
-
+            &.author {
+                font-size: 1rem;
+                > img {
+                    height: 1rem;
+                    width: 1rem;
+                }
+            }
         }
     }
 }
