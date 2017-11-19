@@ -19,7 +19,8 @@ class Projects extends Component {
   render () {
     return (
       <div id='projects'>
-        {this.state.repos.map((repo, i) => {
+        Section in progress...
+        {/* {this.state.repos.map((repo, i) => {
           if (!repo.fork) {
             return (
               <div key={i} className='project'>
@@ -29,7 +30,7 @@ class Projects extends Component {
               </div>
             )
           } else return null
-        })}
+        })} */}
       </div>
     )
   }

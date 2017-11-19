@@ -19,7 +19,6 @@ class Profile extends Component {
             <img src={svg} alt='logo' />
             <div className='cut' />
           </div>
-          <p className='language'>C - C++ - Javascript - NodeJS - Go</p>
         </div>
       </div>
     )

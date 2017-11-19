@@ -17,6 +17,9 @@ class Index extends React.Component {
     this.state = {
       loaded: false
     }
+  }
+
+  componentDidMount () {
     let self = this
     window.onload = () => {
       self.setState({ loaded: true })
@@ -37,9 +40,9 @@ class Index extends React.Component {
     } else {
       return (
         <div id='loading'>
-          <div class='spinner'>
-            <div class='double-bounce1' />
-            <div class='double-bounce2' />
+          <div className='spinner'>
+            <div className='double-bounce1' />
+            <div className='double-bounce2' />
           </div>
         </div>
       )

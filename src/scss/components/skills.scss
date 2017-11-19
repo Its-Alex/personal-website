@@ -1,0 +1,59 @@
+#skills {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .skill {
+        width: 315px;
+        height: 315px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 2rem;
+        background-image: url("../assets/skill-background.jpg");
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        opacity: 0.8;
+        transition: opacity 1s;
+    }
+
+    .skill:hover {
+        opacity: 1;
+        transition: opacity 1s;
+    }
+
+    .middle-container {
+        margin-top: calc(-315px / 2 + 4px);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        :nth-child(1) {
+            margin-right: 3px;
+            background-position: left;
+        }
+        :nth-child(2) {
+            margin-left: 3px;
+            background-position: right;
+        }
+    }
+
+    :nth-child(1) {
+        // margin-top: auto;
+        background-position: top;
+    }
+    :nth-child(3) {
+        margin-top: calc(-315px / 2 + 4px);
+        background-position: bottom;
+    }
+
+}
