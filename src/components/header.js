@@ -28,7 +28,7 @@ class Header extends Component {
           <a href='#profile'><li>PROFILE</li></a>
           <a href='#skills'><li>SKILLS</li></a>
           <a href='#projects'><li>PROJECTS</li></a>
-          <a href={`./CV_Alexandre_EN.pdf`} download='CV_fr.pdf' ><li>CV</li></a>
+          <a href={`./CV_Alexandre_EN.pdf`} download='CV_en.pdf' ><li>CV</li></a>
         </ul>
       </div>
     )
