@@ -19,18 +19,18 @@ class Projects extends Component {
   render () {
     return (
       <div id='projects'>
-        Section in progress...
-        {/* {this.state.repos.map((repo, i) => {
-          if (!repo.fork) {
-            return (
-              <div key={i} className='project'>
+        {this.state.repos.map((repo, i) => {
+          if (repo === null) return <br />
+          return (
+            <div key={i} className='project-border'>
+              <div className='project' >
                 <p className='name'>{repo.name}</p>
                 <p className='desc' dangerouslySetInnerHTML={{ __html: global.emojione.toImage(repo.description) }} />
                 <p className='name'>{repo.language}</p>
               </div>
-            )
-          } else return null
-        })} */}
+            </div>
+          )
+        })}
       </div>
     )
   }
