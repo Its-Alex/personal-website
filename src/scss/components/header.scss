@@ -30,19 +30,18 @@
     background-color: #304051;
     color: #f4f4f4;
 
-    .scaleIn {
-        @include animation(1.5s scaleHeaderIn cubic-bezier(.04,.05,.03,1) forwards);
-    }
-    .scaleOut {
-        @include animation(1.5s scaleHeaderOut cubic-bezier(.04,.05,.03,1) forwards);
-    }
-
     p {
         margin: 0;
         padding: 0;
         font-family: 'lato', monospace;
         font-weight: bold;
         font-size: 3rem;
+        &.scaleIn {
+            @include animation(1.5s scaleHeaderIn cubic-bezier(.04,.05,.03,1) forwards);
+        }
+        &.scaleOut {
+            @include animation(1.5s scaleHeaderOut cubic-bezier(.04,.05,.03,1) forwards);
+        }
     }
 
     ul {
@@ -52,15 +51,13 @@
         display: flex;
         flex-flow: row wrap;
         
-        a {
+        li {
             margin: 0 6px;
             padding: 4px;
-
-            li {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: bold;
-                font-size: 1.2rem;
-            }
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
     }
 }

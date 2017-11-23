@@ -31,22 +31,20 @@ class Index extends React.Component {
   render () {
     if (this.state.loaded) {
       return (
-        <div id='root-container'>
-          <Switch>
-            <Route exact path='/cv' component={pdfViewer} />
-            <Route path='/' component={({ history }) => {
-              return (
-                <div id='root-container'>
-                  <Header history={history} />
-                  <Profile />
-                  <Skills />
-                  <Projects />
-                  <Footer />
-                </div>
-              )
-            }} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path='/cv' component={pdfViewer} />
+          <Route path='/' component={({ history }) => {
+            return (
+              <div id='root-container'>
+                <Header history={history} />
+                <Profile />
+                <Skills />
+                <Projects />
+                <Footer />
+              </div>
+            )
+          }} />
+        </Switch>
       )
     } else {
       return (

@@ -25,14 +25,18 @@ class Header extends Component {
     }
   }
 
+  scrollTo (id) {
+    document.getElementsByTagName('html')[0].scrollTo(0, document.getElementById(id).offsetTop)
+  }
+
   render () {
     return (
       <div id='header'>
         <p ref={(elem) => { this.name = elem }} className='name'>ALEXANDRE</p>
         <ul className='menu'>
-          <a href='#profile'><li>PROFILE</li></a>
-          <a href='#skills'><li>SKILLS</li></a>
-          <a href='#projects'><li>PROJECTS</li></a>
+          <li onClick={this.scrollTo.bind(this, 'profile')}>PROFILE</li>
+          <li onClick={this.scrollTo.bind(this, 'skills')}>SKILLS</li>
+          <li onClick={this.scrollTo.bind(this, 'projects')}>PROJECTS</li>
           <Link to='/cv'><li>CV</li></Link>
         </ul>
       </div>

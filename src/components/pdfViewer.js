@@ -25,42 +25,45 @@ class Sample extends Component {
 
   onChangeFile () {
     this.setState((prevState) => {
-      if (prevState.file === './CV_Alexandre_EN.pdf')
-        return { file : './CV_Alexandre_FR.pdf' }
-      else if (prevState.file === './CV_Alexandre_FR.pdf')
-        return { file : './CV_Alexandre_EN.pdf' }
+      if (prevState.file === './CV_Alexandre_EN.pdf') {
+        return { file: './CV_Alexandre_FR.pdf' }
+      } else if (prevState.file === './CV_Alexandre_FR.pdf') {
+        return { file: './CV_Alexandre_EN.pdf' }
+      }
     })
   }
 
   render () {
     return (
-      <div className='pdfView'>
-        <div className='header'>
-          <p>Curriculum vitae</p>
-          <div className='options'>
-            <a href={this.state.file} download='CV_Alexandre.pdf' >Download</a>
-            {this.state.file.indexOf('FR') !== -1
-              ? <p onClick={this.onChangeFile}>EN</p>
-              : <p onClick={this.onChangeFile}>FR</p>}
+      <div id='root-container'>
+        <div className='pdfView'>
+          <div className='header'>
+            <p>Curriculum vitae</p>
+            <div className='options'>
+              <a href={this.state.file} download='CV_Alexandre.pdf' >Download</a>
+              {this.state.file.indexOf('FR') !== -1
+                ? <p onClick={this.onChangeFile}>EN</p>
+                : <p onClick={this.onChangeFile}>FR</p>}
+            </div>
           </div>
-        </div>
           <div className='pdf-container'>
             <Document
               file={this.state.file}
               onLoadSuccess={this.onDocumentLoadSuccess.bind(this)} >
               {
-                Array.from(
-                  new Array(this.state.numPages), (el, index) => (
-                    <Page
-                      key={`page_${index + 1}`}
-                      pageNumber={index + 1}
-                      scale={1.5}
-                    />
+                  Array.from(
+                    new Array(this.state.numPages), (el, index) => (
+                      <Page
+                        key={`page_${index + 1}`}
+                        pageNumber={index + 1}
+                        scale={1.5}
+                      />
+                    )
                   )
-                )
-              }
+                }
             </Document>
           </div>
+        </div>
       </div>
     )
   }
