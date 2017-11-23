@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   constructor (props) {
@@ -28,7 +29,7 @@ class Header extends Component {
           <a href='#profile'><li>PROFILE</li></a>
           <a href='#skills'><li>SKILLS</li></a>
           <a href='#projects'><li>PROJECTS</li></a>
-          <a href={`./CV_Alexandre_EN.pdf`} download='CV_en.pdf' ><li>CV</li></a>
+          <Link to='/cv'>CV</Link>
         </ul>
       </div>
     )
