@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -8,6 +9,7 @@ import Profile from './components/profile'
 import Skills from './components/skills'
 import Projects from './components/projects'
 import Footer from './components/footer'
+import pdfViewer from './components/pdfViewer'
 
 import './scss/index.scss'
 
@@ -29,13 +31,20 @@ class Index extends React.Component {
   render () {
     if (this.state.loaded) {
       return (
-        <div id='root-container'>
-          <Header />
-          <Profile />
-          <Skills />
-          <Projects />
-          <Footer />
-        </div>
+        <Switch>
+          <Route exact path='/cv' component={pdfViewer} />
+          <Route path='/' component={({ history }) => {
+            return (
+              <div id='root-container'>
+                <Header history={history} />
+                <Profile />
+                <Skills />
+                <Projects />
+                <Footer />
+              </div>
+            )
+          }} />
+        </Switch>
       )
     } else {
       return (
@@ -52,5 +61,8 @@ class Index extends React.Component {
 
 export default Index
 
-ReactDOM.render(<Index />, document.getElementById('root'))
+ReactDOM.render(
+  <BrowserRouter>
+    <Index />
+  </BrowserRouter>, document.getElementById('root'))
 registerServiceWorker()
