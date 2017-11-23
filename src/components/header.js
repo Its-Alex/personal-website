@@ -29,7 +29,7 @@ class Header extends Component {
           <a href='#profile'><li>PROFILE</li></a>
           <a href='#skills'><li>SKILLS</li></a>
           <a href='#projects'><li>PROJECTS</li></a>
-          <Link to='/cv'>CV</Link>
+          <Link to='/cv'><li>CV</li></Link>
         </ul>
       </div>
     )
