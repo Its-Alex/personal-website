@@ -13,7 +13,6 @@
         > p {
             margin: 0 5px;
             padding: 5px;
-            cursor: pointer;
         }
 
         > .options {
@@ -21,10 +20,16 @@
             flex-flow: row wrap;
             justify-content: space-between;
             align-items: center;
+
             > p, > a {
                 margin: 0 5px;
                 padding: 5px;
                 cursor: pointer;
+            }
+
+            > div {
+                margin: 0 5px;
+                padding: 5px;
             }
         }
     }

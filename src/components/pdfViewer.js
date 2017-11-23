@@ -12,6 +12,7 @@ class Sample extends Component {
 
     this.state = {
       file: './CV_Alexandre_EN.pdf',
+      zoom: 60,
       numPages: null
     }
     this.onChangeFile = this.onChangeFile.bind(this)
@@ -44,6 +45,14 @@ class Sample extends Component {
               {this.state.file.indexOf('FR') !== -1
                 ? <p onClick={this.onChangeFile}>EN</p>
                 : <p onClick={this.onChangeFile}>FR</p>}
+              <div className='zoom'>
+                <span>Zoom: </span>
+                <input type='number' min={0} max={100} value={this.state.zoom} onChange={(e) => {
+                  if (/[0-9]{0,2}/.test(e.target.value)) {
+                    this.setState({ zoom: e.target.value })
+                  }
+                }} />
+              </div>
             </div>
           </div>
           <div className='pdf-container'>
@@ -56,7 +65,7 @@ class Sample extends Component {
                       <Page
                         key={`page_${index + 1}`}
                         pageNumber={index + 1}
-                        scale={1.5}
+                        width={this.state.zoom / 100 * document.body.clientWidth}
                       />
                     )
                   )
