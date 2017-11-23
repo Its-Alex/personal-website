@@ -12,12 +12,16 @@ class Header extends Component {
   handleScroll () {
     if (document.documentElement.scrollTop >= 10 && this.scale === false) {
       this.scale = true
-      this.name.classList.add('scaleIn')
-      this.name.classList.remove('scaleOut')
+      if (this.name) {
+        this.name.classList.add('scaleIn')
+        this.name.classList.remove('scaleOut')
+      }
     } else if (document.documentElement.scrollTop < 10 && this.scale === true) {
       this.scale = false
-      this.name.classList.add('scaleOut')
-      this.name.classList.remove('scaleIn')
+      if (this.name) {
+        this.name.classList.add('scaleOut')
+        this.name.classList.remove('scaleIn')
+      }
     }
   }
 
