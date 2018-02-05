@@ -6,8 +6,8 @@ class Skills extends Component {
       <div id='skills'>
         <div className='skill'>Javascript</div>
         <div className='middle-container'>
-          <div className='skill'>C</div>
-          <div className='skill'>C++</div>
+          <div className='skill'>C/C++</div>
+          <div className='skill'>Docker</div>
         </div>
         <div className='skill'>Go</div>
       </div>
