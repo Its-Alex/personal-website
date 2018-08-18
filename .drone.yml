@@ -1,0 +1,24 @@
+pipeline:
+  docker-stable:
+    group: docker
+    image: plugins/docker
+    tags: stable
+    repo: itsalex/curriculum
+    dockerfile: Dockerfile
+    secrets: [ docker_username, docker_password ]
+    when:
+      branch: master
+      event: push
+      status: success
+
+  docker-unstable:
+    group: docker
+    image: plugins/docker
+    tags: unstable
+    repo: itsalex/curriculum
+    dockerfile: Dockerfile
+    secrets: [ docker_username, docker_password ]
+    when:
+      branch: development
+      event: push
+      status: success
