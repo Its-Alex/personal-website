@@ -1,3 +1,4 @@
+# Build from other image
 FROM node:10-alpine as BUILDER
 
 ADD . /cv
