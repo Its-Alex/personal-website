@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker'
 import Header from './components/header'
 import Profile from './components/profile'
 import Skills from './components/skills'
-import Projects from './components/projects'
+// import Projects from './components/projects'
 import Footer from './components/footer'
 import pdfViewer from './components/pdfViewer'
 
@@ -39,7 +39,7 @@ class Index extends React.Component {
                 <Header history={history} />
                 <Profile />
                 <Skills />
-                <Projects />
+                {/* <Projects /> */}
                 <Footer />
               </div>
             )
