@@ -36,7 +36,7 @@ class Header extends Component {
         <ul className='menu'>
           <li onClick={this.scrollTo.bind(this, 'profile')}>PROFILE</li>
           <li onClick={this.scrollTo.bind(this, 'skills')}>SKILLS</li>
-          <li onClick={this.scrollTo.bind(this, 'projects')}>PROJECTS</li>
+          {/* <li onClick={this.scrollTo.bind(this, 'projects')}>PROJECTS</li> */}
           <Link to='/cv'><li>CV</li></Link>
         </ul>
       </div>
