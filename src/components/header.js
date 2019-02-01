@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 class Header extends Component {
   constructor (props) {
@@ -37,7 +36,7 @@ class Header extends Component {
           <li onClick={this.scrollTo.bind(this, 'profile')}>PROFILE</li>
           <li onClick={this.scrollTo.bind(this, 'skills')}>SKILLS</li>
           {/* <li onClick={this.scrollTo.bind(this, 'projects')}>PROJECTS</li> */}
-          <Link to='/cv'><li>CV</li></Link>
+          <li><a href="https://dl.itsalex.fr/public/cv_en.pdf">CV</a></li>
         </ul>
       </div>
     )

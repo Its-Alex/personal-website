@@ -9,7 +9,6 @@ import Profile from './components/profile'
 import Skills from './components/skills'
 // import Projects from './components/projects'
 import Footer from './components/footer'
-import pdfViewer from './components/pdfViewer'
 
 import './scss/index.scss'
 
@@ -32,7 +31,6 @@ class Index extends React.Component {
     if (this.state.loaded) {
       return (
         <Switch>
-          <Route exact path='/cv' component={pdfViewer} />
           <Route path='/' component={({ history }) => {
             return (
               <div id='root-container'>
