@@ -1,21 +1,29 @@
-# Curriculum vitae
+# curriculum
 
-This is my open source online cv made with React respecting standard javascript norm
-
-## How to
-
-To launch for devolopment
-
-```shell
-npm run start || yarn start
+## Project setup
+```
+npm install
 ```
 
-To build
-
-```shell
-npm run build || yarn build
+### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
-## License
+### Compiles and minifies for production
+```
+npm run build
+```
 
-[MIT](https://fr.wikipedia.org/wiki/Licence_MIT)
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
