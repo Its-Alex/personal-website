@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import profilePic from '../assets/profile.jpg'
 import svg from '../assets/rocket-ship.svg'
 
 class Profile extends Component {
@@ -11,7 +10,7 @@ class Profile extends Component {
   render () {
     return (
       <div id='profile' >
-        <img src={profilePic} alt='profile' />
+        <img src='https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512' alt='profile' />
         <div>
           <p className='work'>DEVELOPER</p>
           <div className='logo'>
