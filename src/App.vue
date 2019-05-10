@@ -18,23 +18,34 @@ export default Vue.extend({
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
+* {
+    box-sizing: border-box;
+    outline: none;
+    scroll-behavior: smooth;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+::-webkit-scrollbar-track {
+    background: #bdbdbd;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #757575;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+html, body, #root, #root-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: #343434;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 </style>
