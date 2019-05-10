@@ -1,0 +1,14 @@
+# Node
+**/dist
+**/node_modules
+.browserlistrc
+.editorconfig
+package-lock.json
+
+
+# Project
+README.md
+
+# Git
+**/git
+.gitignore
