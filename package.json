@@ -13,18 +13,31 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
+    "i18next": "^17.0.12",
+    "i18next-browser-languagedetector": "^3.0.3",
+    "i18next-xhr-backend": "^3.1.2",
+    "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-i18next": "^10.12.2",
     "react-scripts": "3.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-viewport": "^5.1.11",
+    "@storybook/react": "^5.1.11",
+    "babel-loader": "^8.0.6",
+    "eol": "^0.9.1",
     "eslint": "^6.2.1",
     "eslint-config-standard": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "i18next-scanner": "^2.10.2",
+    "storybook-addon-i18next": "^1.2.0",
+    "vinyl": "^2.2.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,6 +45,8 @@
   "name": "personal-website",
   "private": true,
   "scripts": {
+    "storybook": "start-storybook -p 3000",
+    "i18next-scanner": "i18next-scanner --config src/i18n/i18next-scanner.config.js",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
