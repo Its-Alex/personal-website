@@ -1,0 +1,12 @@
+kind: pipeline
+name: curriculum
+
+steps:
+- name: linter
+  pull: true
+  image: node:13-alpine
+  working_dir: /code
+  commands:
+    - yarn install
+    - yarn lint
+    - yarn lint:css
