@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-import Sidebar from '../components/sidebar'
+import LeftBar from '../components/LeftBar'
 
 const Home = (props) => {
   return (
@@ -10,7 +10,7 @@ const Home = (props) => {
     grid-template-rows: 100%;
     grid-template-columns: 20% 80%;
   `} >
-      <Sidebar id="sidebar" css={css`
+      <LeftBar id="sidebar" css={css`
         grid-column: 1 / 2;
 
         padding-right: 10%;

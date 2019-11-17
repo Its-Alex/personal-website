@@ -12,8 +12,8 @@ addParameters({
         name: 'Desktop 1080p',
         styles: {
           width: '1920px',
-          height: '1080px',
-        },
+          height: '1080px'
+        }
       }
     },
     defaultViewport: 'desktopDefault'
@@ -30,11 +30,11 @@ addDecorator(
   })
 )
 
-function loadStories(r) {
-  r.keys().sort().forEach(filename => r(filename));
+function loadStories (r) {
+  r.keys().sort().forEach(filename => r(filename))
 }
 
 configure(() => {
-  loadStories(require.context('../stories/components', true, /\.js$/));
-  loadStories(require.context('../stories/pages', true, /\.js$/));
+  loadStories(require.context('../stories/components', true, /\.js$/))
+  loadStories(require.context('../stories/pages', true, /\.js$/))
 }, module)
