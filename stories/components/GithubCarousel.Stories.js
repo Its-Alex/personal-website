@@ -7,12 +7,34 @@ import GlobalTheme from '../../src/components/Theme'
 import GithubCarousel from '../../src/components/GithubCarousel'
 
 const typeDefs = `
-  type Query {
-    helloWorld: String
+  enum Privacy {
+    PUBLIC
+    PRIVATE
   }
 
-  schema {
-    query: Query
+  type RepositoryTopics {
+    id: String
+    name: String
+  }
+
+  type Languages {
+    name: String
+  }
+
+  type Repositories {
+    name: String
+    description: String
+    url: String
+    repositoryTopics(first: Int): RepositoryTopics
+    languages(first: Int): Languages
+  }
+
+  type User {
+    repositories(isFork: Boolean, first: Int, privacy: Privacy): Repositories
+  }
+
+  type Query {
+    user(login: String): User
   }
 `
 
@@ -20,7 +42,26 @@ const mocks = {
   Query: () => {
     return {
       user: (login) => {
-        return 'Hello from Apollo!!'
+        return {
+          repositories: (isFork, first, privacy) => {
+            return {
+              name: '',
+              description: '',
+              url: '',
+              repositoryTopics: (first) => {
+                return {
+                  id: '',
+                  name: ''
+                }
+              },
+              languages: (first) => {
+                return {
+                  name: ''
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
