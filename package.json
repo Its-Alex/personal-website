@@ -50,13 +50,13 @@
   "name": "personal-website",
   "private": true,
   "scripts": {
-    "storybook": "start-storybook -p 3000",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
     "i18n-scanner": "i18next-scanner --config I18nextScanner.Config.js",
     "lint": "eslint --no-ignore .storybook .",
     "lint:css": "stylelint './**/*.js'",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
     "start": "react-scripts start",
+    "storybook": "start-storybook -p 6006",
     "test": "react-scripts test"
   },
   "version": "0.1.0"
