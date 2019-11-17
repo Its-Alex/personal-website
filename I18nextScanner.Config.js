@@ -96,6 +96,8 @@ module.exports = {
   output: './src/translations',
   options: {
     debug: false,
+    sort: true,
+    removeUnusedKeys: true,
     func: {
       list: ['t'],
       extensions: ['.js']

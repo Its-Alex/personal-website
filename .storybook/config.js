@@ -15,8 +15,7 @@ addParameters({
           height: '1080px'
         }
       }
-    },
-    defaultViewport: 'desktopDefault'
+    }
   }
 })
 
