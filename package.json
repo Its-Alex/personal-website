@@ -47,6 +47,7 @@
   "scripts": {
     "storybook": "start-storybook -p 3000",
     "i18n-scanner": "i18next-scanner --config i18next-scanner.config.js",
+    "lint": "eslint --no-ignore .storybook .",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
