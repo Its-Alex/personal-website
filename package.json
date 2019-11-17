@@ -19,6 +19,7 @@
     "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
     "react-i18next": "^11.2.1",
     "react-scripts": "3.2.0"
   },
@@ -37,6 +38,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-unicorn": "^13.0.0",
     "i18next-scanner": "^2.10.2",
+    "react-markdown": "^4.2.2",
     "storybook-addon-i18next": "^1.2.0",
     "stylelint": "^12.0.0",
     "stylelint-config-recommended": "^3.0.0",

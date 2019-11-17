@@ -59,9 +59,6 @@ const Sidebar = (props) => {
         font-size: 1,2rem;
         color: #FCFBFB;
       `}>
-        <li className='sidebar-menu' css={css`grid-row-start: 2;`}><a css={css`
-          font-size: 1.3rem;
-        `} href='#a'>{t('Skills')}</a></li>
         <li className='sidebar-menu' css={css`grid-row-start: 3;`}><a css={css`
           font-size: 1.3rem;
         `} href={t('link:resume')}>{t('Resume')}</a></li>

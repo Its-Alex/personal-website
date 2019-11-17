@@ -1,4 +1,4 @@
 {
-  "Resume": "Resume",
-  "Skills": "Skills"
+  "\nJe suis [Alexandre]({{githubLink}}).\n\nJe suis developpeur fullstack a [Spacefill]({{spacefillFrLink}}).\n\nAmoureux de l'[Open source]({{openSourceWikiFrLink}}).\n\nAncien élève a [42]({{fortyTwoLink}}).\n\nVous pouvez me trouver sur [Github]({{githubLink}}),\n[Linkedin]({{linkdeinLink}}),\n[Twitter]({{twitterLink}}).\n          ": "\nI'm [Alexandre]({{githubLink}}), developer.\n\nI'm developer fullstack at [Spacefill]({{spacefillFrLink}}).\n\n[Open source]({{openSourceWikiFrLink}}) lover.\n\nOld student at [42]({{fortyTwoLink}}).\n\nYou can find me on [Github]({{githubLink}}),\n[Linkedin]({{linkdeinLink}}),\n[Twitter]({{twitterLink}}).\n",
+  "Resume": "Resume"
 }
