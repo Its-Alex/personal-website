@@ -22,15 +22,47 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "unicorn"
   ],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
   "rules": {
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
         "newlines-between": "always"
       }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "pascalCase"
+      }
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [".storybook/**"],
+      "rules": {
+        "unicorn/filename-case": ["off"]
+      }
+    }
+  ]
 }

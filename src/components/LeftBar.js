@@ -37,18 +37,18 @@ const Sidebar = (props) => {
 
         place-items: center;
       `}>
-        <img id="sidebar-img" src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512"
+        <img id='sidebar-img' src='https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512'
           srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=320 64w,
                   https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=480 128w,
                   https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=800 256w`}
-          sizes="(max-width: 64px) 64px,
+          sizes='(max-width: 64px) 64px,
               (max-width: 128px) 128px,
               (max-width: 256px) 256px,
-              512px"
-          alt="profil" css={ImageProfilCSS}
+              512px'
+          alt='profil' css={ImageProfilCSS}
         />
       </div>
-      <ul id="sidebar-list" css={css`
+      <ul id='sidebar-list' css={css`
         grid-row-start: 4;
 
         display: grid;
@@ -59,10 +59,10 @@ const Sidebar = (props) => {
         font-size: 1,2rem;
         color: #FCFBFB;
       `}>
-        <li className="sidebar-menu" css={css`grid-row-start: 2;`}><a css={css`
+        <li className='sidebar-menu' css={css`grid-row-start: 2;`}><a css={css`
           font-size: 1.3rem;
-        `} href="#a">{t('Skills')}</a></li>
-        <li className="sidebar-menu" css={css`grid-row-start: 3;`}><a css={css`
+        `} href='#a'>{t('Skills')}</a></li>
+        <li className='sidebar-menu' css={css`grid-row-start: 3;`}><a css={css`
           font-size: 1.3rem;
         `} href={t('link:resume')}>{t('Resume')}</a></li>
       </ul>

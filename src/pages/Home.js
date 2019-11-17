@@ -10,12 +10,12 @@ const Home = (props) => {
     grid-template-rows: 100%;
     grid-template-columns: 20% 80%;
   `} >
-      <LeftBar id="sidebar" css={css`
+      <LeftBar id='sidebar' css={css`
         grid-column: 1 / 2;
 
         padding-right: 10%;
       `} />
-      <div id="root-content" css={css`
+      <div id='root-content' css={css`
         grid-column: 2 / 2;
 
         display: grid;
