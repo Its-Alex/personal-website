@@ -17,7 +17,7 @@ Amoureux de l'[Open source]({{openSourceWikiFrLink}}).
 Ancien élève a [42]({{fortyTwoLink}}).
 
 Vous pouvez me trouver sur [Github]({{githubLink}}),
-[Linkedin]({{linkdeinLink}}),
+[Linkedin]({{linkedinLink}}),
 [Twitter]({{twitterLink}}).
           `, {
     githubLink: 'https://github.com/Its-Alex',
