@@ -7,13 +7,13 @@ import { gql } from 'apollo-boost'
 const REPOSITORIES_INFO = gql`
   {
     user(login: "Its-Alex") {
-      repositories(isFork: false, first: 100, privacy: PUBLIC) {
+      repositories(isFork: false, first: 50, privacy: PUBLIC) {
         edges {
           node {
             name
             description
             url
-            repositoryTopics(first: 100) {
+            repositoryTopics(first: 10) {
               edges {
                 node {
                   url
