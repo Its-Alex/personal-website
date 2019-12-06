@@ -8,15 +8,15 @@ const Theme = (props) => {
   return (
     <>
       <ReactMarkdown source={t(`
-Je suis [Alexandre]({{githubLink}}).
+I'm [Alexandre]({{githubLink}}).
 
-Je suis developpeur fullstack a [Spacefill]({{spacefillFrLink}}).
+I'm fullstack developer at [Spacefill]({{spacefillFrLink}}).
 
-Amoureux de l'[Open source]({{openSourceWikiFrLink}}).
+[Open source]({{openSourceWikiFrLink}}) lover.
 
-Ancien élève a [42]({{fortyTwoLink}}).
+Old student at [42]({{fortyTwoLink}}).
 
-Vous pouvez me trouver sur [Github]({{githubLink}}),
+you can find me on [Github]({{githubLink}}),
 [Linkedin]({{linkedinLink}}),
 [Twitter]({{twitterLink}}).
           `, {
