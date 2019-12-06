@@ -5,7 +5,7 @@ ADD . /cv
 
 WORKDIR /cv
 
-RUN npm install && npm run build
+RUN yarn install && yarn run build
 
 FROM nginx:1.15-alpine
 
