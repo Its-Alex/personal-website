@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import './i18n/I18n'
 
 ReactGA.initialize('UA-152708823-1')
+ReactGA.pageview('/')
 
 const httpLink = new HttpLink({ uri: 'https://api.github.com/graphql' })
 
