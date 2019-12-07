@@ -63,7 +63,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "i18n-scanner": "i18next-scanner --config I18nextScanner.Config.js",
-    "lint": "eslint --no-ignore .storybook .",
+    "lint": "eslint .",
     "lint:css": "stylelint './**/*.js'",
     "start": "BROWSER=none react-scripts start",
     "storybook": "start-storybook -p 6006",
