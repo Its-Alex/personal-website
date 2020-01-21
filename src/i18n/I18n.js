@@ -28,7 +28,7 @@ i18n
     defaultLng: 'en',
     lngs: ['en', 'fr'],
     fallbackLng: 'fr',
-    nsSeparator: ':',
+    nsSeparator: '|',
     keySeparator: false,
     interpolation: {
       escapeValue: false

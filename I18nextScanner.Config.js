@@ -113,7 +113,7 @@ module.exports = {
       jsonIndent: 2,
       lineEnding: '\n'
     },
-    nsSeparator: ':',
+    nsSeparator: '|',
     keySeparator: false,
     interpolation: {
       prefix: '{{',
@@ -128,7 +128,7 @@ module.exports = {
 
     parser.parseFuncFromString(content, { list: ['t'] }, (key, options) => {
       parser.set(key, Object.assign({}, options, {
-        nsSeparator: ':',
+        nsSeparator: '|',
         keySeparator: false
       }))
       ++count
