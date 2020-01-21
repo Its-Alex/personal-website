@@ -10,7 +10,7 @@ const Theme = (props) => {
       <ReactMarkdown source={t(`
 I'm [Alexandre]({{githubLink}}).
 
-I'm fullstack developer at [Spacefill]({{spacefillFrLink}}).
+I'm [software craftsman]({{softwareCraftsman}}) at [Spacefill]({{spacefillFrLink}}).
 
 [Open source]({{openSourceWikiFrLink}}) lover.
 
@@ -20,6 +20,7 @@ you can find me on [Github]({{githubLink}}),
 [Linkedin]({{linkedinLink}}),
 [Twitter]({{twitterLink}}).
           `, {
+        softwareCraftsman: 'https://fr.wikipedia.org/wiki/Software_craftsmanship',
         githubLink: 'https://github.com/Its-Alex',
         linkedinLink: 'https://www.linkedin.com/in/its-alex/',
         twitterLink: 'https://twitter.com/Its__Alex__',
