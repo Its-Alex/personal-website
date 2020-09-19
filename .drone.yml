@@ -5,7 +5,6 @@ steps:
 - name: linter
   pull: true
   image: node:13-alpine
-  working_dir: /code
   commands:
     - yarn install
     - yarn lint
