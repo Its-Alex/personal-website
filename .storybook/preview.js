@@ -1,10 +1,9 @@
-import { configure, addParameters, addDecorator } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { withI18next } from 'storybook-addon-i18next'
 
 import i18n from '../src/i18n/I18n'
 
-addParameters({
+export const parameters = {
   viewport: {
     viewports: {
       ...INITIAL_VIEWPORTS,
@@ -17,9 +16,9 @@ addParameters({
       }
     }
   }
-})
+}
 
-addDecorator(
+export const decorators = [
   withI18next({
     i18n,
     languages: {
@@ -27,12 +26,4 @@ addDecorator(
       fr: 'French'
     }
   })
-)
-
-function loadStories (r) {
-  r.keys().sort().forEach(filename => r(filename))
-}
-
-configure(() => {
-  loadStories(require.context('../stories', true, /\.js$/))
-}, module)
+]
