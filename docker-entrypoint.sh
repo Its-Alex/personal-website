@@ -6,7 +6,8 @@ FILES_TO_REPLACE="$(find /usr/share/nginx/html -type f -iname '*.js')"
 
 for i in \
     "curriculum_posthog_token;${CURRICULUM_POSTHOG_TOKEN}" \
-    "http://posthog.local;${CURRICULUM_POSTHOG_URL}"
+    "http://posthog.local;${CURRICULUM_POSTHOG_URL}" \
+    "sentry-dsn;${CURRICULUM_SENTRY_DSN}"
 do
     for filename in ${FILES_TO_REPLACE}; do
         echo "Replacing $(echo "${i}" | cut -d';' -f1) by $(echo "${i}" | cut -d';' -f2) in ${filename}"

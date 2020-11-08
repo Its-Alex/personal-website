@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { ApolloClient, ApolloLink, InMemoryCache, HttpLink } from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
 import ReactGA from 'react-ga'
+import * as Sentry from '@sentry/browser';
 import posthog from 'posthog-js'
 
 import * as serviceWorker from './ServiceWorker'
@@ -16,6 +17,10 @@ if (
 ) {
   console.info('Posthog enable')
   posthog.init(process.env.REACT_APP_CURRICULUM_POSTHOG_TOKEN, { api_host: process.env.REACT_APP_CURRICULUM_POSTHOG_URL })
+}
+if (process.env.REACT_APP_CURRICULUM_SENTRY_DSN) {
+  console.info('Sentry enable')
+  Sentry.init({ dsn: process.env.REACT_APP_CURRICULUM_SENTRY_DSN })
 }
 ReactGA.initialize('UA-152708823-1')
 ReactGA.pageview('/')
