@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { ApolloClient, ApolloLink, InMemoryCache, HttpLink } from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
 import ReactGA from 'react-ga'
-import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/browser'
 import posthog from 'posthog-js'
 
 import * as serviceWorker from './ServiceWorker'
