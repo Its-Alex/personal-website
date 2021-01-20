@@ -23,7 +23,8 @@
   },
   "plugins": [
     "react",
-    "unicorn"
+    "unicorn",
+    "@emotion"
   ],
   "settings": {
     "react": {
@@ -32,6 +33,8 @@
     }
   },
   "rules": {
+    "@emotion/pkg-renaming": "error",
+    "@emotion/jsx-import": "error",
     "import/order": [
       "error",
       {
