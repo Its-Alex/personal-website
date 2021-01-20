@@ -4,7 +4,7 @@ This repository contains my personal website.
 
 ## Requirements
 
-- Nodejs v13
+- Nodejs v15
 
 ## Getting started
 

@@ -4,7 +4,7 @@ name: curriculum
 steps:
 - name: linter
   pull: true
-  image: node:13-alpine
+  image: node:15-alpine
   commands:
     - yarn install
     - yarn lint

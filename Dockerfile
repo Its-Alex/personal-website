@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:13-alpine as BUILDER
+FROM node:15-alpine as BUILDER
 
 ADD . /cv
 
