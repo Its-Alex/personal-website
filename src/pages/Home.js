@@ -16,6 +16,7 @@ const Home = (props) => {
           grid-template-rows: 100%;
           grid-template-columns: 20% 80%;
         }
+
         @media screen and (max-width: 750px) {
           grid-template-rows: 20% 80%;
           grid-template-columns: 100%;
@@ -27,9 +28,9 @@ const Home = (props) => {
         css={css`
           @media screen and (min-width: 750px) {
             padding-right: 10%;
-
             grid-column: 1 / 2;
           }
+
           @media screen and (max-width: 750px) {
             grid-row: 1 / 2;
           }
@@ -40,9 +41,11 @@ const Home = (props) => {
         css={css`
           display: grid;
           place-items: center;
+
           @media screen and (min-width: 750px) {
             grid-column: 2 / 2;
           }
+
           @media screen and (max-width: 750px) {
             grid-column: 1;
             grid-row: 2 / 2;

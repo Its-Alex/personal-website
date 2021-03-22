@@ -6,17 +6,20 @@ import { useTranslation } from 'react-i18next'
 const SidebarCSS = css`
   display: grid;
   place-content: center;
-  
-  background: linear-gradient(10deg, #502BE3, #9630FD);
+  background:
+    linear-gradient(
+      10deg,
+      #502be3,
+      #9630fd
+    );
 
   @media screen and (min-width: 750px) {
     max-width: 450px;
-
     grid-template-columns: 100%;
     grid-template-rows: 21% 20% 8% 20% 31%;
-
     clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
   }
+
   @media screen and (max-width: 750px) {
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 100%;
@@ -26,7 +29,6 @@ const SidebarCSS = css`
 const ImageProfilCSS = css`
   width: 100%;
   max-width: 300px;
-
   border-radius: 100%;
 `
 
@@ -43,12 +45,12 @@ const Sidebar = (props) => {
           display: grid;
           grid-template: 100% / 100%;
           place-items: center;
+
           @media screen and (min-width: 750px) {
             padding: 10%;
-
-
             grid-row-start: 2;
           }
+
           @media screen and (max-width: 750px) {
             grid-column-start: 2;
           }
@@ -70,22 +72,20 @@ const Sidebar = (props) => {
       <ul id='sidebar-list' css={css`
         display: grid;
         place-content: center;
-
         font-weight: 900;
-        font-size: 1,2rem;
-        color: #FCFBFB;
+        font-size: 1.2rem;
+        color: #fcfbfb;
 
         @media screen and (min-width: 750px) {
           grid-template-rows: 30% 20% 20% 30%;
-
           grid-row-start: 4;
         }
+
         @media screen and (max-width: 750px) {
           grid-column-start: 4;
         }
-
       `}>
-        <li className='sidebar-menu' css={css`grid-row-start: 3;`}><a css={css`
+        <li className='sidebar-menu' css={css` grid-row-start: 3; `}><a css={css`
           font-size: 1.3rem;
         `} href={t('link|resume')}>{t('Resume')}</a></li>
       </ul>
