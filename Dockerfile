@@ -9,7 +9,7 @@ ENV REACT_APP_CURRICULUM_POSTHOG_TOKEN=curriculum_posthog_token
 ENV REACT_APP_CURRICULUM_POSTHOG_URL=http://posthog.local
 ENV REACT_APP_CURRICULUM_SENTRY_DSN=sentry-dsn
 
-RUN yarn install && yarn run build
+RUN yarn install --frozen-lockfile --production && yarn run build
 
 FROM nginx:1.15-alpine
 

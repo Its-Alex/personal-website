@@ -4,10 +4,13 @@
 .browserlistrc
 .editorconfig
 package-lock.json
-
+.eslintignore
+.eslintrc.json
+.stylelintrc
 
 # Project
 README.md
+I18nextScanner.Config.js
 
 # Git
 **/git
