@@ -7,7 +7,8 @@ const Theme = (props) => {
 
   return (
     <>
-      <ReactMarkdown source={t(`
+      <ReactMarkdown
+        source={t(`
 I'm [Alexandre]({{githubLink}}).
 
 I'm [software craftsman](https://en.wikipedia.org/wiki/Software_craftsmanship) at [Spacefill]({{spacefillFrLink}}).
@@ -20,12 +21,13 @@ you can find me on [Github]({{githubLink}}),
 [Linkedin]({{linkedinLink}}),
 [Twitter]({{twitterLink}}).
           `, {
-        githubLink: 'https://github.com/Its-Alex',
-        linkedinLink: 'https://www.linkedin.com/in/its-alex/',
-        twitterLink: 'https://twitter.com/Its__Alex__',
-        spacefillFrLink: 'https://www.spacefill.fr/fr/',
-        fortyTwoLink: 'https://www.42.fr/'
-      })} />
+          githubLink: 'https://github.com/Its-Alex',
+          linkedinLink: 'https://www.linkedin.com/in/its-alex/',
+          twitterLink: 'https://twitter.com/Its__Alex__',
+          spacefillFrLink: 'https://www.spacefill.fr/fr/',
+          fortyTwoLink: 'https://www.42.fr/'
+        })}
+      />
     </>
   )
 }

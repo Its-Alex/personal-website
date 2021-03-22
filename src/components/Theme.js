@@ -7,7 +7,10 @@ const Theme = (props) => {
   return (
     <>
       <Helmet>
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' rel='stylesheet' />
+        <link
+          href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap'
+          rel='stylesheet'
+        />
       </Helmet>
       <Global
         styles={css`
@@ -31,12 +34,15 @@ const Theme = (props) => {
             background-color: #757575;
           }
 
-          html, body, #root, #root-container {
+          html,
+          body,
+          #root,
+          #root-container {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #FCFBFB;
+            background-color: #fcfbfb;
           }
 
           li {

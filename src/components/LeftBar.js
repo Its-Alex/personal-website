@@ -66,28 +66,42 @@ const Sidebar = (props) => {
               (max-width: 128px) 128px,
               (max-width: 256px) 256px,
               512px'
-          alt='profil' css={ImageProfilCSS}
+          alt='profil'
+          css={ImageProfilCSS}
         />
       </div>
-      <ul id='sidebar-list' css={css`
-        display: grid;
-        place-content: center;
-        font-weight: 900;
-        font-size: 1.2rem;
-        color: #fcfbfb;
+      <ul
+        id='sidebar-list'
+        css={css`
+          display: grid;
+          place-content: center;
+          font-weight: 900;
+          font-size: 1.2rem;
+          color: #fcfbfb;
 
-        @media screen and (min-width: 750px) {
-          grid-template-rows: 30% 20% 20% 30%;
-          grid-row-start: 4;
-        }
+          @media screen and (min-width: 750px) {
+            grid-template-rows: 30% 20% 20% 30%;
+            grid-row-start: 4;
+          }
 
-        @media screen and (max-width: 750px) {
-          grid-column-start: 4;
-        }
-      `}>
-        <li className='sidebar-menu' css={css` grid-row-start: 3; `}><a css={css`
-          font-size: 1.3rem;
-        `} href={t('link|resume')}>{t('Resume')}</a></li>
+          @media screen and (max-width: 750px) {
+            grid-column-start: 4;
+          }
+        `}
+      >
+        <li
+          className='sidebar-menu'
+          css={css` grid-row-start: 3; `}
+        >
+          <a
+            css={css`
+              font-size: 1.3rem;
+            `}
+            href={t('link|resume')}
+          >
+            {t('Resume')}
+          </a>
+        </li>
       </ul>
     </div>
   )

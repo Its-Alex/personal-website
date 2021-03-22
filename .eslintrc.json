@@ -7,6 +7,7 @@
     "standard",
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
@@ -24,7 +25,8 @@
   "plugins": [
     "react",
     "unicorn",
-    "@emotion"
+    "@emotion",
+    "jsx-a11y"
   ],
   "settings": {
     "react": {
@@ -58,6 +60,25 @@
     "jsx-quotes": [
       "error",
       "prefer-single"
+    ],
+    "react/jsx-max-props-per-line": [
+      1
+    ],
+    "react/jsx-indent": [
+      2,
+      2,
+      {
+        "checkAttributes": true
+      }
+    ],
+    "react/jsx-closing-bracket-location": 2,
+    "react/jsx-closing-tag-location": 2,
+    "react/jsx-curly-spacing": [
+      2,
+      {
+        "when": "never",
+        "children": true
+      }
     ]
   },
   "overrides": [
