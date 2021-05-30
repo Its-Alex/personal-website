@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactGA from 'react-ga'
-import * as Sentry from '@sentry/browser'
 import posthog from 'posthog-js'
 
 import * as serviceWorker from './ServiceWorker'
@@ -18,14 +17,6 @@ if (
     console.info('Posthog enable')
   } catch (error) {
     console.error('Posthog disable:', error)
-  }
-}
-if (process.env.REACT_APP_CURRICULUM_SENTRY_DSN) {
-  try {
-    Sentry.init({ dsn: process.env.REACT_APP_CURRICULUM_SENTRY_DSN })
-    console.info('Sentry enable')
-  } catch (error) {
-    console.error('Sentry disable:', error)
   }
 }
 

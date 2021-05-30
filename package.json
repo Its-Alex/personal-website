@@ -14,7 +14,6 @@
   "dependencies": {
     "@emotion/eslint-plugin": "11.2.0",
     "@emotion/react": "11.4.0",
-    "@sentry/browser": "6.4.1",
     "i18next": "20.3.1",
     "i18next-browser-languagedetector": "6.1.1",
     "lodash": "4.17.21",

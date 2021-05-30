@@ -7,7 +7,6 @@ WORKDIR /cv
 
 ENV REACT_APP_CURRICULUM_POSTHOG_TOKEN=curriculum_posthog_token
 ENV REACT_APP_CURRICULUM_POSTHOG_URL=http://posthog.local
-ENV REACT_APP_CURRICULUM_SENTRY_DSN=sentry-dsn
 
 RUN yarn install --frozen-lockfile --production && yarn run build
 
@@ -20,6 +19,5 @@ RUN chmod u+x /docker-entrypoint.sh
 
 ENV CURRICULUM_POSTHOG_TOKEN=curriculum_posthog_token
 ENV CURRICULUM_POSTHOG_URL=http://posthog.local
-ENV CURRICULUM_SENTRY_DSN=sentry-dsn
 
 CMD /docker-entrypoint.sh
