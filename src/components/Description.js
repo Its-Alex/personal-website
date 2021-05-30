@@ -7,8 +7,8 @@ const Theme = (props) => {
 
   return (
     <>
-      <ReactMarkdown
-        source={t(`
+      <ReactMarkdown>
+        {t(`
 I'm [Alexandre]({{githubLink}}).
 
 I'm [software craftsman](https://en.wikipedia.org/wiki/Software_craftsmanship) at [Spacefill]({{spacefillFrLink}}).
@@ -26,8 +26,9 @@ you can find me on [Github]({{githubLink}}),
           twitterLink: 'https://twitter.com/Its__Alex__',
           spacefillFrLink: 'https://www.spacefill.fr/fr/',
           fortyTwoLink: 'https://www.42.fr/'
-        })}
-      />
+        }
+        )}
+      </ReactMarkdown>
     </>
   )
 }
