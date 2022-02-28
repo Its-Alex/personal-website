@@ -1799,6 +1799,11 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@sentry/types@^6.11.0":
+  version "6.18.1"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.18.1.tgz#e2de38dd0da8096a5d22f8effc6756c919266ede"
+  integrity sha512-wp741NoBKnXE/4T9L723sWJ8EcNMxeTIT1smgNJOfbPwrsDICoYmGEt6JFa05XHpWBGI66WuNvnDjoHVeh6zhA==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.3.tgz#3802ddd21a50a949b6721ddd72da36e67e7f1b2d"
@@ -11386,12 +11391,14 @@ postcss@^8.1.0:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
-posthog-js@1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.10.2.tgz#74d6c84f9675b65dfd4ff6f4051ed8d3cb974076"
-  integrity sha512-JNjWstHEexhj5CEKldSeYNyPJbtOvZQ3ZPL55fxU7+f+gTBL8RlOb8eFohCPYIk0VhMf2UM1rXxwVBOeMQQQFw==
+posthog-js@1.17.8:
+  version "1.17.8"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.17.8.tgz#b09257964a1dbb91791299609790b55e574962e6"
+  integrity sha512-wx2ofd1aAzhCxBjsP4moFBLQ9tfTAQGZiVbW2JtJZ/qHU0hj5qHVobfcxTqEoaJAjvQr6PocBIetHGw8bBnA1g==
   dependencies:
+    "@sentry/types" "^6.11.0"
     fflate "^0.4.1"
+    rrweb-snapshot "^1.1.7"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -12567,6 +12574,11 @@ rollup@^1.31.1:
     "@types/estree" "*"
     "@types/node" "*"
     acorn "^7.1.0"
+
+rrweb-snapshot@^1.1.7:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/rrweb-snapshot/-/rrweb-snapshot-1.1.13.tgz#fc15adb7eb6354c859c8d594f57b09e1f5bccdd8"
+  integrity sha512-lv4vBSJ5orBcRoJnjLvtly6cSsctC+TNm5orVzYRL9SH3LmtSpQ+wI4bw7eh4AcyKoUf0x4pe1Bn632GggmKWQ==
 
 rsvp@^4.8.4:
   version "4.8.5"
