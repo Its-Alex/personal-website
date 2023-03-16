@@ -5,8 +5,7 @@ ADD . /cv
 
 WORKDIR /cv
 
-ENV REACT_APP_CURRICULUM_POSTHOG_TOKEN=curriculum_posthog_token
-ENV REACT_APP_CURRICULUM_POSTHOG_URL=http://posthog.local
+ENV REACT_APP_TEST=test
 
 RUN yarn install --frozen-lockfile --production && yarn run build
 
@@ -17,7 +16,6 @@ COPY --from=BUILDER /cv/build /usr/share/nginx/html
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod u+x /docker-entrypoint.sh
 
-ENV CURRICULUM_POSTHOG_TOKEN=curriculum_posthog_token
-ENV CURRICULUM_POSTHOG_URL=http://posthog.local
+ENV TEST=test
 
 CMD /docker-entrypoint.sh
