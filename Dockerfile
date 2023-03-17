@@ -7,7 +7,7 @@ WORKDIR /cv
 
 ENV REACT_APP_TEST=test
 
-RUN yarn install --frozen-lockfile --production && yarn run build
+RUN yarn install --frozen-lockfile && yarn run build
 
 FROM nginx:1.15-alpine
 
