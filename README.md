@@ -4,7 +4,13 @@ This repository contains my personal website.
 
 ## Requirements
 
-- Nodejs v15
+- [rtx](https://github.com/jdxcode/rtx)
+
+After having installed rtx run:
+
+```
+$ rtx install
+```
 
 ## Getting started
 
