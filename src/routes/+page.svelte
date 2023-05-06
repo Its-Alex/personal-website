@@ -1,0 +1,52 @@
+<script>
+  import LeftBar from '$lib/LeftBar.svelte'
+  import Description from '$lib/Description.svelte'
+</script>
+
+<div
+  class="container"
+>
+  <LeftBar />
+  <div
+    class="content"
+  >
+    <div>
+      <Description />
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcfbfb;
+
+    @media screen and (min-width: 750px) {
+      grid-template-rows: 100%;
+      grid-template-columns: 20% 80%;
+    }
+
+    @media screen and (max-width: 750px) {
+      grid-template-rows: 20% 80%;
+      grid-template-columns: 100%;
+    }
+  }
+
+  .content {
+    display: grid;
+    place-items: center;
+
+    @media screen and (min-width: 750px) {
+      grid-column: 2 / 2;
+    }
+
+    @media screen and (max-width: 750px) {
+      grid-column: 1;
+      grid-row: 2 / 2;
+    }
+  }
+</style>

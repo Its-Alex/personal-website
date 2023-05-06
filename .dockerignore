@@ -1,16 +1,16 @@
 # Node
 **/dist
 **/node_modules
+**/.svelte-kit
 .browserlistrc
 .editorconfig
-package-lock.json
 .eslintignore
 .eslintrc.json
 .stylelintrc
 
 # Project
 README.md
-I18nextScanner.Config.js
+.github
 
 # Git
 **/git
