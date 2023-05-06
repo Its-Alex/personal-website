@@ -11,7 +11,7 @@ const Theme = (props) => {
         {t(`
 I'm [Alexandre]({{githubLink}}).
 
-I'm [software craftsman](https://en.wikipedia.org/wiki/Software_craftsmanship) at [Spacefill]({{spacefillFrLink}}).
+I'm [software craftsman](https://en.wikipedia.org/wiki/Software_craftsmanship) at [{{jobName}}]({{jobLink}}) as a freelance.
 
 [Open source](https://en.wikipedia.org/wiki/Open_source) lover.
 
@@ -24,7 +24,8 @@ you can find me on [Github]({{githubLink}}),
           githubLink: 'https://github.com/Its-Alex',
           linkedinLink: 'https://www.linkedin.com/in/its-alex/',
           twitterLink: 'https://twitter.com/Its__Alex__',
-          spacefillFrLink: 'https://www.spacefill.fr/fr/',
+          jobName: 'XXII',
+          jobLink: 'https://www.xxii.fr/',
           fortyTwoLink: 'https://www.42.fr/'
         }
         )}
