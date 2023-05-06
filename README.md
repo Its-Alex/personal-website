@@ -12,44 +12,26 @@ After having installed rtx run:
 $ rtx install
 ```
 
-## Getting started
 
-First install dependencies
+## Developing
 
-```
-$ yarn install
-```
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Then you can run website:
+```bash
+pnpm run dev
 
-```
-$ yarn run start
+# or start the server and open the app in a new browser tab
+pnpm run dev -- --open
 ```
 
-Or you can start storybook
+## Building
 
-```
-$ yarn run storybook
-```
+To create a production version of your app:
 
-## Hack
-
-This project is made with [react](https://fr.reactjs.org/)
-
-### Linter
-
-This project use [ESLint](https://eslint.org/) as linter
-
-```
-$ yarn run lint
+```bash
+pnpm run build
 ```
 
-And we lint CSSinJS with [stylelint](https://github.com/stylelint/stylelint)
+You can preview the production build with `pnpm run preview`.
 
-```
-$ yarn run lint:css
-```
-
-## License
-
-[MIT](https://en.wikipedia.org/wiki/MIT_License)
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
