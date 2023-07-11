@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n'
 </script>
 
 <div
@@ -28,9 +29,9 @@
     >
       <a
         class="sidebar-link"
-        href={"link|resume"}
+        href={$_('resume.link')}
       >
-        "Resume"
+        {$_('Resume')}
       </a>
     </li>
   </ul>

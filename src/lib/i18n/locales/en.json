@@ -1,0 +1,5 @@
+{
+  "Resume": "Resume",
+  "resume.link": "https://api.dl.itsalex.fr/public/cv_en.pdf",
+  "resume.description": "\nI'm [Alexandre]({{githubLink}}).\n\nI'm [software craftsman](https://en.wikipedia.org/wiki/Software_craftsmanship) at [Spacefill]({{spacefillFrLink}}).\n\n[Open source](https://en.wikipedia.org/wiki/Open_source) lover.\n\nOld student at [42]({{fortyTwoLink}}).\n\nYou can find me on [Github]({{githubLink}}),\n[Linkedin]({{linkedinLink}}),\n[Twitter]({{twitterLink}}).\n"
+}
