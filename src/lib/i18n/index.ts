@@ -10,4 +10,4 @@ register('fr', async () => await import('./locales/fr.json'))
 init({
   fallbackLocale: defaultLocale,
   initialLocale: browser ? window.navigator.language : defaultLocale
-}).catch(err => { console.error(err) })
+})?.catch((err: Error) => { console.error(err) })
