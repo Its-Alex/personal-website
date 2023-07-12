@@ -7,17 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ['node:14-alpine', 'node:15-alpine']
+        node_version: ['node:17-alpine', 'node:18-alpine']
     container: ${{ matrix.node_version }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
+      - name: Typescript
+        run: pnpm run check
       - name: Eslint
-        run: yarn run lint
-      - name: Stylelint
-        run: yarn run lint:css
+        run: pnpm run lint
 
   release:
     name: "Release"
