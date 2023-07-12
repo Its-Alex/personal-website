@@ -3,13 +3,13 @@ import { browser } from '$app/environment'
 import '$lib/i18n'
 import { locale, waitLocale } from 'svelte-i18n'
 
-export const load = async (): VoidFunction => {
+export const load = async (): Promise<void> => {
   if (browser) {
     const searchParams = new URL(window.location.href).searchParams
 
     if (searchParams?.has('queryLanguage')) {
       locale.set(searchParams?.get('queryLanguage'))
-        .catch(err => {
+        ?.catch((err: Error) => {
           console.error(err)
         })
     } else {
