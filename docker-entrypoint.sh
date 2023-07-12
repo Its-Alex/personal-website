@@ -2,7 +2,7 @@
 # shellcheck disable=SC2066
 set -e
 
-FILES_TO_REPLACE="$(find /usr/share/nginx/html -type f -iname '*.js')"
+# FILES_TO_REPLACE="$(find /usr/share/nginx/html -type f -iname '*.js')"
 
 # for i in \
 #     "test;${TEST}"
@@ -13,4 +13,4 @@ FILES_TO_REPLACE="$(find /usr/share/nginx/html -type f -iname '*.js')"
 #     done
 # done
 
-nginx -g "daemon off;"
+node /cv/build/index.js
