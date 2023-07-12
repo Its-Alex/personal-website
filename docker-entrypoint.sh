@@ -13,4 +13,4 @@ set -e
 #     done
 # done
 
-node /cv/build/index.js
+PORT=80 node /cv/build/index.js
