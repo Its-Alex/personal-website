@@ -1,19 +1,25 @@
 import { browser } from '$app/environment'
-import { page } from '$app/stores';
 // Initialize i18n
 import '$lib/i18n'
 import { locale, waitLocale } from 'svelte-i18n'
 
-export const load = async () => {
+export const load = async (): VoidFunction => {
   if (browser) {
     const searchParams = new URL(window.location.href).searchParams
 
     if (searchParams?.has('queryLanguage')) {
       locale.set(searchParams?.get('queryLanguage'))
+        .catch(err => {
+          console.error(err)
+        })
     } else {
       searchParams?.has('queryLanguage')
     }
   }
 
-  await waitLocale()
+  try {
+    await waitLocale()
+  } catch (error) {
+    console.error(error)
+  }
 }
