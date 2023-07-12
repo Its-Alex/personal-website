@@ -4,10 +4,10 @@ import { init, register } from 'svelte-i18n'
 
 const defaultLocale = 'en'
 
-register('en', () => import('./locales/en.json'))
-register('fr', () => import('./locales/fr.json'))
+register('en', async () => await import('./locales/en.json'))
+register('fr', async () => await import('./locales/fr.json'))
 
 init({
-	fallbackLocale: defaultLocale,
-	initialLocale: browser ? window.navigator.language : defaultLocale,
-})
+  fallbackLocale: defaultLocale,
+  initialLocale: browser ? window.navigator.language : defaultLocale
+}).catch(err => { console.error(err) })
