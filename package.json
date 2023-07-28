@@ -29,6 +29,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/d3": "7.4.0",
+		"d3": "7.8.5",
 		"svelte-i18n": "3.7.4",
 		"svelte-markdown": "0.4.0"
 	}
