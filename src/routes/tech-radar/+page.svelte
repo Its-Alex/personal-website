@@ -6,19 +6,21 @@
   interface TechnologyData {
     category: string;
     name: string;
+    radiusPercentage: number;
+    anglePercentage: number;
   }
 
   onMount(() => {
     // Les données du Tech Radar (exemple)
     const data: TechnologyData[] = [
-      { category: "Adopter", name: "Svelte" },
-      { category: "Adopter", name: "D3.js" },
-      { category: "Évaluer", name: "GraphQL" },
-      { category: "Évaluer", name: "TypeScript" },
-      { category: "Essayer", name: "WebAssembly" },
-      { category: "Essayer", name: "Tailwind CSS" },
-      { category: "Éviter", name: "jQuery" },
-      { category: "Éviter", name: "AngularJS" },
+      { category: "Adopter", name: "Svelte", radiusPercentage: 100, anglePercentage: 100 },
+      { category: "Adopter", name: "D3.js", radiusPercentage: 20, anglePercentage: 20 },
+      { category: "Évaluer", name: "GraphQL", radiusPercentage: 30, anglePercentage: 30 },
+      { category: "Évaluer", name: "TypeScript", radiusPercentage: 40, anglePercentage: 40 },
+      { category: "Essayer", name: "WebAssembly", radiusPercentage: 50, anglePercentage: 50 },
+      { category: "Essayer", name: "Tailwind CSS", radiusPercentage: 0, anglePercentage: 0 },
+      { category: "Éviter", name: "jQuery", radiusPercentage: 70, anglePercentage: 70 },
+      { category: "Éviter", name: "AngularJS", radiusPercentage: 80, anglePercentage: 100 },
     ];
 
     // Configuration du Tech Radar
@@ -34,10 +36,11 @@
       const ringIndex = radarConfig.rings.indexOf(d.category);
       const categoryData = data.filter((tech) => tech.category === radarConfig.rings[ringIndex]);
       const pointIndex = categoryData.findIndex((item) => item.name === d.name);
-      const angleStep = (2 * Math.PI) / categoryData.length;
 
-      const angle = pointIndex * angleStep;
-      const radius = (radarConfig.radius * (ringIndex + 1)) / radarConfig.rings.length;
+      const angle = (2 * Math.PI) * d.anglePercentage / 100;
+      const currentRingRadius = ((radarConfig.radius * (ringIndex + 1)) / radarConfig.rings.length);
+      const previousRingRadius = ((radarConfig.radius * (ringIndex)) / radarConfig.rings.length);
+      const radius = previousRingRadius + (currentRingRadius - previousRingRadius) * d.radiusPercentage / 100;
       const centerX = radarConfig.width / 2;
       const centerY = radarConfig.height / 2;
 
