@@ -6,6 +6,7 @@
   interface TechnologyData {
     category: string;
     name: string;
+    circularSector: string;
     radiusPercentage: number;
     anglePercentage: number;
   }
@@ -13,14 +14,14 @@
   onMount(() => {
     // Les données du Tech Radar (exemple)
     const data: TechnologyData[] = [
-      { category: "Adopter", name: "Svelte", radiusPercentage: 100, anglePercentage: 100 },
-      { category: "Adopter", name: "D3.js", radiusPercentage: 20, anglePercentage: 20 },
-      { category: "Évaluer", name: "GraphQL", radiusPercentage: 30, anglePercentage: 30 },
-      { category: "Évaluer", name: "TypeScript", radiusPercentage: 40, anglePercentage: 40 },
-      { category: "Essayer", name: "WebAssembly", radiusPercentage: 50, anglePercentage: 50 },
-      { category: "Essayer", name: "Tailwind CSS", radiusPercentage: 0, anglePercentage: 0 },
-      { category: "Éviter", name: "jQuery", radiusPercentage: 70, anglePercentage: 70 },
-      { category: "Éviter", name: "AngularJS", radiusPercentage: 80, anglePercentage: 100 },
+      { category: "Adopter", name: "Svelte", circularSector: "Quadrant1", radiusPercentage: 45, anglePercentage: 95 },
+      { category: "Adopter", name: "D3.js", circularSector: "Quadrant2", radiusPercentage: 20, anglePercentage: 20 },
+      { category: "Évaluer", name: "GraphQL", circularSector: "Quadrant3", radiusPercentage: 30, anglePercentage: 30 },
+      { category: "Évaluer", name: "TypeScript", circularSector: "Quadrant4", radiusPercentage: 40, anglePercentage: 40 },
+      { category: "Essayer", name: "WebAssembly", circularSector: "Quadrant1", radiusPercentage: 50, anglePercentage: 50 },
+      { category: "Essayer", name: "Tailwind CSS", circularSector: "Quadrant2", radiusPercentage: 10, anglePercentage: 25 },
+      { category: "Éviter", name: "jQuery", circularSector: "Quadrant3", radiusPercentage: 70, anglePercentage: 70 },
+      { category: "Éviter", name: "AngularJS", circularSector: "Quadrant4", radiusPercentage: 80, anglePercentage: 85 },
     ];
 
     // Configuration du Tech Radar
@@ -29,15 +30,16 @@
       height: 600,
       radius: 250,
       rings: ["Adopter", "Évaluer", "Essayer", "Éviter"],
+      circularSectors: ["Quadrant1", "Quadrant2", "Quadrant3", "Quadrant4", "Quadrant5", "Quadrant6"],
     };
 
     // Fonction pour convertir les données en coordonnées polaires
     const convertToPolar = (d: TechnologyData) => {
       const ringIndex = radarConfig.rings.indexOf(d.category);
-      const categoryData = data.filter((tech) => tech.category === radarConfig.rings[ringIndex]);
-      const pointIndex = categoryData.findIndex((item) => item.name === d.name);
+      const circularSectorIndex = radarConfig.circularSectors.indexOf(d.circularSector);
+      const circularSectorsSize = (2 * Math.PI) / radarConfig.circularSectors.length;
 
-      const angle = (2 * Math.PI) * d.anglePercentage / 100;
+      const angle = circularSectorsSize * d.anglePercentage / 100 + circularSectorIndex * circularSectorsSize;
       const currentRingRadius = ((radarConfig.radius * (ringIndex + 1)) / radarConfig.rings.length);
       const previousRingRadius = ((radarConfig.radius * (ringIndex)) / radarConfig.rings.length);
       const radius = previousRingRadius + (currentRingRadius - previousRingRadius) * d.radiusPercentage / 100;
@@ -58,9 +60,10 @@
       .attr("height", radarConfig.height);
 
     // Dessiner les quadrants 
-    radarConfig.rings.forEach((ring, index) => {
-      const quadrant = index; // Identifie le quadrant (0 à 3)
-      const offsetAngle = quadrant * (Math.PI / 2); // Ajoute un décalage pour chaque quadrant
+    radarConfig.circularSectors.forEach((circularSector, index) => {
+      const quadrant = index; // Identifie le quadrant
+      const circularSectorsSize = (2 * Math.PI) / radarConfig.circularSectors.length;
+      const offsetAngle = quadrant * circularSectorsSize; // Ajoute un décalage pour chaque quadrant
 
       svg
         .append("path")
@@ -70,7 +73,7 @@
             .innerRadius(0)
             .outerRadius(radarConfig.radius)
             .startAngle(offsetAngle)
-            .endAngle(offsetAngle + Math.PI / 2)
+            .endAngle(offsetAngle + circularSectorsSize)
         )
         .attr(
           "transform",
