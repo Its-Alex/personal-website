@@ -6,20 +6,19 @@
   interface TechnologyData {
     category: string;
     name: string;
-    ringIndex: number;
   }
 
   onMount(() => {
     // Les données du Tech Radar (exemple)
     const data: TechnologyData[] = [
-      { category: "Adopter", name: "Svelte", ringIndex: 0 },
-      { category: "Adopter", name: "D3.js", ringIndex: 0 },
-      { category: "Évaluer", name: "GraphQL", ringIndex: 1 },
-      { category: "Évaluer", name: "TypeScript", ringIndex: 1 },
-      { category: "Essayer", name: "WebAssembly", ringIndex: 2 },
-      { category: "Essayer", name: "Tailwind CSS", ringIndex: 2 },
-      { category: "Éviter", name: "jQuery", ringIndex: 3 },
-      { category: "Éviter", name: "AngularJS", ringIndex: 3 },
+      { category: "Adopter", name: "Svelte" },
+      { category: "Adopter", name: "D3.js" },
+      { category: "Évaluer", name: "GraphQL" },
+      { category: "Évaluer", name: "TypeScript" },
+      { category: "Essayer", name: "WebAssembly" },
+      { category: "Essayer", name: "Tailwind CSS" },
+      { category: "Éviter", name: "jQuery" },
+      { category: "Éviter", name: "AngularJS" },
     ];
 
     // Configuration du Tech Radar
@@ -31,20 +30,22 @@
     };
 
     // Fonction pour convertir les données en coordonnées polaires
-    const convertToPolar = (ringIndex: number, index: number) => {
-    const categoryData = data.filter((tech) => tech.category === radarConfig.rings[ringIndex]);
-    const angleStep = (2 * Math.PI) / categoryData.length;
+    const convertToPolar = (d: TechnologyData) => {
+      const ringIndex = radarConfig.rings.indexOf(d.category);
+      const categoryData = data.filter((tech) => tech.category === radarConfig.rings[ringIndex]);
+      const pointIndex = categoryData.findIndex((item) => item.name === d.name);
+      const angleStep = (2 * Math.PI) / categoryData.length;
 
-    const angle = index * angleStep;
-    const radius = (radarConfig.radius * (ringIndex + 1)) / radarConfig.rings.length;
-    const centerX = radarConfig.width / 2;
-    const centerY = radarConfig.height / 2;
+      const angle = pointIndex * angleStep;
+      const radius = (radarConfig.radius * (ringIndex + 1)) / radarConfig.rings.length;
+      const centerX = radarConfig.width / 2;
+      const centerY = radarConfig.height / 2;
 
-    return {
-      x: centerX + radius * Math.cos(angle - Math.PI / 2),
-      y: centerY + radius * Math.sin(angle - Math.PI / 2),
+      return {
+        x: centerX + radius * Math.cos(angle - Math.PI / 2),
+        y: centerY + radius * Math.sin(angle - Math.PI / 2),
+      };
     };
-  };
 
     // Créer le SVG
     const svg = d3
@@ -106,15 +107,15 @@
       .attr(
         "cx",
         (d: TechnologyData) =>
-          convertToPolar(d.ringIndex, radarConfig.rings.indexOf(d.category)).x
+          convertToPolar(d).x
       )
       .attr(
         "cy",
         (d: TechnologyData) =>
-          convertToPolar(d.ringIndex, radarConfig.rings.indexOf(d.category)).y
+          convertToPolar(d).y
       )
       .attr("r", 5)
-      .attr("fill", (d: TechnologyData) => colors(String(d.ringIndex)))
+      .attr("fill", (d: TechnologyData) => colors(String(radarConfig.rings.indexOf(d.category))))
       .append("title")
       .text((d: TechnologyData) => `${d.name} - ${d.category}`);
   });
