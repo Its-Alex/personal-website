@@ -12,8 +12,6 @@ export const load = async (): Promise<void> => {
         ?.catch((err: Error) => {
           console.error(err)
         })
-    } else {
-      searchParams?.has('queryLanguage')
     }
   }
 
