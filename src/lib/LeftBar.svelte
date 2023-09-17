@@ -3,13 +3,12 @@
 </script>
 
 <div
-  class="main-container"
+  class="sidebar"
 >
   <div
-    class="image-container"
+    class="profil-picture"
   >
     <img
-      class="sidebar-profil-picture"
       src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512"
       srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=320 64w,
                   https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=480 128w,
@@ -22,13 +21,10 @@
     />
   </div>
   <ul
-    class="sidebar-list"
+    class="menu"
   >
-    <li
-      class="sidebar-menu"
-    >
+    <li>
       <a
-        class="sidebar-link"
         href={$_('resume.link')}
       >
         {$_('Resume')}
@@ -37,8 +33,8 @@
   </ul>
 </div>
 
-<style>
-  .main-container {
+<style lang="postcss">
+  .sidebar {
     display: grid;
     place-content: center;
     background: linear-gradient(
@@ -63,50 +59,50 @@
 
       grid-row: 1 / 2;
     }
-  }
-  .image-container {
-    display: grid;
+
+    .profil-picture {
+      display: grid;
       grid-template: 100% / 100%;
       place-items: center;
-
+      
       @media screen and (min-width: 750px) {
         padding: 10%;
         grid-row-start: 2;
       }
-
+      
       @media screen and (max-width: 750px) {
         grid-column-start: 2;
       }
-  }
+      img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 100%;
+      }
+    }
 
-  .sidebar-list {
-    display: grid;
+    .menu {
+      display: grid;
       place-content: center;
       font-weight: 900;
       font-size: 1.2rem;
       color: #fcfbfb;
-
+    
       @media screen and (min-width: 750px) {
         grid-template-rows: 30% 20% 20% 30%;
         grid-row-start: 4;
       }
-
+    
       @media screen and (max-width: 750px) {
         grid-column-start: 4;
       }
-  }
 
-  .sidebar-profil-picture {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 100%;
-  }
+      li {
+        grid-row-start: 3;
 
-  .sidebar-link {
-    font-size: 1.3rem;
-  }
-
-  .sidebar-menu {
-    grid-row-start: 3;
+        a {
+          font-size: 1.3rem;
+        }
+      }
+    }
   }
 </style>
