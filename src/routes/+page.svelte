@@ -39,14 +39,5 @@
   .content {
     display: grid;
     place-items: center;
-
-    @media screen and (min-width: 750px) {
-      grid-column: 2 / 2;
-    }
-
-    @media screen and (max-width: 750px) {
-      grid-column: 1;
-      grid-row: 2 / 2;
-    }
   }
 </style>
