@@ -5,7 +5,7 @@ ADD . /cv
 
 WORKDIR /cv
 
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" PNPM_VERSION=8.4.0 sh - && \
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" PNPM_VERSION=8.9.0 sh - && \
     source /root/.shrc && \
     pnpm install --frozen-lockfile && pnpm run build
 
