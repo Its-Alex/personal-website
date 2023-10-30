@@ -9,7 +9,11 @@ RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which 
     source /root/.shrc && \
     pnpm install --frozen-lockfile && pnpm run build
 
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod u+x /docker-entrypoint.sh
+FROM node:18-alpine
 
-CMD /docker-entrypoint.sh
+ENV PORT=80
+
+COPY --from=BUILDER /cv/build/ /build/
+COPY --from=BUILDER /cv/package.json /build/
+
+CMD ["node", "/build/index.js"]
