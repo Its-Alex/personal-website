@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:18-alpine as BUILDER
+FROM node:20-alpine as BUILDER
 
 ADD . /cv
 
@@ -9,7 +9,7 @@ RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which 
     source /root/.shrc && \
     pnpm install --frozen-lockfile && pnpm run build
 
-FROM node:18-alpine
+FROM node:20-alpine
 
 ENV PORT=80
 
