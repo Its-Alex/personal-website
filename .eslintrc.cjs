@@ -25,9 +25,12 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			}
 		},
+		{
+			files: ['*.js', '*.jsx'],
+			extends: 'standard',
+		},
     {
-      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
-      excludedFiles: 'svelte.config.js',
+      files: ['*.ts', '*.tsx'],
       extends: 'standard-with-typescript',
       parserOptions: {
         project: './tsconfig.json'
