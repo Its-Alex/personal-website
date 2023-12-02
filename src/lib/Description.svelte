@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import { _ } from 'svelte-i18n'
   import SvelteMarkdown from 'svelte-markdown'
 </script>

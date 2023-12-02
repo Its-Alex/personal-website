@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import LeftBar from '$lib/LeftBar.svelte'
   import Description from '$lib/Description.svelte'
 </script>
