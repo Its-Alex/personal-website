@@ -6,11 +6,13 @@ export const handle: Handle = async ({ event, resolve }) => {
   const queryLng = event?.url?.searchParams?.get('queryLanguage')
 
   if ((queryLng ?? '') !== '') {
-    locale.set(queryLng)
-      ?.catch((err: Error) => { console.error(err) })
+    locale.set(queryLng)?.catch((err: Error) => {
+      console.error(err)
+    })
   } else if ((lang ?? '') !== '') {
-    locale.set(lang)
-      ?.catch((err: Error) => { console.error(err) })
+    locale.set(lang)?.catch((err: Error) => {
+      console.error(err)
+    })
   }
 
   return await resolve(event)

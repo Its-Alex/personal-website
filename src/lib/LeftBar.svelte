@@ -1,13 +1,9 @@
-<script lang='ts'>
-    import { _ } from 'svelte-i18n'
+<script lang="ts">
+  import { _ } from 'svelte-i18n'
 </script>
 
-<div
-  class="custom-sidebar"
->
-  <div
-    class="custom-profil-picture"
-  >
+<div class="custom-sidebar">
+  <div class="custom-profil-picture">
     <img
       src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512"
       srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=320 64w,
@@ -20,13 +16,9 @@
       alt="profil"
     />
   </div>
-  <ul
-    class="custom-menu"
-  >
+  <ul class="custom-menu">
     <li>
-      <a
-        href={$_('resume.link')}
-      >
+      <a href={$_('resume.link')}>
         {$_('Resume')}
       </a>
     </li>
@@ -37,11 +29,7 @@
   .custom-sidebar {
     display: grid;
     place-content: center;
-    background: linear-gradient(
-      10deg,
-      #502be3,
-      #9630fd
-    );
+    background: linear-gradient(10deg, #502be3, #9630fd);
 
     @media screen and (min-width: 750px) {
       max-width: 450px;

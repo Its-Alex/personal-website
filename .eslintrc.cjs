@@ -3,10 +3,11 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
     'plugin:svelte/recommended'
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2020,
@@ -16,6 +17,20 @@ module.exports = {
     browser: true,
     es2017: true,
     node: true
+  },
+  rules: {
+    'import/named': 0, // Typescript already doing it
+    'import/namespace': 0, // Typescript already doing it
+    'import/default': 0, // Typescript already doing it
+    'import/no-named-as-default-member': 0, // Typescript already doing it
+    'import/no-unresolved': 0, // Not working with svelte
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always'
+      }
+    ]
   },
   overrides: [
     {
@@ -28,7 +43,7 @@ module.exports = {
     },
     {
       files: ['*.js', '*.jsx'],
-      extends: 'standard',
+      extends: 'standard'
     },
     {
       files: ['*.ts', '*.tsx'],
@@ -38,4 +53,4 @@ module.exports = {
       }
     }
   ]
-};
+}

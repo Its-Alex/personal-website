@@ -6,6 +6,10 @@
 .editorconfig
 .eslintignore
 .eslintrc.json
+.prettierignore
+.prettierrc
+.stylelintrc
+.tailwind.config.js
 .stylelintrc
 
 # Project

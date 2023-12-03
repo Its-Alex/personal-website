@@ -1,6 +1,7 @@
 // src/lib/i18n/index.ts
-import { browser } from '$app/environment'
 import { init, register } from 'svelte-i18n'
+
+import { browser } from '$app/environment'
 
 const defaultLocale = 'en'
 let queryLanguage: string | null = null
@@ -18,7 +19,7 @@ if (browser) {
 
 init({
   fallbackLocale: defaultLocale,
-  initialLocale: browser
-    ? queryLanguage ?? window.navigator.language
-    : defaultLocale
-})?.catch((err: Error) => { console.error(err) })
+  initialLocale: browser ? queryLanguage ?? window.navigator.language : defaultLocale
+})?.catch((err: Error) => {
+  console.error(err)
+})

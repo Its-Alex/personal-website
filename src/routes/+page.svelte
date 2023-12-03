@@ -1,15 +1,11 @@
-<script lang='ts'>
+<script lang="ts">
   import LeftBar from '$lib/LeftBar.svelte'
   import Description from '$lib/Description.svelte'
 </script>
 
-<div
-  class="custom-container"
->
+<div class="custom-container">
   <LeftBar />
-  <div
-    class="custom-content"
-  >
+  <div class="custom-content">
     <div>
       <Description />
     </div>
