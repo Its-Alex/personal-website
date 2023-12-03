@@ -52,7 +52,7 @@
       padding-right: 10%;
       grid-column: 1 / 2;
     }
-    
+
     @media screen and (max-width: 750px) {
       grid-template-columns: 20% 20% 20% 20% 20%;
       grid-template-rows: 100%;
@@ -64,12 +64,12 @@
       display: grid;
       grid-template: 100% / 100%;
       place-items: center;
-      
+
       @media screen and (min-width: 750px) {
         padding: 10%;
         grid-row-start: 2;
       }
-      
+
       @media screen and (max-width: 750px) {
         grid-column-start: 2;
       }
@@ -86,12 +86,12 @@
       font-weight: 900;
       font-size: 1.2rem;
       color: #fcfbfb;
-    
+
       @media screen and (min-width: 750px) {
         grid-template-rows: 30% 20% 20% 30%;
         grid-row-start: 4;
       }
-    
+
       @media screen and (max-width: 750px) {
         grid-column-start: 4;
       }
