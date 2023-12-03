@@ -4,11 +4,11 @@
 </script>
 
 <div
-  class="container"
+  class="custom-container"
 >
   <LeftBar />
   <div
-    class="content"
+    class="custom-content"
   >
     <div>
       <Description />
@@ -17,7 +17,7 @@
 </div>
 
 <style>
-  .container {
+  .custom-container {
     display: grid;
     margin: 0;
     padding: 0;
@@ -36,7 +36,7 @@
     }
   }
 
-  .content {
+  .custom-content {
     display: grid;
     place-items: center;
   }

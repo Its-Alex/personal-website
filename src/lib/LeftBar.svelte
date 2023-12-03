@@ -3,10 +3,10 @@
 </script>
 
 <div
-  class="sidebar"
+  class="custom-sidebar"
 >
   <div
-    class="profil-picture"
+    class="custom-profil-picture"
   >
     <img
       src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512"
@@ -21,7 +21,7 @@
     />
   </div>
   <ul
-    class="menu"
+    class="custom-menu"
   >
     <li>
       <a
@@ -34,7 +34,7 @@
 </div>
 
 <style lang="postcss">
-  .sidebar {
+  .custom-sidebar {
     display: grid;
     place-content: center;
     background: linear-gradient(
@@ -60,7 +60,7 @@
       grid-row: 1 / 2;
     }
 
-    .profil-picture {
+    .custom-profil-picture {
       display: grid;
       grid-template: 100% / 100%;
       place-items: center;
@@ -80,7 +80,7 @@
       }
     }
 
-    .menu {
+    .custom-menu {
       display: grid;
       place-content: center;
       font-weight: 900;

@@ -3,10 +3,6 @@
   import SvelteMarkdown from 'svelte-markdown'
 </script>
 
-<style>
-
-</style>
-
-<div>
+<div class="markdown-description">
   <SvelteMarkdown source={$_('resume.description')} />
 </div>
