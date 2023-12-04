@@ -1,4 +1,4 @@
-name: Curriculum CI
+name: Website CI
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -25,7 +25,7 @@ jobs:
   release:
     name: 'Release'
     needs: [lint]
-    if: ${{ github.repository == 'Its-Alex/curriculum' && contains(github.ref, 'refs/heads/master') }}
+    if: ${{ github.repository == 'Its-Alex/personal-website' && contains(github.ref, 'refs/heads/master') }}
     runs-on: 'ubuntu-latest'
     steps:
       - name: Checkout project
@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: itsalex/curriculum:stable
+          tags: itsalex/personal-website:stable
           file: Dockerfile
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
