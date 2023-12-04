@@ -18,9 +18,17 @@
   </div>
   <ul class="custom-menu">
     <li>
-      <a href={$_('resume.link')}>
-        {$_('Resume')}
-      </a>
+      <ul>
+        <a href={$_('resume.link')}>
+          {$_('Resume')}
+        </a>
+      </ul>
+      <!-- Hidden for now because feature not finished -->
+      <!-- <ul>
+        <a href="/blog">
+          {$_('Blog')}
+        </a>
+      </ul> -->
     </li>
   </ul>
 </div>
