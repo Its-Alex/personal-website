@@ -1,19 +1,30 @@
 # Build from other image
 FROM node:20-alpine as BUILDER
 
-ADD . /cv
+WORKDIR /app
 
-WORKDIR /cv
+ADD src/ /app/src/
+ADD static/ /app/src/
+ADD .npmrc /app/
+ADD package.json /app/
+ADD pnpm-lock.yaml /app/
+ADD postcss.config.js /app/
+ADD svelte.config.js /app/
+ADD tailwind.config.js /app/
+ADD tsconfig.json /app/
+ADD vite.config.ts /app/
 
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" PNPM_VERSION=8.9.0 sh - && \
-    source /root/.shrc && \
-    pnpm install --frozen-lockfile && pnpm run build
+RUN corepack enable \
+    && corepack prepare pnpm@8.11.0 --activate \
+    && pnpm install --frozen-lockfile \
+    && pnpm run build
 
 FROM node:20-alpine
 
 ENV PORT=80
+EXPOSE 80
 
-COPY --from=BUILDER /cv/build/ /build/
-COPY --from=BUILDER /cv/package.json /build/
+COPY --from=BUILDER /app/build/ /build/
+COPY --from=BUILDER /app/package.json /build/
 
 CMD ["node", "/build/index.js"]
