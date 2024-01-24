@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@sveltejs/adapter-node':
-    specifier: 3.0.0
-    version: 3.0.0(@sveltejs/kit@2.3.2)
+    specifier: 3.0.3
+    version: 3.0.3(@sveltejs/kit@2.3.2)
   '@sveltejs/adapter-vercel':
     specifier: 4.0.4
     version: 4.0.4(@sveltejs/kit@2.3.2)
@@ -664,8 +664,8 @@ packages:
     dev: true
     optional: true
 
-  /@sveltejs/adapter-node@3.0.0(@sveltejs/kit@2.3.2):
-    resolution: {integrity: sha512-+nmnMhgWB0c1C2kLcWXp/r1zmY22ayhO8zD2oyxy4VUHYPOKt1uEmFVvLCzF7jg5aYlTtstjmrzNdP2l0MiLoQ==}
+  /@sveltejs/adapter-node@3.0.3(@sveltejs/kit@2.3.2):
+    resolution: {integrity: sha512-tYs13Xs0NLYXy4XMGrPUupKdBYqvMQ/IZ4OSmv53LudHgcthZCZD3fXrPLvbsSW3EapKl5/8AQZxTYbwUMZbKw==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
     dependencies:
