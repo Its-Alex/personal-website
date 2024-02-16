@@ -50,6 +50,12 @@ module.exports = {
       extends: 'standard-with-typescript',
       parserOptions: {
         project: './tsconfig.json'
+      },
+      rules: {
+        'space-before-function-paren ': 0, // Prettier already doing it
+        '@typescript-eslint/space-before-function-paren': 0, // Prettier already doing it
+        indent: 0, // Prettier already doing it
+        '@typescript-eslint/indent': 0 // Prettier already doing it
       }
     }
   ]
