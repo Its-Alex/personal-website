@@ -2,15 +2,19 @@ import ssrAdapter from '@sveltejs/adapter-node'
 import vercelAdapter from '@sveltejs/adapter-vercel'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsvex, escapeSvelte } from 'mdsvex'
-import shiki from 'shiki'
+import { codeToHtml } from 'shiki'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: ['.md'],
   highlight: {
     highlighter: async (code, lang = 'text') => {
-      const highlighter = await shiki.getHighlighter({ theme: 'dracula' })
-      const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+      const html = escapeSvelte(
+        await codeToHtml(code, {
+          lang,
+          theme: 'dracula'
+        })
+      )
       return `{@html \`${html}\` }`
     }
   }
