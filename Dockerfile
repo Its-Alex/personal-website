@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:20-alpine as BUILDER
+FROM node:20.11.1-alpine as BUILDER
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ ADD tsconfig.json /app/
 ADD vite.config.ts /app/
 
 RUN corepack enable \
-    && corepack prepare pnpm@8.11.0 --activate \
+    && corepack prepare pnpm@8.15.3 --activate \
     && pnpm install --frozen-lockfile \
     && pnpm run build
 

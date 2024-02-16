@@ -5,12 +5,12 @@ using [SSR](https://en.wikipedia.org/wiki/Server-side_scripting).
 
 ## Requirements
 
-- [rtx](https://github.com/jdxcode/rtx)
+- [mise](https://mise.jdx.dev/)
 
-After having installed `rtx` run:
+After having installed `mise` run:
 
 ```
-$ rtx install
+$ mise install
 ```
 
 Then install dependencies:
