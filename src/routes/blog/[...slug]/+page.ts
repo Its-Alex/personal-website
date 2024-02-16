@@ -13,7 +13,6 @@ export async function load({ params }: PageLoadEvent): Promise<
   | undefined
 > {
   try {
-    console.log(params.slug)
     const article = await import(`../articles/${params.slug.replaceAll('/', '_')}.md`)
 
     return {
