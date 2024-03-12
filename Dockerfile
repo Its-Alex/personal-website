@@ -15,7 +15,7 @@ ADD tsconfig.json /app/
 ADD vite.config.ts /app/
 
 RUN corepack enable \
-    && corepack prepare pnpm@8.15.3 --activate \
+    && corepack prepare pnpm@8.15.4 --activate \
     && pnpm install --frozen-lockfile \
     && pnpm run build
 
