@@ -34,6 +34,13 @@
 </div>
 
 <style lang="postcss">
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
   .custom-sidebar {
     display: grid;
     place-content: center;

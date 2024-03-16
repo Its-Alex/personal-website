@@ -1,6 +1,6 @@
 <script lang="ts">
-  import LeftBar from '$lib/LeftBar.svelte'
-  import Description from '$lib/Description.svelte'
+  import LeftBar from '$lib/frontpage/LeftBar.svelte'
+  import Description from '$lib/frontpage/Description.svelte'
 </script>
 
 <div class="custom-container">
