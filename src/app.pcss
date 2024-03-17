@@ -28,3 +28,16 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
 }
+
+@layer base {
+  a {
+    @apply underline;
+    @apply decoration-2;
+    @apply underline-offset-2;
+    @apply text-gray-900;
+    &:hover,
+    &:visited {
+      @apply text-gray-500;
+    }
+  }
+}
