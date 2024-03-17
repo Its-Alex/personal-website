@@ -1,6 +1,6 @@
 ---
-title: Sub sub
-description: Sub sub post.
+title: Sub sub post
+description: This post is used to test sub sub post feature
 publishDate: '2023-4-16'
 lastUpdateDate: '2023-4-16'
 published: true

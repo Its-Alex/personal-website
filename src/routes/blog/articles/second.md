@@ -1,6 +1,6 @@
 ---
-title: Second
-description: second post.
+title: Git atomic commits
+description: Explain how to perform atomic commit and why do it
 publishDate: '2023-4-16'
 lastUpdateDate: '2023-4-16'
 published: true

@@ -3,7 +3,7 @@
   import Description from '$lib/frontpage/Description.svelte'
 </script>
 
-<div class="custom-container">
+<div class="custom-container bg-gray-100">
   <LeftBar />
   <div class="custom-content">
     <div>
@@ -19,7 +19,6 @@
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: #fcfbfb;
 
     @media screen and (min-width: 750px) {
       grid-template-rows: 100%;

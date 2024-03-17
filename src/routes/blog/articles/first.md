@@ -1,6 +1,6 @@
 ---
-title: First
-description: first post.
+title: Why use git correctly
+description: This article is about git and how to use it correctly.
 publishDate: '2023-4-16'
 lastUpdateDate: '2023-4-16'
 published: true
@@ -8,7 +8,9 @@ published: true
 
 ## Svelte
 
-Media inside the **static** folder is served from `/`.
+Media inside the **static** _folder_ is served from `/media`.
+
+This is a [link](google.fr) [`link`](google.fr)
 
 ![Svelte](/favicon/apple-icon-76x76.png)
 
