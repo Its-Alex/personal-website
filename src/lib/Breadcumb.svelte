@@ -10,15 +10,36 @@
 
   $: {
     // Remove zero-length tokens.
-    const tokens = $page.url.pathname.split('/').filter((t) => t !== '')
+    const tokens = $page.url.pathname
+      .replaceAll('-', ' ')
+      .split('/')
+      .filter((t) => t !== '')
 
-    // Create { label, href } pairs for each token.
+    // Create { label, href } pairs for each toke n.
     let tokenPath: string = ''
-    crumbs = tokens.map((t) => {
-      tokenPath += '/' + t
-      t = t.charAt(0).toUpperCase() + t.slice(1)
-      return { label: t, href: tokenPath }
-    })
+    let isBlog: boolean = false
+    crumbs = tokens.reduce(
+      (
+        acc: Array<{
+          label: string
+          href: string
+        }>,
+        token,
+        index
+      ) => {
+        tokenPath += '/' + token
+        token = token.charAt(0).toUpperCase() + token.slice(1)
+
+        // Add token to crumbs only if this is not a fake path for blog
+        if (!isBlog || index === tokens.length - 1) acc.push({ label: token, href: tokenPath })
+
+        if (token === 'Blog' && index === 0) {
+          isBlog = true
+        }
+        return acc
+      },
+      []
+    )
 
     // Add a way to get home too.
     crumbs.unshift({ label: $_('Home'), href: '/' })
