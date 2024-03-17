@@ -53,7 +53,7 @@
         {crumb.label}
       </span>
     {:else}
-      <a class="font-normal hover:text-gray-600" href={crumb.href}>{crumb.label}</a> &gt;&nbsp;
+      <a href={crumb.href}>{crumb.label}</a> &gt;&nbsp;
     {/if}
   {/each}
 </div>

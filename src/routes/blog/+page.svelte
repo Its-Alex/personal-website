@@ -19,7 +19,7 @@
             >{new Intl.DateTimeFormat($locale ?? undefined).format(article.publishDate)}</span
           >
           <span> - </span>
-          <a href={article.slug} class="font-normal hover:text-gray-600">{article.title}</a>
+          <a href={article.slug}>{article.title}</a>
         </li>
       {/each}
     </ul>
