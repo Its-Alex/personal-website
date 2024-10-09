@@ -19,7 +19,7 @@ if (browser) {
 
 init({
   fallbackLocale: defaultLocale,
-  initialLocale: browser ? queryLanguage ?? window.navigator.language : defaultLocale
+  initialLocale: browser ? (queryLanguage ?? window.navigator.language) : defaultLocale
 })?.catch((err: Error) => {
   console.error(err)
 })
