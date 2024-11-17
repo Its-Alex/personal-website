@@ -13,9 +13,11 @@
   }
 </script>
 
-<div class="custom-container bg-gray-100">
+<div
+  class="m-0 grid h-full w-full grid-cols-1 grid-rows-[20%_80%] bg-gray-100 p-0 md:grid-cols-[20%_80%] md:grid-rows-1"
+>
   <LeftBar />
-  <div class="custom-content">
+  <div class="grid place-items-center">
     <div class="flex flex-col flex-wrap">
       <div class="flex items-center justify-center">
         <div
@@ -36,26 +38,4 @@
 </div>
 
 <style>
-  .custom-container {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-
-    @media screen and (min-width: 750px) {
-      grid-template-rows: 100%;
-      grid-template-columns: 20% 80%;
-    }
-
-    @media screen and (max-width: 750px) {
-      grid-template-rows: 20% 80%;
-      grid-template-columns: 100%;
-    }
-  }
-
-  .custom-content {
-    display: grid;
-    place-items: center;
-  }
 </style>
