@@ -1,23 +1,15 @@
-import { locale, waitLocale } from 'svelte-i18n'
+import type { LayoutLoad } from './$types'
 
-import { browser } from '$app/environment'
-// Initialize i18n
-import '$lib/i18n'
+import { addTranslations, setLocale, setRoute } from '$lib/translations'
 
-export const load = async (): Promise<void> => {
-  if (browser) {
-    const searchParams = new URL(window.location.href).searchParams
+export const load: LayoutLoad = async ({ data }) => {
+  const { i18n, translations } = data
+  const { locale, route } = i18n
 
-    if (searchParams?.has('queryLanguage')) {
-      locale.set(searchParams?.get('queryLanguage'))?.catch((err: Error) => {
-        console.error(err)
-      })
-    }
-  }
+  addTranslations(translations)
 
-  try {
-    await waitLocale()
-  } catch (error) {
-    console.error(error)
-  }
+  await setRoute(typeof route === 'string' ? route : '')
+  await setLocale(locale)
+
+  return i18n
 }
