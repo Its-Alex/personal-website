@@ -2,9 +2,6 @@ import I18n from 'sveltekit-i18n'
 import type { Config } from 'sveltekit-i18n'
 
 const config: Config = {
-  log: {
-    level: 'debug'
-  },
   fallbackLocale: 'en',
   fallbackValue: 'en',
   loaders: [
