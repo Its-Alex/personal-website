@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { locale } from 'svelte-i18n'
-
   import type { PageServerData } from './$types'
+
+  import { locale } from '$lib/translations'
 
   export let data: PageServerData
 </script>

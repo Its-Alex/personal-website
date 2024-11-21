@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { _ } from 'svelte-i18n'
-
+  import { t } from '$lib/translations'
   import { page } from '$app/stores'
 
   let crumbs: Array<{
@@ -42,7 +41,7 @@
     )
 
     // Add a way to get home too.
-    crumbs.unshift({ label: $_('Home'), href: '/' })
+    crumbs.unshift({ label: $t('common.Home'), href: '/' })
   }
 </script>
 

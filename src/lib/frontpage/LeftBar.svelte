@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { _ } from 'svelte-i18n'
+  import { t } from '$lib/translations'
 </script>
 
 <div class="custom-sidebar">
@@ -19,8 +19,8 @@
   <ul class="custom-menu">
     <li>
       <ul>
-        <a href={$_('resume.link')}>
-          {$_('Resume')}
+        <a href={$t('common.resume.link')}>
+          {$t('common.Resume')}
         </a>
       </ul>
       <!-- Hidden for now because feature not finished -->
