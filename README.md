@@ -10,13 +10,20 @@ using [SSR](https://en.wikipedia.org/wiki/Server-side_scripting).
 After having installed `mise` run:
 
 ```
-$ mise install
+$ mise plugin add pass https://github.com/Cybolic/asdf-pass.git
+$ mise trust && mise install
 ```
 
 Then install dependencies:
 
 ```bash
 $ pnpm install
+```
+
+If you want to use real environment variables, and you have access run:
+
+```bash
+$ direnv allow
 ```
 
 ## Developing
