@@ -1,4 +1,4 @@
-import type { SvelteComponent } from 'svelte'
+import type { Component } from 'svelte'
 import { redirect, error } from '@sveltejs/kit'
 
 import type { PageLoadEvent } from './$types.d.ts'
@@ -7,7 +7,7 @@ import type { ArticleMetadata } from '$lib/types/articles'
 
 export async function load({ params }: PageLoadEvent): Promise<
   | {
-      content: SvelteComponent
+      content: Component
       meta: ArticleMetadata
     }
   | undefined

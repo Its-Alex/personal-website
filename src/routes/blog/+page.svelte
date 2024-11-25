@@ -3,7 +3,11 @@
 
   import { locale } from '$lib/translations'
 
-  export let data: PageServerData
+  interface Props {
+    data: PageServerData
+  }
+
+  const { data }: Props = $props()
 </script>
 
 <div>

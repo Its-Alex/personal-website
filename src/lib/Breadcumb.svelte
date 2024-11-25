@@ -1,13 +1,15 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy'
+
   import { t } from '$lib/translations'
   import { page } from '$app/stores'
 
   let crumbs: Array<{
     label: string
     href: string
-  }> = []
+  }> = $state([])
 
-  $: {
+  run(() => {
     // Remove zero-length tokens.
     const tokens = $page.url.pathname
       .replaceAll('-', ' ')
@@ -42,7 +44,7 @@
 
     // Add a way to get home too.
     crumbs.unshift({ label: $t('common.Home'), href: '/' })
-  }
+  })
 </script>
 
 <div>
