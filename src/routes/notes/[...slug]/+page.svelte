@@ -1,6 +1,17 @@
 <script lang="ts">
   /* eslint-disable svelte/no-at-html-tags */
-  export let data
+  interface Props {
+    data: {
+      content: string
+      meta: {
+        public: boolean
+        title: string
+        date: string
+      }
+    }
+  }
+
+  const { data }: Props = $props()
 </script>
 
 <div class="mx-auto w-1/2">
