@@ -4,7 +4,7 @@ FROM node:20.11.1-alpine as BUILDER
 WORKDIR /app
 
 ADD src/ /app/src/
-ADD static/ /app/src/
+ADD static/ /app/static/
 ADD .npmrc /app/
 ADD package.json /app/
 ADD pnpm-lock.yaml /app/
