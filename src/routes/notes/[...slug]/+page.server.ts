@@ -34,7 +34,8 @@ const minioClient =
         endPoint: process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT ?? '',
         port: Number(process.env.PERSONAL_WEBSITE_MINIO_PORT) ?? 443,
         useSSL:
-          typeof process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'string' && process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'true',
+          typeof process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'string' &&
+          process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'true',
         accessKey: process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY ?? '',
         secretKey: process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY ?? '',
         pathStyle: true,
