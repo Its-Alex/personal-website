@@ -19,26 +19,26 @@ interface ArticleMetadata {
   date: string
 }
 
-const BUCKET_NAME = process.env.MINIO_BUCKET_NAME ?? ''
+const BUCKET_NAME = process.env.PERSONAL_WEBSITE_MINIO_BUCKET_NAME ?? ''
 
 const minioClient =
-  typeof process.env.MINIO_ENDPOINT === 'string' &&
-  process.env.MINIO_ENDPOINT !== '' &&
+  typeof process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT === 'string' &&
+  process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT !== '' &&
   typeof BUCKET_NAME === 'string' &&
   BUCKET_NAME !== '' &&
-  typeof process.env.MINIO_ACCESS_KEY === 'string' &&
-  process.env.MINIO_ACCESS_KEY !== '' &&
-  typeof process.env.MINIO_SECRET_KEY === 'string' &&
-  process.env.MINIO_SECRET_KEY !== ''
+  typeof process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY === 'string' &&
+  process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY !== '' &&
+  typeof process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY === 'string' &&
+  process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY !== ''
     ? new Client({
-        endPoint: process.env.MINIO_ENDPOINT ?? '',
-        port: Number(process.env.MINIO_PORT) ?? 443,
+        endPoint: process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT ?? '',
+        port: Number(process.env.PERSONAL_WEBSITE_MINIO_PORT) ?? 443,
         useSSL:
-          typeof process.env.MINIO_USE_SSL === 'string' && process.env.MINIO_USE_SSL === 'true',
-        accessKey: process.env.MINIO_ACCESS_KEY ?? '',
-        secretKey: process.env.MINIO_SECRET_KEY ?? '',
+          typeof process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'string' && process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'true',
+        accessKey: process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY ?? '',
+        secretKey: process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY ?? '',
         pathStyle: true,
-        region: process.env.MINIO_REGION ?? ''
+        region: process.env.PERSONAL_WEBSITE_MINIO_REGION ?? ''
       })
     : null
 
