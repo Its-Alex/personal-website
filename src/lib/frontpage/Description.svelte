@@ -1,6 +1,7 @@
 <script lang="ts">
   // Need to use any to avoid typescript error because svelte-markdown use
   // type from svelte 4
+  /* eslint @typescript-eslint/no-explicit-any: 0 */
   import SvelteMarkdown from 'svelte-markdown'
 
   import { t } from '$lib/translations'

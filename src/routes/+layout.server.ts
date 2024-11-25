@@ -19,10 +19,10 @@ export const load: ServerLoad = async ({ url, cookies, request }) => {
     // If no cookie is set, try to determine the locale from the 'Accept-Language' header
     const acceptLanguageHeader = request.headers.get('accept-language') ?? ''
     // Attempt to match the language code with optional region code
-    let match = acceptLanguageHeader.match(/^[a-z]+(?=[-_])/i)
+    let match = /^[a-z]+(?=[-_])/i.exec(acceptLanguageHeader)
     // If no match is found, try to match just the language code
     if (match === null) {
-      match = acceptLanguageHeader.match(/^[a-z]+/i)
+      match = /^[a-z]+/i.exec(acceptLanguageHeader)
     }
 
     // If a match is found, use it as the locale

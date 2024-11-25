@@ -32,7 +32,7 @@ const minioClient =
   process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY !== ''
     ? new Client({
         endPoint: process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT ?? '',
-        port: Number(process.env.PERSONAL_WEBSITE_MINIO_PORT) ?? 443,
+        port: Number(process.env.PERSONAL_WEBSITE_MINIO_PORT) || 443,
         useSSL:
           typeof process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'string' &&
           process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'true',
@@ -49,10 +49,10 @@ export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
     redirect(307, '/')
   }
 
-  const objectName = Array.isArray(params?.slug)
-    ? params?.slug.join('/')
-    : typeof params?.slug === 'string'
-      ? params?.slug
+  const objectName = Array.isArray(params.slug)
+    ? params.slug.join('/')
+    : typeof params.slug === 'string'
+      ? params.slug
       : ''
   let data = ''
 
@@ -79,7 +79,7 @@ export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
 
   const { data: meta, content } = matter(data)
 
-  if (typeof meta?.public !== 'boolean' || !meta?.public) {
+  if (typeof meta.public !== 'boolean' || !meta.public) {
     redirect(307, '/')
   }
 

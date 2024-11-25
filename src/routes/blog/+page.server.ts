@@ -8,8 +8,8 @@ export async function load(): Promise<{
   const paths = import.meta.glob('/src/routes/blog/articles/**/*.md', { eager: true })
 
   for (const path in paths) {
-    const file = paths[path]
-    const slug = `/blog/${path.split('/').at(-1)?.replace('.md', '')?.replaceAll('_', '/')}`
+    const { path: file } = paths
+    const slug = `/blog/${path.split('/').at(-1)?.replace('.md', '').replaceAll('_', '/')}`
 
     if (
       typeof slug === 'string' &&
@@ -39,7 +39,9 @@ export async function load(): Promise<{
         lastUpdateDate: new Date(file.metadata.lastUpdateDate)
       }
 
-      article.published && articles.push(article)
+      if (article.published) {
+        articles.push(article)
+      }
     }
   }
 
