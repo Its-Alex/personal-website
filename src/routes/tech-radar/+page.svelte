@@ -39,14 +39,14 @@
       {
         category: "Évaluer",
         name: "GraphQL",
-        circularSector: "Quadrant1",
+        circularSector: "Quadrant3",
         radiusPercentage: 30,
         anglePercentage: 30,
       },
       {
         category: "Évaluer",
         name: "TypeScript",
-        circularSector: "Quadrant1",
+        circularSector: "Quadrant4",
         radiusPercentage: 40,
         anglePercentage: 40,
       },
