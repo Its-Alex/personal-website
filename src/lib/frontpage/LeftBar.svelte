@@ -18,18 +18,16 @@
   </div>
   <ul class="custom-menu">
     <li>
-      <ul>
-        <a href={props.resume_link}>
-          {props.resume_text}
-        </a>
-      </ul>
-      <!-- Hidden for now because feature not finished -->
-      <!-- <ul>
-        <a href="/blog">
-          {$_('Blog')}
-        </a>
-      </ul> -->
+      <a href={props.resume_link}>
+        {props.resume_text}
+      </a>
     </li>
+    <!-- Hidden for now because feature not finished -->
+    <!-- <li>
+      <a href="/blog">
+        {$_('Blog')}
+      </a>
+    </li> -->
   </ul>
 </div>
 
