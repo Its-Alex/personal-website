@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t } from '$lib/translations'
+  let props = $props()
 </script>
 
 <div class="custom-sidebar">
@@ -19,8 +19,8 @@
   <ul class="custom-menu">
     <li>
       <ul>
-        <a href={$t('common.resume.link')}>
-          {$t('common.Resume')}
+        <a href={props.resume_link}>
+          {props.resume_text}
         </a>
       </ul>
       <!-- Hidden for now because feature not finished -->
