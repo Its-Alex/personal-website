@@ -6,6 +6,7 @@ import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
+import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import type { VFile } from 'vfile'
 import matter from 'gray-matter'
@@ -105,6 +106,7 @@ export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
       .use(remarkParse)
       .use(remarkRehype)
       .use(rehypeSanitize)
+      .use(rehypeSlug)
       .use(rehypeShikiFromHighlighter, highlighter, {
         inline: 'tailing-curly-colon',
         theme: 'dracula'
