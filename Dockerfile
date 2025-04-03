@@ -8,9 +8,7 @@ ADD static/ /app/static/
 ADD .npmrc /app/
 ADD package.json /app/
 ADD pnpm-lock.yaml /app/
-ADD postcss.config.js /app/
 ADD svelte.config.js /app/
-ADD tailwind.config.js /app/
 ADD tsconfig.json /app/
 ADD vite.config.ts /app/
 

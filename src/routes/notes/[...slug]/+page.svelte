@@ -4,9 +4,7 @@
     data: {
       content: string
       meta: {
-        public: boolean
         title: string
-        date: string
       }
     }
   }

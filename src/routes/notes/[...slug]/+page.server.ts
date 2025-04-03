@@ -3,13 +3,15 @@ import type { Readable } from 'node:stream'
 import { redirect, error as sveltekitError } from '@sveltejs/kit'
 import { Client } from 'minio'
 import rehypeSanitize from 'rehype-sanitize'
-import rehypeShiki from '@shikijs/rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import type { VFile } from 'vfile'
 import matter from 'gray-matter'
+import { createHighlighterCore, type HighlighterGeneric } from 'shiki/core'
+import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
+import rehypeShikiFromHighlighter from '@shikijs/rehype/core'
 
 import type { PageServerLoadEvent, PageServerLoad } from './$types.js'
 
@@ -42,6 +44,20 @@ const minioClient =
         region: process.env.PERSONAL_WEBSITE_MINIO_REGION ?? ''
       })
     : null
+
+const highlighter = (await createHighlighterCore({
+  themes: [import('@shikijs/themes/dracula')],
+  langs: [
+    import('@shikijs/langs/javascript'),
+    import('@shikijs/langs/typescript'),
+    import('@shikijs/langs/svelte'),
+    import('@shikijs/langs/terraform'),
+    import('@shikijs/langs/dockerfile'),
+    import('@shikijs/langs/shell'),
+    import('@shikijs/langs/toml')
+  ],
+  engine: createOnigurumaEngine(() => import('shiki/wasm'))
+})) as HighlighterGeneric<string, string>
 
 export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
   if (minioClient === null) {
@@ -89,7 +105,8 @@ export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
       .use(remarkParse)
       .use(remarkRehype)
       .use(rehypeSanitize)
-      .use(rehypeShiki, {
+      .use(rehypeShikiFromHighlighter, highlighter, {
+        inline: 'tailing-curly-colon',
         theme: 'dracula'
       })
       .use(rehypeStringify)
