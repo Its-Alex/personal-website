@@ -48,7 +48,7 @@
 </script>
 
 <div>
-  {#each crumbs as crumb, index}
+  {#each crumbs as crumb, index (crumb.href)}
     {#if index === crumbs.length - 1}
       <span>
         {crumb.label}

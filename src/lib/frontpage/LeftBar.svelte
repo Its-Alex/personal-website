@@ -33,7 +33,7 @@
   </ul>
 </div>
 
-<style lang="postcss">
+<style>
   a {
     text-decoration: none;
     color: inherit;

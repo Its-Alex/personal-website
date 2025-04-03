@@ -17,7 +17,7 @@
 
   <section>
     <ul class="mx-auto grid grid-cols-1 gap-4">
-      {#each data.articles as article}
+      {#each data.articles as article (article.slug)}
         <li>
           <span class="m-0 mb-2 p-0 font-light"
             >{new Intl.DateTimeFormat($locale ?? undefined).format(article.publishDate)}</span
