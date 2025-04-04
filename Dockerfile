@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:20.11.1-alpine as BUILDER
+FROM node:20.11.1-alpine AS builder
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ FROM node:20-alpine
 ENV PORT=80
 EXPOSE 80
 
-COPY --from=BUILDER /app/build/ /build/
-COPY --from=BUILDER /app/package.json /build/
+COPY --from=builder /app/build/ /build/
+COPY --from=builder /app/package.json /build/
 
 CMD ["node", "/build/index.js"]
