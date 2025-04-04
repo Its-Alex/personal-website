@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:20.11.1-alpine AS builder
+FROM node:22.14.0-alpine AS builder
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ RUN corepack enable \
     && pnpm install --frozen-lockfile \
     && pnpm run build
 
-FROM node:20-alpine
+FROM node:22-alpine
 
 ENV PORT=80
 EXPOSE 80
