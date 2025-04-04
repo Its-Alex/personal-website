@@ -2,7 +2,7 @@
   import { run } from 'svelte/legacy'
 
   import { t } from '$lib/translations'
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
 
   let crumbs: Array<{
     label: string
@@ -11,7 +11,7 @@
 
   run(() => {
     // Remove zero-length tokens.
-    const tokens = $page.url.pathname
+    const tokens = page.url.pathname
       .replaceAll('-', ' ')
       .split('/')
       .filter((t) => t !== '')
