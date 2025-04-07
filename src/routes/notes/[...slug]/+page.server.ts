@@ -10,8 +10,6 @@ import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import type { VFile } from 'vfile'
 import matter from 'gray-matter'
-import { createHighlighterCore, type HighlighterGeneric } from 'shiki/core'
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core'
 
 import type { PageServerLoadEvent, PageServerLoad } from './$types.js'
@@ -46,21 +44,7 @@ const minioClient =
       })
     : null
 
-const highlighter = (await createHighlighterCore({
-  themes: [import('@shikijs/themes/dracula')],
-  langs: [
-    import('@shikijs/langs/javascript'),
-    import('@shikijs/langs/typescript'),
-    import('@shikijs/langs/svelte'),
-    import('@shikijs/langs/terraform'),
-    import('@shikijs/langs/dockerfile'),
-    import('@shikijs/langs/shell'),
-    import('@shikijs/langs/toml')
-  ],
-  engine: createOnigurumaEngine(() => import('shiki/wasm'))
-})) as HighlighterGeneric<string, string>
-
-export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
+export const load: PageServerLoad = async ({ locals, params }: PageServerLoadEvent) => {
   if (minioClient === null) {
     console.log('minioClient is null')
     redirect(307, '/')
@@ -107,7 +91,7 @@ export const load: PageServerLoad = async ({ params }: PageServerLoadEvent) => {
       .use(remarkRehype)
       .use(rehypeSanitize)
       .use(rehypeSlug)
-      .use(rehypeShikiFromHighlighter, highlighter, {
+      .use(rehypeShikiFromHighlighter, locals.highlighter, {
         inline: 'tailing-curly-colon',
         theme: 'dracula'
       })
