@@ -1,7 +1,7 @@
 <script lang="ts">
   import LeftBar from '$lib/frontpage/LeftBar.svelte'
 
-  let isAnimating: boolean = $state(false)
+  let isAnimating: boolean = false
   const onMouseOver = (): void => {
     if (!isAnimating) {
       isAnimating = true
@@ -27,9 +27,9 @@
           class="inline-block cursor-pointer text-6xl {isAnimating
             ? 'animate-[wave_2s_ease-in-out]'
             : ''}"
-          onmouseover={onMouseOver}
-          onfocus={onMouseOver}
-          onanimationend={onAnimationEnd}
+          on:mouseover={onMouseOver}
+          on:focus={onMouseOver}
+          on:animationend={onAnimationEnd}
         >
           👋
         </div>
