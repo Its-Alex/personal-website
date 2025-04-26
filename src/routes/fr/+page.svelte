@@ -24,8 +24,8 @@
       <div class="flex items-center justify-center">
         <div
           role="none"
-          class="inline-block cursor-pointer text-6xl {isAnimating
-            ? 'animate-[wave_2s_ease-in-out]'
+          class="inline-block cursor-pointer text-6xl transition-transform duration-300 hover:scale-110 {isAnimating
+            ? 'wave-animate'
             : ''}"
           on:mouseover={onMouseOver}
           on:focus={onMouseOver}
@@ -34,8 +34,8 @@
           👋
         </div>
       </div>
-      <div class="markdown-description">
-        <p class="m-3 text-lg">Je suis Alexandre.</p>
+      <div class="markdown-description text-center">
+        <p class="m-3 text-lg font-semibold">Je suis Alexandre.</p>
         <p class="m-3 text-lg">
           <a href="https://fr.wikipedia.org/wiki/Software_craftsmanship">Software craftsman</a>
           actuellement à
@@ -63,3 +63,37 @@
     </div>
   </div>
 </div>
+
+<style>
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  .wave-animate {
+    animation: wave 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+</style>
