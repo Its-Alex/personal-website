@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { t } from '$lib/translations'
+
   /* eslint-disable svelte/no-at-html-tags */
   interface Props {
     data: {
@@ -23,7 +25,7 @@
   </article>
   <footer>
     <p class="text-center text-sm text-gray-500">
-      Found an error? Report it to <a href="mailto:contact@itsalex.fr">contact@itsalex.fr</a>
+      {@html $t('common.report-note-error')}
     </p>
   </footer>
 </div>
