@@ -23,8 +23,7 @@
   </article>
   <footer>
     <p class="text-center text-sm text-gray-500">
-      © {new Date().getFullYear()} ItsAlex. All rights reserved. Contact:
-      <a href="mailto:contact@itsalex.fr" class="underline">contact@itsalex.fr</a>
+      Found an error? Report it to <a href="mailto:contact@itsalex.fr">contact@itsalex.fr</a>
     </p>
   </footer>
 </div>
