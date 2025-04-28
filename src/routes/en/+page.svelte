@@ -24,9 +24,7 @@
       <div class="flex items-center justify-center">
         <div
           role="none"
-          class="inline-block cursor-pointer text-6xl transition-transform duration-300 hover:scale-110 {isAnimating
-            ? 'wave-animate'
-            : ''}"
+          class="inline-block cursor-pointer text-6xl {isAnimating ? 'wave-animate' : ''}"
           on:mouseover={onMouseOver}
           on:focus={onMouseOver}
           on:animationend={onAnimationEnd}
@@ -70,30 +68,32 @@
     0% {
       transform: rotate(0deg);
     }
-    10% {
+    17% {
       transform: rotate(14deg);
+      scale: 110%;
     }
-    20% {
+    33% {
       transform: rotate(-8deg);
-    }
-    30% {
-      transform: rotate(14deg);
-    }
-    40% {
-      transform: rotate(-4deg);
+      scale: 110%;
     }
     50% {
-      transform: rotate(10deg);
+      transform: rotate(14deg);
+      scale: 110%;
     }
-    60% {
-      transform: rotate(0deg);
+    67% {
+      transform: rotate(-4deg);
+      scale: 110%;
+    }
+    83% {
+      transform: rotate(10deg);
+      scale: 110%;
     }
     100% {
       transform: rotate(0deg);
     }
   }
   .wave-animate {
-    animation: wave 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: wave 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: 70% 70%;
     display: inline-block;
   }
