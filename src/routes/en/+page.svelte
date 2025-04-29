@@ -27,6 +27,7 @@
           class="inline-block cursor-pointer text-6xl {isAnimating ? 'wave-animate' : ''}"
           on:mouseover={onMouseOver}
           on:focus={onMouseOver}
+          on:click={onMouseOver}
           on:animationend={onAnimationEnd}
         >
           👋
