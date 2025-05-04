@@ -14,7 +14,7 @@
   const { data }: Props = $props()
 </script>
 
-<div class="mx-auto w-1/2 py-3">
+<div class="mx-auto px-1 py-3 sm:w-7/8 sm:px-0 xl:w-1/2">
   <navbar>
     {#if data?.meta?.title}
       <h1 class="text-5xl font-bold">{data?.meta?.title}</h1>
