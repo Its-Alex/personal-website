@@ -14,13 +14,13 @@
   const { data }: Props = $props()
 </script>
 
-<div class="mx-auto px-1 py-3 sm:w-7/8 sm:px-0 xl:w-1/2">
+<div class="mx-auto flex min-h-screen flex-col px-1 py-3 sm:w-7/8 sm:px-0 xl:w-1/2">
   <navbar>
     {#if data?.meta?.title}
       <h1 class="text-5xl font-bold">{data?.meta?.title}</h1>
     {/if}
   </navbar>
-  <article class="prose max-w-none py-2">
+  <article class="prose max-w-none flex-1 py-2">
     {@html typeof data?.content === 'string' ? data.content : ''}
   </article>
   <footer>
