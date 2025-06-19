@@ -5,6 +5,7 @@ import { Client } from 'minio'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
+import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
@@ -88,6 +89,7 @@ export const load: PageServerLoad = async ({ locals, params }: PageServerLoadEve
   try {
     processedContent = await unified()
       .use(remarkParse)
+      .use(remarkGfm)
       .use(remarkRehype)
       .use(rehypeSanitize)
       .use(rehypeSlug)
