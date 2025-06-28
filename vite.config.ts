@@ -6,5 +6,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0'
   },
-  plugins: [tailwindcss(), sveltekit()]
+  plugins: [tailwindcss(), sveltekit()],
+  build: {
+    cssCodeSplit: true
+  },
+  ssr: {
+    noExternal: []
+  }
 })
