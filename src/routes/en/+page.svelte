@@ -36,28 +36,30 @@
       <div class="markdown-description text-center">
         <p class="m-3 text-lg font-semibold">I'm Alexandre.</p>
         <p class="m-3 text-lg">
-          <a href="https://fr.wikipedia.org/wiki/Software_craftsmanship">Software craftsman</a>
+          <a href="https://fr.wikipedia.org/wiki/Software_craftsmanship" rel="noopener"
+            >Software craftsman</a
+          >
           currently at
-          <a href="https://www.xxiiai.com/">XXII</a>.
+          <a href="https://www.xxiiai.com/" rel="noopener">XXII</a>.
         </p>
         <p class="m-3 text-lg">
           Fervent supporter of
-          <a href="https://fr.wikipedia.org/wiki/Open_source">Open source</a>.
+          <a href="https://fr.wikipedia.org/wiki/Open_source" rel="noopener">Open source</a>.
         </p>
         <p class="m-3 text-lg">
           Former
-          <a href="https://en.wikipedia.org/wiki/DevOps">DevOps</a>
+          <a href="https://en.wikipedia.org/wiki/DevOps" rel="noopener">DevOps</a>
           at
-          <a href="https://www.scaleway.com/">Scaleway</a>
+          <a href="https://www.scaleway.com/" rel="noopener">Scaleway</a>
           and
-          <a href="https://42.fr/">42</a>
+          <a href="https://42.fr/" rel="noopener">42</a>
           student.
         </p>
         <p class="m-3 text-lg">
           You can find me on
-          <a href="https://github.com/Its-Alex/">Github</a>,
-          <a href="https://www.linkedin.com/in/its-alex/">Linkedin</a>,
-          <a href="https://piaille.fr/@itsalex">Mastodon</a>.
+          <a href="https://github.com/Its-Alex/" rel="noopener">Github</a>,
+          <a href="https://www.linkedin.com/in/its-alex/" rel="noopener">Linkedin</a>,
+          <a href="https://piaille.fr/@itsalex" rel="noopener">Mastodon</a>.
         </p>
       </div>
     </div>
@@ -93,9 +95,32 @@
       transform: rotate(0deg);
     }
   }
+
   .wave-animate {
     animation: wave 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: 70% 70%;
     display: inline-block;
+    will-change: transform;
+  }
+
+  /* Optimizations for LCP */
+  .markdown-description {
+    contain: layout style;
+  }
+
+  .markdown-description p {
+    contain: layout;
+  }
+
+  /* Preload critical content */
+  .markdown-description a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .markdown-description a:hover {
+    text-decoration-thickness: 2px;
   }
 </style>

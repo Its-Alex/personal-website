@@ -36,27 +36,29 @@
       <div class="markdown-description text-center">
         <p class="m-3 text-lg font-semibold">Je suis Alexandre.</p>
         <p class="m-3 text-lg">
-          <a href="https://fr.wikipedia.org/wiki/Software_craftsmanship">Software craftsman</a>
+          <a href="https://fr.wikipedia.org/wiki/Software_craftsmanship" rel="noopener"
+            >Software craftsman</a
+          >
           actuellement à
-          <a href="https://www.xxiiai.com/">XXII</a>.
+          <a href="https://www.xxiiai.com/" rel="noopener">XXII</a>.
         </p>
         <p class="m-3 text-lg">
           Fervent partisan de l'
-          <a href="https://fr.wikipedia.org/wiki/Open_source">Open source</a>.
+          <a href="https://fr.wikipedia.org/wiki/Open_source" rel="noopener">Open source</a>.
         </p>
         <p class="m-3 text-lg">
           Ancien
-          <a href="https://fr.wikipedia.org/wiki/DevOps">DevOps</a>
+          <a href="https://fr.wikipedia.org/wiki/DevOps" rel="noopener">DevOps</a>
           à
-          <a href="https://www.scaleway.com/">Scaleway</a>
+          <a href="https://www.scaleway.com/" rel="noopener">Scaleway</a>
           et élève à
-          <a href="https://42.fr/">42</a>.
+          <a href="https://42.fr/" rel="noopener">42</a>.
         </p>
         <p class="m-3 text-lg">
           Vous pouvez me trouver sur
-          <a href="https://github.com/Its-Alex/">Github</a>,
-          <a href="https://www.linkedin.com/in/its-alex/">Linkedin</a>,
-          <a href="https://piaille.fr/@itsalex">Mastodon</a>.
+          <a href="https://github.com/Its-Alex/" rel="noopener">Github</a>,
+          <a href="https://www.linkedin.com/in/its-alex/" rel="noopener">Linkedin</a>,
+          <a href="https://piaille.fr/@itsalex" rel="noopener">Mastodon</a>.
         </p>
       </div>
     </div>

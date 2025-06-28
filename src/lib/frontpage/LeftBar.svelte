@@ -14,6 +14,9 @@
               (max-width: 256px) 256px,
               512px"
       alt="profil"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
     />
   </div>
   <ul class="custom-menu">

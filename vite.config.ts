@@ -6,5 +6,18 @@ export default defineConfig({
   server: {
     host: '0.0.0.0'
   },
-  plugins: [tailwindcss(), sveltekit()]
+  plugins: [tailwindcss(), sveltekit()],
+  build: {
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['@sveltejs/kit']
+        }
+      }
+    }
+  },
+  ssr: {
+    noExternal: []
+  }
 })
