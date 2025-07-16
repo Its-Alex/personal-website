@@ -68,7 +68,10 @@ export const load: PageServerLoad = async ({ locals, params }: PageServerLoadEve
     }
   } catch (error) {
     if (error !== null && error instanceof Error) {
-      if (error.message.includes('The specified key does not exist')) {
+      if (
+        error.message.includes('The specified key does not exist') ||
+        error.message.includes('Key not found')
+      ) {
         redirect(307, '/')
       }
     }
