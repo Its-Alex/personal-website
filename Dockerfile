@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:22.14.0-alpine AS builder
+FROM node:24.4.1-alpine AS builder
 
 WORKDIR /app
 

@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ['node:18-alpine', 'node:20-alpine', 'node:22-alpine']
+        node_version: ['node:20-alpine', 'node:22-alpine', 'node:24-alpine']
     container: ${{ matrix.node_version }}
     steps:
       - name: Checkout project
