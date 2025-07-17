@@ -13,6 +13,7 @@ const highlighter = (await createHighlighterCore({
     import('@shikijs/langs/terraform'),
     import('@shikijs/langs/dockerfile'),
     import('@shikijs/langs/shell'),
+    import('@shikijs/langs/markdown'),
     import('@shikijs/langs/toml')
   ],
   engine: createOnigurumaEngine(() => import('shiki/wasm'))
