@@ -5,14 +5,14 @@
 <div class="custom-sidebar">
   <div class="custom-profil-picture">
     <img
-      src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512"
-      srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=320 64w,
-                  https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=480 128w,
-                  https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=800 256w`}
-      sizes="(max-width: 64px) 64px,
-              (max-width: 128px) 128px,
-              (max-width: 256px) 256px,
-              512px"
+      src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=300"
+      srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=80 80w,
+                  https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=150 150w,
+                  https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=300 300w,
+                  https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=600 600w`}
+      sizes="(max-width: 750px) 80px,
+              (max-width: 1200px) 150px,
+              300px"
       alt="profil"
       loading="eager"
       decoding="async"
@@ -76,11 +76,17 @@
 
       @media screen and (max-width: 750px) {
         grid-column-start: 2;
+        padding: 5%;
       }
+
       img {
         width: 100%;
-        max-width: 300px;
+        height: auto;
+        max-width: min(300px, 80vw);
+        min-width: 60px;
         border-radius: 100%;
+        object-fit: cover;
+        aspect-ratio: 1;
       }
     }
 
