@@ -64,7 +64,7 @@
     "typescript-eslint": "8.37.0",
     "unified": "11.0.5",
     "vfile": "6.0.3",
-    "vite": "7.0.4"
+    "vite": "7.0.7"
   },
   "type": "module"
 }
