@@ -45,7 +45,7 @@ const minioClient =
       })
     : null
 
-export const load: PageServerLoad = async ({ locals, params }: PageServerLoadEvent) => {
+export const load: PageServerLoad = async ({ locals, params, url }: PageServerLoadEvent) => {
   if (minioClient === null) {
     console.log('minioClient is null')
     redirect(307, '/')
@@ -88,6 +88,20 @@ export const load: PageServerLoad = async ({ locals, params }: PageServerLoadEve
     redirect(307, '/')
   }
 
+  // Remove password from meta before returning
+  const { password, ...metaWithoutPassword } = meta
+  // Check password if required
+  const passwordString = typeof password === 'number' ? password.toString() : password
+  if (typeof passwordString === 'string' && passwordString !== '') {
+    const urlPassword = url.searchParams.get('password')
+    if (urlPassword !== passwordString) {
+      console.log(
+        `Password required or incorrect for protected note ${urlPassword} does not match ${passwordString}`
+      )
+      redirect(307, '/')
+    }
+  }
+
   let processedContent: VFile
   try {
     processedContent = await unified()
@@ -114,6 +128,6 @@ export const load: PageServerLoad = async ({ locals, params }: PageServerLoadEve
 
   return {
     content: htmlContent as string,
-    meta: meta as ArticleMetadata
+    meta: metaWithoutPassword as ArticleMetadata
   }
 }
