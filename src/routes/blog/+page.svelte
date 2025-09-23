@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { resolve } from '$app/paths'
+
   import type { PageServerData } from './$types'
 
   import { locale } from '$lib/translations'
@@ -23,7 +25,7 @@
             >{new Intl.DateTimeFormat($locale ?? undefined).format(article.publishDate)}</span
           >
           <span> - </span>
-          <a href={article.slug}>{article.title}</a>
+          <a href={resolve('/blog/[...slug]', { slug: article.slug })}>{article.title}</a>
         </li>
       {/each}
     </ul>

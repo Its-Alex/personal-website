@@ -54,6 +54,7 @@
         {crumb.label}
       </span>
     {:else}
+      <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
       <a href={crumb.href}>{crumb.label}</a> &gt;&nbsp;
     {/if}
   {/each}

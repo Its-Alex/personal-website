@@ -21,6 +21,7 @@
   </div>
   <ul class="custom-menu">
     <li>
+      <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
       <a href={props.resume_link}>
         {props.resume_text}
       </a>
