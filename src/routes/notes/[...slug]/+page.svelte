@@ -15,14 +15,14 @@
 </script>
 
 <div class="mx-auto flex min-h-screen flex-col px-1 py-3 sm:w-7/8 sm:px-0 xl:w-1/2">
-  <article class="prose max-w-none flex-1 py-2">
+  <article class="prose max-w-none flex-1 py-3">
     {#if data?.meta?.title}
       <h1>{data?.meta?.title}</h1>
     {/if}
     {@html typeof data?.content === 'string' ? data.content : ''}
   </article>
   <footer>
-    <p class="text-center text-sm text-gray-500">
+    <p class="text-center pt-3 text-sm text-gray-500">
       {@html $t('common.report-note-error')}
     </p>
   </footer>
