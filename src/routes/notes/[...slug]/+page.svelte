@@ -22,7 +22,7 @@
     {@html typeof data?.content === 'string' ? data.content : ''}
   </article>
   <footer>
-    <p class="text-center pt-3 text-sm text-gray-500">
+    <p class="pt-3 text-center text-sm text-gray-500">
       {@html $t('common.report-note-error')}
     </p>
   </footer>
