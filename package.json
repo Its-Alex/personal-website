@@ -54,7 +54,7 @@
     "remark-parse": "11.0.0",
     "remark-rehype": "11.1.2",
     "shiki": "3.21.0",
-    "svelte": "5.46.1",
+    "svelte": "5.46.4",
     "svelte-check": "4.3.5",
     "sveltekit-i18n": "2.4.2",
     "tailwindcss": "4.1.18",
