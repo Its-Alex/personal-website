@@ -2,8 +2,18 @@
   let props = $props()
 </script>
 
-<div class="custom-sidebar">
-  <div class="custom-profil-picture">
+<div
+  class="grid place-content-center bg-[linear-gradient(10deg,#502be3,#9630fd)]
+    max-[749px]:row-start-1 max-[749px]:grid-cols-[20%_20%_20%_20%_20%] max-[749px]:grid-rows-[100%]
+    min-[750px]:col-start-1 min-[750px]:max-w-112.5 min-[750px]:grid-cols-[100%]
+    min-[750px]:grid-rows-[21%_20%_8%_20%_31%] min-[750px]:pr-[10%]
+    min-[750px]:[clip-path:polygon(0_0,100%_0,70%_100%,0_100%)]"
+>
+  <div
+    class="grid h-full w-full place-items-center
+      max-[749px]:col-start-2 max-[749px]:p-[5%]
+      min-[750px]:row-start-2 min-[750px]:p-[10%]"
+  >
     <img
       src="https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=300"
       srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=80 80w,
@@ -17,11 +27,20 @@
       loading="eager"
       decoding="async"
       fetchpriority="high"
+      class="aspect-square w-full max-w-[min(300px,80vw)] min-w-15 rounded-full object-cover"
     />
   </div>
-  <ul class="custom-menu">
-    <li>
-      <a href={props.resume_link} rel="external">
+  <ul
+    class="grid place-content-center text-xl font-black text-[#fcfbfb]
+      max-[749px]:col-start-4
+      min-[750px]:row-start-4 min-[750px]:grid-rows-[30%_20%_20%_30%]"
+  >
+    <li class="min-[750px]:row-start-3">
+      <a
+        href={props.resume_link}
+        rel="external"
+        class="text-[1.1rem] font-bold text-inherit no-underline min-[750px]:text-[1.3rem]"
+      >
         {props.resume_text}
       </a>
     </li>
@@ -33,86 +52,3 @@
     </li> -->
   </ul>
 </div>
-
-<style>
-  a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-
-  .custom-sidebar {
-    display: grid;
-    place-content: center;
-    background: linear-gradient(10deg, #502be3, #9630fd);
-
-    @media screen and (min-width: 750px) {
-      max-width: 450px;
-      grid-template-columns: 100%;
-      grid-template-rows: 21% 20% 8% 20% 31%;
-      clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
-
-      padding-right: 10%;
-      grid-column: 1 / 2;
-    }
-
-    @media screen and (max-width: 750px) {
-      grid-template-columns: 20% 20% 20% 20% 20%;
-      grid-template-rows: 100%;
-
-      grid-row: 1 / 2;
-    }
-
-    .custom-profil-picture {
-      display: grid;
-      grid-template: 100% / 100%;
-      place-items: center;
-
-      @media screen and (min-width: 750px) {
-        padding: 10%;
-        grid-row-start: 2;
-      }
-
-      @media screen and (max-width: 750px) {
-        grid-column-start: 2;
-        padding: 5%;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-        max-width: min(300px, 80vw);
-        min-width: 60px;
-        border-radius: 100%;
-        object-fit: cover;
-        aspect-ratio: 1;
-      }
-    }
-
-    .custom-menu {
-      display: grid;
-      place-content: center;
-      font-weight: 900;
-      font-size: 1.2rem;
-      color: #fcfbfb;
-
-      @media screen and (min-width: 750px) {
-        grid-template-rows: 30% 20% 20% 30%;
-        grid-row-start: 4;
-      }
-
-      @media screen and (max-width: 750px) {
-        grid-column-start: 4;
-      }
-
-      li {
-        grid-row-start: 3;
-
-        a {
-          font-size: 1.3rem;
-        }
-      }
-    }
-  }
-</style>
