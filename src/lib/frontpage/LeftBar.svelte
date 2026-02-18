@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { resolve } from '$app/paths'
+  import { t } from '$lib/translations'
+
   let props = $props()
 </script>
 
@@ -31,11 +34,11 @@
     />
   </div>
   <ul
-    class="grid place-content-center text-xl font-black text-[#fcfbfb]
+    class="grid grid-rows-[auto_auto] grid-flow-row place-content-center gap-y-2 text-xl font-black text-[#fcfbfb]
       max-[749px]:col-start-4
-      min-[750px]:row-start-4 min-[750px]:grid-rows-[30%_20%_20%_30%]"
+      min-[750px]:row-start-4 min-[750px]:grid-rows-[auto_auto]"
   >
-    <li class="min-[750px]:row-start-3">
+    <li>
       <a
         href={props.resume_link}
         rel="external"
@@ -44,11 +47,13 @@
         {props.resume_text}
       </a>
     </li>
-    <!-- Hidden for now because feature not finished -->
-    <!-- <li>
-      <a href="/blog">
-        {$_('Blog')}
+    <li>
+      <a
+        href={resolve('/blog')}
+        class="text-[1.1rem] font-bold text-inherit no-underline min-[750px]:text-[1.3rem]"
+      >
+        {$t('common.Blog')}
       </a>
-    </li> -->
+    </li>
   </ul>
 </div>

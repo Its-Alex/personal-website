@@ -6,7 +6,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #bdbdbd;
+  background: #cecece;
 }
 
 ::-webkit-scrollbar {
@@ -23,7 +23,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #fcfbfb;
+  background-color: #fefefe;
   font-family: 'Lato', sans-serif;
   font-size: 1.1rem;
 }

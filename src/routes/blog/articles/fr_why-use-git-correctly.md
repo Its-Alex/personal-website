@@ -12,7 +12,7 @@ Media inside the **static** _folder_ is served from `/media`.
 
 This is a [link](google.fr) [`link`](google.fr)
 
-![Svelte](/favicon/apple-icon-76x76.png)
+![Svelte](/favicon/android-chrome-192x192.png)
 
 ```typescript
 for (const path in paths) {

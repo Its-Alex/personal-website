@@ -11,9 +11,9 @@
 </script>
 
 <div class="mx-auto">
-  <navbar>
-    <h1 class="my-20 text-2xl font-bold">{data?.meta?.title}</h1>
-  </navbar>
+  <header class="mb-10 border-b border-gray-200 pt-12 pb-8">
+    <h1 class="font-serif text-3xl font-bold tracking-tight text-gray-900">{data?.meta?.title}</h1>
+  </header>
   <div class="prose max-w-none">
     <SvelteComponent />
   </div>

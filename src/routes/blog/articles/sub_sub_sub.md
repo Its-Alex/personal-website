@@ -10,4 +10,4 @@ published: true
 
 Media inside the **static** folder is served from `/`.
 
-![Svelte](/favicon/apple-icon-76x76.png)
+![Svelte](/favicon/android-chrome-192x192.png)
