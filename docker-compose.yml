@@ -4,4 +4,4 @@ services:
     container_name: personal-website
     restart: unless-stopped
     ports:
-      - '80:80'
+      - '8000:80'
