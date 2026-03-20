@@ -14,7 +14,9 @@ const highlighter = (await createHighlighterCore({
     import('@shikijs/langs/dockerfile'),
     import('@shikijs/langs/shell'),
     import('@shikijs/langs/markdown'),
-    import('@shikijs/langs/toml')
+    import('@shikijs/langs/toml'),
+    import('@shikijs/langs/sql'),
+    import('@shikijs/langs/python')
   ],
   engine: createOnigurumaEngine(() => import('shiki/wasm'))
 })) as HighlighterGeneric<string, string>
