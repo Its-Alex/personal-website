@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ['node:20-alpine', 'node:22-alpine', 'node:24-alpine']
+        node_version: ['node:24-alpine', 'node:25-alpine']
     container: ${{ matrix.node_version }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
         with:
-          version: 9.12.1
+          version: 10.32.1
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Typescript

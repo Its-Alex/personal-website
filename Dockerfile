@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:24.4.1-alpine AS builder
+FROM node:25.8.1-alpine AS builder
 
 WORKDIR /app
 
@@ -12,8 +12,7 @@ ADD svelte.config.js /app/
 ADD tsconfig.json /app/
 ADD vite.config.ts /app/
 
-RUN corepack enable \
-    && corepack prepare pnpm@9.12.1 --activate \
+RUN npm install -g pnpm@10.32.1 \
     && pnpm install --frozen-lockfile \
     && pnpm run build
 
