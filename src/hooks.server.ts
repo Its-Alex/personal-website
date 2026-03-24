@@ -1,25 +1,11 @@
 import type { Handle } from '@sveltejs/kit'
-import { createHighlighterCore, type HighlighterGeneric } from 'shiki/core'
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 
 import { locales, loadTranslations, defaultLocale } from '$lib/translations'
+import { initHighlighter } from '$lib/highlighter'
 
-const highlighter = (await createHighlighterCore({
-  themes: [import('@shikijs/themes/dracula')],
-  langs: [
-    import('@shikijs/langs/javascript'),
-    import('@shikijs/langs/typescript'),
-    import('@shikijs/langs/svelte'),
-    import('@shikijs/langs/terraform'),
-    import('@shikijs/langs/dockerfile'),
-    import('@shikijs/langs/shell'),
-    import('@shikijs/langs/markdown'),
-    import('@shikijs/langs/toml'),
-    import('@shikijs/langs/sql'),
-    import('@shikijs/langs/python')
-  ],
-  engine: createOnigurumaEngine(() => import('shiki/wasm'))
-})) as HighlighterGeneric<string, string>
+export const init = async () => {
+  await initHighlighter()
+}
 
 const getLocaleFromUrlCookiesOrHeader = (
   url: URL,
@@ -71,7 +57,6 @@ export const handle: Handle = async ({ event, resolve }) => {
   await loadTranslations(locale, url.pathname)
 
   event.locals.locale = locale
-  event.locals.highlighter = highlighter
 
   const response = await resolve(event)
   return response

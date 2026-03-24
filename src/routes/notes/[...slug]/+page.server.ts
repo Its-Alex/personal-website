@@ -11,7 +11,8 @@ import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import type { VFile } from 'vfile'
 import matter from 'gray-matter'
-import rehypeShikiFromHighlighter from '@shikijs/rehype/core'
+import { getHighlighter, rehypeShikiFromHighlighter } from '$lib/highlighter'
+import type { HighlighterGeneric } from 'shiki'
 
 import type { PageServerLoadEvent, PageServerLoad } from './$types.js'
 
@@ -45,7 +46,7 @@ const minioClient =
       })
     : null
 
-export const load: PageServerLoad = async ({ locals, params, url }: PageServerLoadEvent) => {
+export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent) => {
   if (minioClient === null) {
     console.log('minioClient is null')
     redirect(307, '/')
@@ -110,7 +111,7 @@ export const load: PageServerLoad = async ({ locals, params, url }: PageServerLo
       .use(remarkRehype)
       .use(rehypeSanitize)
       .use(rehypeSlug)
-      .use(rehypeShikiFromHighlighter, locals.highlighter, {
+      .use(rehypeShikiFromHighlighter, getHighlighter() as HighlighterGeneric<string, string>, {
         inline: 'tailing-curly-colon',
         theme: 'dracula'
       })
