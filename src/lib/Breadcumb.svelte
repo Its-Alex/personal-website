@@ -1,18 +1,11 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy'
-
   import { asset, resolve } from '$app/paths'
   import type { Pathname } from '$app/types'
 
   import { t } from '$lib/translations'
   import { page } from '$app/state'
 
-  let crumbs: Array<{
-    label: string
-    href: Pathname
-  }> = $state([])
-
-  run(() => {
+  const crumbs = $derived.by(() => {
     // Remove zero-length tokens.
     const tokens = page.url.pathname
       .replaceAll('-', ' ')
@@ -22,7 +15,7 @@
     // Create { label, href } pairs for each token.
     let tokenPath: string = ''
     let isBlog: boolean = false
-    crumbs = tokens.reduce(
+    return tokens.reduce(
       (
         acc: Array<{
           label: string
