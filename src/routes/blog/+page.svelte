@@ -10,24 +10,51 @@
   }
 
   const { data }: Props = $props()
+
+  const dateFormatter = $derived(
+    new Intl.DateTimeFormat($locale ?? undefined, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    })
+  )
 </script>
 
-<div>
-  <navbar>
-    <h1 class="my-20 text-2xl font-bold">Blog</h1>
-  </navbar>
+<header class="mb-10 border-b border-gray-200 pb-6">
+  <h1 class="text-3xl font-bold tracking-tight text-gray-900">Blog</h1>
+  <p class="mt-2 text-sm text-gray-600">
+    {data.articles.length}
+    {data.articles.length > 1 ? 'articles' : 'article'}
+  </p>
+</header>
 
-  <section>
-    <ul class="mx-auto grid grid-cols-1 gap-4">
+<section>
+  {#if data.articles.length === 0}
+    <p class="py-12 text-center">No articles yet.</p>
+  {:else}
+    <ul class="flex flex-col divide-y divide-gray-200">
       {#each data.articles as article (article.slug)}
-        <li>
-          <span class="m-0 mb-2 p-0 font-light"
-            >{new Intl.DateTimeFormat($locale ?? undefined).format(article.publishDate)}</span
-          >
-          <span> - </span>
-          <a href={resolve('/blog/[...slug]', { slug: article.slug })}>{article.title}</a>
+        <li class="py-5">
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="text-lg font-semibold">
+              <a href={resolve('/blog/[...slug]', { slug: article.slug })}>
+                {article.title}
+              </a>
+            </h2>
+            <time
+              class="shrink-0 text-xs font-light tabular-nums"
+              datetime={article.publishDate.toISOString()}
+            >
+              {dateFormatter.format(article.publishDate)}
+            </time>
+          </div>
+          {#if article.description}
+            <p class="mt-1 line-clamp-2 text-sm">
+              {article.description}
+            </p>
+          {/if}
         </li>
       {/each}
     </ul>
-  </section>
-</div>
+  {/if}
+</section>
