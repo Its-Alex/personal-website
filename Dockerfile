@@ -17,12 +17,15 @@ RUN npm install -g pnpm@11.5.0 \
     && pnpm install --frozen-lockfile \
     && pnpm run build
 
-FROM node:26.2-alpine
+FROM gcr.io/distroless/nodejs26-debian13:nonroot
 
-ENV PORT=80
-EXPOSE 80
+ENV PORT=8000
+EXPOSE 8000
+
+WORKDIR /build
 
 COPY --from=builder /app/build/ /build/
 COPY --from=builder /app/package.json /build/
 
-CMD ["node", "/build/index.js"]
+# distroless nodejs image has node as ENTRYPOINT, so CMD only needs the script
+CMD ["/build/index.js"]

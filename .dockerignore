@@ -1,21 +1,47 @@
-# Node
-**/dist
-**/node_modules
-**/.svelte-kit
-.browserlistrc
-.editorconfig
-.eslintignore
-.eslintrc.json
-.prettierignore
-.prettierrc
-.stylelintrc
-.tailwind.config.js
-.stylelintrc
-
-# Project
-README.md
+# Git
+.git
+.gitignore
 .github
 
-# Git
-**/git
-.gitignore
+# Node / build artifacts
+node_modules
+**/node_modules
+.pnpm-store
+.svelte-kit
+build
+dist
+
+# Editor / OS
+.vscode
+.idea
+.DS_Store
+*.swp
+
+# Env / secrets
+.env
+.env.*
+.envrc
+.password-store
+
+# Tooling configs not needed at build
+.mise.toml
+.editorconfig
+.prettierrc
+.prettierignore
+eslint.config.js
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.*.yml
+
+# Docs / scripts
+README.md
+LICENSE
+scripts
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
