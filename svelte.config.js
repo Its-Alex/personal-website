@@ -2,19 +2,36 @@ import ssrAdapter from '@sveltejs/adapter-node'
 import vercelAdapter from '@sveltejs/adapter-vercel'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsvex, escapeSvelte } from 'mdsvex'
-import { codeToHtml } from 'shiki'
+import { createHighlighter } from 'shiki'
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
+
+let highlighterPromise
+function getHighlighter() {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ['dracula'],
+      langs: [],
+      engine: createJavaScriptRegexEngine()
+    })
+  }
+  return highlighterPromise
+}
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: ['.md'],
   highlight: {
     highlighter: async (code, lang = 'text') => {
-      const html = escapeSvelte(
-        await codeToHtml(code, {
-          lang,
-          theme: 'dracula'
-        })
-      )
+      const hl = await getHighlighter()
+      const loaded = hl.getLoadedLanguages()
+      if (!loaded.includes(lang)) {
+        try {
+          await hl.loadLanguage(lang)
+        } catch {
+          lang = 'text'
+        }
+      }
+      const html = escapeSvelte(hl.codeToHtml(code, { lang, theme: 'dracula' }))
       return `{@html \`${html}\` }`
     }
   }

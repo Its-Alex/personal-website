@@ -1,22 +1,17 @@
-import { createHighlighterCore } from 'shiki/core'
-import { bundledLanguages } from 'shiki/langs'
+import { createHighlighter } from 'shiki'
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
-import type { HighlighterCore } from 'shiki/core'
+import type { Highlighter } from 'shiki'
 export { default as rehypeShikiFromHighlighter } from '@shikijs/rehype/core'
 
-let highlighter: HighlighterCore | null = null
+let highlighterPromise: Promise<Highlighter> | null = null
 
-export async function initHighlighter(): Promise<void> {
-  highlighter = await createHighlighterCore({
-    themes: [import('@shikijs/themes/dracula')],
-    langs: Object.values(bundledLanguages),
-    engine: createJavaScriptRegexEngine()
-  })
-}
-
-export function getHighlighter(): HighlighterCore {
-  if (!highlighter) {
-    throw new Error('Highlighter not initialized. Call initHighlighter() in hooks init first.')
+export function getHighlighter(): Promise<Highlighter> {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ['dracula'],
+      langs: [],
+      engine: createJavaScriptRegexEngine()
+    })
   }
-  return highlighter
+  return highlighterPromise
 }

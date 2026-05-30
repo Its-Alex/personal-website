@@ -12,7 +12,6 @@ import { unified } from 'unified'
 import type { VFile } from 'vfile'
 import matter from 'gray-matter'
 import { getHighlighter, rehypeShikiFromHighlighter } from '$lib/highlighter'
-import type { HighlighterGeneric } from 'shiki'
 
 import type { PageServerLoadEvent, PageServerLoad } from './$types.js'
 
@@ -111,9 +110,11 @@ export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent)
       .use(remarkRehype)
       .use(rehypeSanitize)
       .use(rehypeSlug)
-      .use(rehypeShikiFromHighlighter, getHighlighter() as HighlighterGeneric<string, string>, {
+      .use(rehypeShikiFromHighlighter, await getHighlighter(), {
         inline: 'tailing-curly-colon',
-        theme: 'dracula'
+        theme: 'dracula',
+        lazy: true,
+        fallbackLanguage: 'text'
       })
       .use(rehypeStringify)
       .process(content)

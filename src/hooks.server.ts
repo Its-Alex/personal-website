@@ -1,10 +1,10 @@
 import type { Handle } from '@sveltejs/kit'
 
 import { locales, loadTranslations, defaultLocale } from '$lib/translations'
-import { initHighlighter } from '$lib/highlighter'
+import { getHighlighter } from '$lib/highlighter'
 
 export const init = async () => {
-  await initHighlighter()
+  await getHighlighter()
 }
 
 const getLocaleFromUrlCookiesOrHeader = (
