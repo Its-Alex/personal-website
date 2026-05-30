@@ -1,5 +1,5 @@
 [tools]
-nodejs = '25.8.1'
-pnpm = '10.32.1'
+nodejs = '26.2'
+pnpm = '11.5.0'
 "asdf:Cybolic/asdf-pass" = '1.7.4'
 direnv = '2.37.1'

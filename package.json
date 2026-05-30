@@ -2,9 +2,9 @@
   "name": "personal-website",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@11.5.0",
   "engines": {
-    "node": "^20.19 || ^22.12 || >=24 || <25.0.0"
+    "node": "^20.19 || ^22.12 || >=24 || <26"
   },
   "scripts": {
     "dev": "vite dev",
