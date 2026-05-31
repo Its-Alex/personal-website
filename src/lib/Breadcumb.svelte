@@ -74,7 +74,7 @@
         </svg>
 
         {#if index === crumbs.length - 1}
-          <span class="font-medium text-gray-900">{crumb.label}</span>
+          <span class="px-1 font-medium text-gray-900">{crumb.label}</span>
         {:else}
           <a
             href={resolve(crumb.href)}
