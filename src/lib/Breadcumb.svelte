@@ -2,8 +2,11 @@
   import { asset, resolve } from '$app/paths'
   import type { Pathname } from '$app/types'
 
-  import { t } from '$lib/translations'
+  import { locale, t } from '$lib/translations'
   import { page } from '$app/state'
+
+  // Link straight to the localized home so the click doesn't go through the `/` -> `/{locale}` redirect.
+  const homeHref = $derived($locale === 'fr' ? resolve('/fr') : resolve('/en'))
 
   const crumbs = $derived.by(() => {
     // Remove zero-length tokens.
@@ -44,7 +47,7 @@
   <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-gray-600">
     <li class="flex items-center">
       <a
-        href={resolve('/')}
+        href={homeHref}
         aria-label={$t('common.Home')}
         title={$t('common.Home')}
         class="flex items-center justify-center rounded-md p-1 transition-colors hover:bg-gray-200 hover:text-gray-900"
