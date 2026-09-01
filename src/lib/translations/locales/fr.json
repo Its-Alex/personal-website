@@ -1,4 +1,8 @@
 {
   "Home": "Acceuil",
-  "report-note-error": "Vous avez trouvé une erreur ? Contacter <a href=\"mailto:contact@itsalex.fr\">contact@itsalex.fr</a>."
+  "report-note-error": "Vous avez trouvé une erreur ? Contacter <a href=\"mailto:contact@itsalex.fr\">contact@itsalex.fr</a>.",
+  "error-not-found-title": "Page introuvable",
+  "error-not-found-description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+  "error-generic-title": "Une erreur est survenue",
+  "error-back-home": "Retour à l'accueil"
 }

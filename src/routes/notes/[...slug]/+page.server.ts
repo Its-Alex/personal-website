@@ -1,6 +1,6 @@
 import type { Readable } from 'node:stream'
 
-import { redirect, error as sveltekitError } from '@sveltejs/kit'
+import { error as sveltekitError } from '@sveltejs/kit'
 import { Client } from 'minio'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
@@ -48,7 +48,7 @@ const minioClient =
 export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent) => {
   if (minioClient === null) {
     console.log('minioClient is null')
-    redirect(307, '/')
+    sveltekitError(404)
   }
 
   const objectName = Array.isArray(params.slug)
@@ -72,7 +72,7 @@ export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent)
         error.message.includes('The specified key does not exist') ||
         error.message.includes('Key not found')
       ) {
-        redirect(307, '/')
+        sveltekitError(404)
       }
     }
     console.error('Error fetching file from S3', error)
@@ -85,7 +85,7 @@ export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent)
   const { data: meta, content } = matter(data)
 
   if (typeof meta.public !== 'boolean' || !meta.public) {
-    redirect(307, '/')
+    sveltekitError(404)
   }
 
   // Remove password from meta before returning
@@ -98,7 +98,7 @@ export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent)
       console.log(
         `Password required or incorrect for protected note ${urlPassword} does not match ${passwordString}`
       )
-      redirect(307, '/')
+      sveltekitError(404)
     }
   }
 

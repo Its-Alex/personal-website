@@ -1,5 +1,5 @@
 import type { Component } from 'svelte'
-import { redirect, error } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit'
 
 import type { PageLoadEvent } from './$types.d.ts'
 
@@ -20,11 +20,10 @@ export async function load({ params }: PageLoadEvent): Promise<
       meta: article.metadata
     }
   } catch (e) {
-    console.log(e)
-    // Redirect if page not found
+    // Vite throws "Unknown variable dynamic import" when no .md matches the glob, i.e. article missing
     if (e !== null && e instanceof Error) {
       if (e.message.includes('Unknown variable dynamic import')) {
-        redirect(307, '/')
+        error(404)
       }
     }
     console.error(e)

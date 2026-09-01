@@ -1,4 +1,8 @@
 {
   "Home": "Home",
-  "report-note-error": "Found an error? Report it to <a href=\"mailto:contact@itsalex.fr\">contact@itsalex.fr</a>."
+  "report-note-error": "Found an error? Report it to <a href=\"mailto:contact@itsalex.fr\">contact@itsalex.fr</a>.",
+  "error-not-found-title": "Page not found",
+  "error-not-found-description": "The page you are looking for does not exist or has been moved.",
+  "error-generic-title": "Something went wrong",
+  "error-back-home": "Back to home"
 }
