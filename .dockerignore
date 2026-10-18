@@ -21,7 +21,7 @@ dist
 .env
 .env.*
 .envrc
-.password-store
+passwords
 
 # Tooling configs not needed at build
 .mise.toml

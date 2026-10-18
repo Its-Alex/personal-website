@@ -10,7 +10,6 @@ using [SSR](https://en.wikipedia.org/wiki/Server-side_scripting).
 After having installed `mise` run:
 
 ```
-$ mise plugin add pass https://github.com/Cybolic/asdf-pass.git
 $ mise trust && mise install
 ```
 

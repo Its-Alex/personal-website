@@ -1,5 +1,12 @@
 [tools]
 nodejs = '26.2'
 pnpm = '11.5.0'
-"asdf:Cybolic/asdf-pass" = '1.7.4'
+gopass = '1.17.2'
 direnv = '2.37.1'
+
+[env]
+# Own gopass store for this repository: mounts.path outranks PASSWORD_STORE_DIR,
+# and the environment outranks every config file.
+GOPASS_CONFIG_COUNT = "1"
+GOPASS_CONFIG_KEY_0 = "mounts.path"
+GOPASS_CONFIG_VALUE_0 = "{{config_root}}/passwords"

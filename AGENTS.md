@@ -6,7 +6,7 @@ Personal website. SvelteKit 2 + Svelte 5 + Tailwind 4, SSR. Single package, no m
 
 - Node + pnpm versions are pinned by `.mise.toml` (`mise install` to match CI). `package.json#engines` allows `^20.19 || ^22.12 || >=24 || <26`; CI matrix tests Node 24/25/26 alpine.
 - `pnpm` is required (`.npmrc` sets `engine-strict=true`, `packageManager: pnpm@11.5.0`). Do not introduce npm/yarn lockfiles.
-- Secrets for local dev come from `pass` via `.envrc` (`direnv allow`). All runtime env vars are prefixed `PERSONAL_WEBSITE_MINIO_*`. Without them, the `/notes/*` route is disabled (redirects to `/`).
+- Secrets for local dev come from `gopass` via `.envrc` (`direnv allow`). The repository ships its own age-backed gopass store in `passwords/`, selected through the `GOPASS_CONFIG_*` variables in `.mise.toml`. All runtime env vars are prefixed `PERSONAL_WEBSITE_MINIO_*`. Without them, the `/notes/*` route is disabled (redirects to `/`).
 
 ## Commands
 
