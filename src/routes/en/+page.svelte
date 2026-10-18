@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LeftBar from '$lib/frontpage/LeftBar.svelte'
+  import LeftBar from '#lib/frontpage/LeftBar.svelte'
 
   let isAnimating: boolean = false
   const onMouseOver = (): void => {

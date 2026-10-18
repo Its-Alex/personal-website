@@ -1,8 +1,8 @@
 <script lang="ts">
   import { asset, resolve } from '$app/paths'
-  import type { Pathname } from '$app/types'
+  import type { Path } from '$app/types'
 
-  import { locale, t } from '$lib/translations'
+  import { locale, t } from '#lib/translations/index.js'
   import { page } from '$app/state'
 
   // Link straight to the localized home so the click doesn't go through the `/` -> `/{locale}` redirect.
@@ -22,16 +22,16 @@
       (
         acc: Array<{
           label: string
-          href: Pathname
+          href: Path
         }>,
         token,
         index
       ) => {
-        tokenPath += '/' + token
+        tokenPath += (tokenPath === '' ? '' : '/') + token
         token = token.charAt(0).toUpperCase() + token.slice(1)
 
         if (!isBlog || index === tokens.length - 1)
-          acc.push({ label: token, href: tokenPath as Pathname })
+          acc.push({ label: token, href: tokenPath as Path })
 
         if (token === 'Blog' && index === 0) {
           isBlog = true
@@ -52,7 +52,7 @@
         title={$t('common.Home')}
         class="flex items-center justify-center rounded-md p-1 transition-colors hover:bg-gray-200 hover:text-gray-900"
       >
-        <img src={asset('/favicon/favicon.svg')} alt="" class="h-5 w-5" />
+        <img src={asset('favicon/favicon.svg')} alt="" class="h-5 w-5" />
       </a>
     </li>
 

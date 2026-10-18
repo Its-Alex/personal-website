@@ -1,6 +1,6 @@
 import type { ServerLoad } from '@sveltejs/kit'
 
-import { translations } from '$lib/translations'
+import { translations } from '#lib/translations/index.js'
 
 export const load: ServerLoad = async ({ locals, url }) => {
   const { pathname } = url

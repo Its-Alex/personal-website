@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
 
-  import Breadcrumb from '$lib/Breadcumb.svelte'
+  import Breadcrumb from '#lib/Breadcumb.svelte'
 
   interface Props {
     children?: Snippet

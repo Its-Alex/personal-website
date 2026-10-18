@@ -9,7 +9,6 @@ ADD .npmrc /app/
 ADD package.json /app/
 ADD pnpm-lock.yaml /app/
 ADD pnpm-workspace.yaml /app/
-ADD svelte.config.js /app/
 ADD tsconfig.json /app/
 ADD vite.config.ts /app/
 

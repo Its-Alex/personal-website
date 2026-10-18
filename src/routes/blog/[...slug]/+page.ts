@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit'
 
 import type { PageLoadEvent } from './$types.d.ts'
 
-import type { ArticleMetadata } from '$lib/types/articles'
+import type { ArticleMetadata } from '#lib/types/articles.js'
 
 export async function load({ params }: PageLoadEvent): Promise<
   | {

@@ -11,7 +11,7 @@ import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import type { VFile } from 'vfile'
 import matter from 'gray-matter'
-import { getHighlighter, rehypeShikiFromHighlighter } from '$lib/highlighter'
+import { getHighlighter, rehypeShikiFromHighlighter } from '#lib/highlighter.js'
 
 import type { PageServerLoadEvent, PageServerLoad } from './$types.js'
 

@@ -1,10 +1,10 @@
 # AGENTS.md
 
-Personal website. SvelteKit 2 + Svelte 5 + Tailwind 4, SSR. Single package, no monorepo despite `pnpm-workspace.yaml`.
+Personal website. SvelteKit 3 + Svelte 5 + Tailwind 4, SSR. Single package, no monorepo despite `pnpm-workspace.yaml`.
 
 ## Toolchain
 
-- Node + pnpm versions are pinned by `.mise.toml` (`mise install` to match CI). `package.json#engines` allows `^20.19 || ^22.12 || >=24 || <26`; CI matrix tests Node 24/25/26 alpine.
+- Node + pnpm versions are pinned by `.mise.toml` (`mise install` to match CI). `package.json#engines` requires `>=22.17` (SvelteKit 3); CI matrix tests Node 24/25/26 alpine.
 - `pnpm` is required (`.npmrc` sets `engine-strict=true`, `packageManager: pnpm@11.5.0`). Do not introduce npm/yarn lockfiles.
 - Secrets for local dev come from `gopass` via `.envrc` (`direnv allow`). The repository ships its own age-backed gopass store in `passwords/`, selected through the `GOPASS_CONFIG_*` variables in `.mise.toml`. All runtime env vars are prefixed `PERSONAL_WEBSITE_MINIO_*`. Without them, the `/notes/*` route is disabled (redirects to `/`).
 
@@ -26,7 +26,8 @@ Prettier rules (`.prettierrc`): no semicolons, single quotes, no tabs, `printWid
 
 ## Architecture quirks an agent will get wrong
 
-- **Adapter is conditional** (`svelte.config.js`): `VERCEL` env → `@sveltejs/adapter-vercel`, otherwise `@sveltejs/adapter-node`. The Dockerfile uses the node build (`build/index.js`).
+- **Config lives in `vite.config.ts`** (SvelteKit 3 dropped `svelte.config.js`; do not recreate it): `sveltekit({...})` options, mdsvex preprocessing and the adapter. `$lib` no longer exists — use `#lib/...` with the file extension (`package.json#imports`).
+- **Adapter is conditional** (`vite.config.ts`): `VERCEL` env → `@sveltejs/adapter-vercel`, otherwise `@sveltejs/adapter-node`. The Dockerfile uses the node build (`build/index.js`).
 - **Tailwind 4** is wired through `@tailwindcss/vite` only — there is no `tailwind.config.js` and there must not be one. Theme/customization belongs in `src/app.css`.
 - **mdsvex** treats `.md` as Svelte components (`extensions: ['.svelte', '.md']`). Code blocks are highlighted by a single Shiki highlighter (`src/lib/highlighter.ts`), preloaded in `hooks.server.ts#init`, theme `dracula`. Reuse `getHighlighter()` — don't create new highlighters.
 - **Blog routing trick** (`src/routes/blog/[...slug]/+page.ts` and `+page.server.ts`): slashes in the URL slug map to underscores in the filename. `sub_sub.md` is served at `/blog/sub/sub`, `fr_why-use-git-correctly.md` at `/blog/fr/why-use-git-correctly`. When adding articles, name files accordingly and include full frontmatter (`title`, `description`, `publishDate`, `lastUpdateDate`, `published`) — articles missing any field or with `published: false` are silently dropped from the index.
@@ -38,7 +39,7 @@ Prettier rules (`.prettierrc`): no semicolons, single quotes, no tabs, `printWid
 
 - **Never run `git commit`, `git push`, or any history-writing git command.** The repo owner commits manually; agents only stage/edit files unless the user explicitly says "commit it" (or equivalent) for that specific change.
 - Match `.prettierrc` exactly (no semis, single quotes).
-- TypeScript is strict (`noImplicitAny`, `strict`). Path aliases come from SvelteKit (`$lib`, `$types`); don't add to `tsconfig.json` directly (see comment in that file).
+- TypeScript is strict (`noImplicitAny`, `strict`). Path aliases: `#lib` comes from `package.json#imports`, `$types`/`$app/*` from SvelteKit; do not add `paths` to `tsconfig.json`.
 - Static assets in `static/` are served from `/`.
 
 ## Release

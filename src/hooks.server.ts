@@ -1,18 +1,21 @@
-import type { Handle, HandleServerError } from '@sveltejs/kit'
+import type { Handle, HandleServerError } from '@sveltejs/kit/hooks'
 
-import { locales, loadTranslations, defaultLocale } from '$lib/translations'
-import { getHighlighter } from '$lib/highlighter'
+import { locales, loadTranslations, defaultLocale } from '#lib/translations/index.js'
+import { getHighlighter } from '#lib/highlighter.js'
 
 export const init = async () => {
   await getHighlighter()
 }
 
-// 404s are silenced on purpose: kit only routes the ones it raises itself here, never those from
-// `error(404)`, so logging them would be noisy and inconsistent. Request logging belongs upstream.
-export const handleError: HandleServerError = ({ error, event, status }) => {
+// 404s are silenced on purpose: logging them would be noisy. Request logging belongs upstream.
+export const handleError: HandleServerError = (caught) => {
+  const status = caught.kind === 'unknown' ? 500 : caught.error.status
   if (status === 404) return
 
-  console.error(`[${status}] ${event.request.method} ${event.url.pathname}`, error)
+  console.error(
+    `[${status}] ${caught.event.request.method} ${caught.event.url.pathname}`,
+    caught.error
+  )
 }
 
 const getLocaleFromUrlCookiesOrHeader = (

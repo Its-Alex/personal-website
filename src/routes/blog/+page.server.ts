@@ -1,4 +1,4 @@
-import type { ArticleMetadata } from '$lib/types/articles'
+import type { ArticleMetadata } from '#lib/types/articles.js'
 
 export async function load(): Promise<{
   articles: ArticleMetadata[]

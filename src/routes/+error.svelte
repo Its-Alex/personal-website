@@ -2,7 +2,7 @@
   import { resolve } from '$app/paths'
 
   import { page } from '$app/state'
-  import { locale, t } from '$lib/translations'
+  import { locale, t } from '#lib/translations/index.js'
 
   const isNotFound = $derived(page.status === 404)
   const title = $derived(

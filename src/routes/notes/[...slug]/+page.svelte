@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t } from '$lib/translations'
+  import { t } from '#lib/translations/index.js'
 
   /* eslint-disable svelte/no-at-html-tags */
   interface Props {

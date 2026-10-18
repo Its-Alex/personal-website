@@ -3,7 +3,7 @@
 
   import type { PageServerData } from './$types'
 
-  import { locale } from '$lib/translations'
+  import { locale } from '#lib/translations/index.js'
 
   interface Props {
     data: PageServerData
