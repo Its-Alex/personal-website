@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { resolve } from '$app/paths'
+
   let props = $props()
 </script>
 
@@ -35,6 +37,14 @@
       max-[749px]:col-start-4
       min-[750px]:row-start-4 min-[750px]:grid-rows-[30%_20%_20%_30%]"
   >
+    <li class="min-[750px]:row-start-2">
+      <a
+        href={resolve('/tech-radar')}
+        class="text-[1.1rem] font-bold text-inherit no-underline min-[750px]:text-[1.3rem]"
+      >
+        {props.tech_radar_text}
+      </a>
+    </li>
     <li class="min-[750px]:row-start-3">
       <a
         href={props.resume_link}

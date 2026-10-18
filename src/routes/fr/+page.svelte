@@ -18,6 +18,7 @@
   <LeftBar
     resume_link="https://github.com/Its-Alex/resume/releases/download/latest/resume_fr.pdf"
     resume_text="Curriculum"
+    tech_radar_text="Tech radar"
   />
   <div class="grid place-items-center">
     <div class="flex flex-col flex-wrap">

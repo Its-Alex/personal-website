@@ -1,0 +1,125 @@
+{
+  "quadrants": ["Languages", "Infrastructure", "Tools", "Platforms"],
+  "rings": [
+    { "name": "Love", "color": "#5ba300" },
+    { "name": "Like", "color": "#009eb0" },
+    { "name": "Trying", "color": "#c7a500" },
+    { "name": "Avoid", "color": "#d1495b" }
+  ],
+  "entries": [
+    { "name": "JS", "quadrant": "Languages", "ring": "Love" },
+    {
+      "name": "TypeScript",
+      "quadrant": "Languages",
+      "ring": "Love",
+      "link": "https://www.typescriptlang.org"
+    },
+    { "name": "Go", "quadrant": "Languages", "ring": "Love", "link": "https://go.dev" },
+    {
+      "name": "Python",
+      "quadrant": "Languages",
+      "ring": "Like",
+      "link": "https://www.python.org"
+    },
+    {
+      "name": "Rust",
+      "quadrant": "Languages",
+      "ring": "Like",
+      "link": "https://www.rust-lang.org"
+    },
+    { "name": "Bash", "quadrant": "Languages", "ring": "Like" },
+    { "name": "PHP", "quadrant": "Languages", "ring": "Avoid", "link": "https://www.php.net" },
+    {
+      "name": "Podman",
+      "quadrant": "Infrastructure",
+      "ring": "Love",
+      "link": "https://podman.io"
+    },
+    {
+      "name": "Linux",
+      "quadrant": "Infrastructure",
+      "ring": "Love",
+      "link": "https://www.kernel.org"
+    },
+    {
+      "name": "Ansible",
+      "quadrant": "Infrastructure",
+      "ring": "Love",
+      "link": "https://www.ansible.com"
+    },
+    {
+      "name": "Terraform",
+      "quadrant": "Infrastructure",
+      "ring": "Love",
+      "link": "https://www.terraform.io"
+    },
+    { "name": "Helm", "quadrant": "Infrastructure", "ring": "Love", "link": "https://helm.sh" },
+    {
+      "name": "Docker",
+      "quadrant": "Infrastructure",
+      "ring": "Like",
+      "link": "https://www.docker.com"
+    },
+    { "name": "Git", "quadrant": "Tools", "ring": "Love", "link": "https://git-scm.com" },
+    {
+      "name": "Jujutsu",
+      "quadrant": "Tools",
+      "ring": "Love",
+      "link": "https://github.com/jj-vcs/jj"
+    },
+    { "name": "mise", "quadrant": "Tools", "ring": "Love", "link": "https://mise.jdx.dev" },
+    { "name": "opencode", "quadrant": "Tools", "ring": "Love", "link": "https://opencode.ai" },
+    {
+      "name": "OpenChamber",
+      "quadrant": "Tools",
+      "ring": "Love",
+      "link": "https://github.com/OpenChamber/OpenChamber"
+    },
+    {
+      "name": "GitLab CI",
+      "quadrant": "Tools",
+      "ring": "Love",
+      "link": "https://docs.gitlab.com/ee/ci/"
+    },
+    {
+      "name": "Prometheus",
+      "quadrant": "Tools",
+      "ring": "Love",
+      "link": "https://prometheus.io"
+    },
+    { "name": "Grafana", "quadrant": "Tools", "ring": "Love", "link": "https://grafana.com" },
+    {
+      "name": "VictoriaMetrics",
+      "quadrant": "Tools",
+      "ring": "Love",
+      "link": "https://victoriametrics.com"
+    },
+    {
+      "name": "GitHub Actions",
+      "quadrant": "Tools",
+      "ring": "Like",
+      "link": "https://github.com/features/actions"
+    },
+    { "name": "Fnox", "quadrant": "Tools", "ring": "Trying", "link": "https://fnox.jdx.dev" },
+    { "name": "GlitchTip", "quadrant": "Tools", "ring": "Trying", "link": "https://glitchtip.com" },
+    {
+      "name": "Scaleway",
+      "quadrant": "Platforms",
+      "ring": "Like",
+      "link": "https://www.scaleway.com"
+    },
+    {
+      "name": "GCP",
+      "quadrant": "Platforms",
+      "ring": "Like",
+      "link": "https://cloud.google.com"
+    },
+    { "name": "AWS", "quadrant": "Platforms", "ring": "Like", "link": "https://aws.amazon.com" },
+    {
+      "name": "Vercel",
+      "quadrant": "Platforms",
+      "ring": "Avoid",
+      "link": "https://vercel.com"
+    }
+  ]
+}

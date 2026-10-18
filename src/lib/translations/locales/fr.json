@@ -1,5 +1,7 @@
 {
   "Home": "Acceuil",
+  "tech-radar-title": "Tech radar",
+  "tech-radar-description": "Mon ressenti, mon opinion et mes préférences sur quelques technos, sur un radar façon diagramme de Kiviat inspiré du tech radar de Zalando. Plus c'est proche du centre, plus j'aime travailler avec.",
   "report-note-error": "Vous avez trouvé une erreur ? Contacter <a href=\"mailto:contact@itsalex.fr\">contact@itsalex.fr</a>.",
   "error-not-found-title": "Page introuvable",
   "error-not-found-description": "La page que vous cherchez n'existe pas ou a été déplacée.",

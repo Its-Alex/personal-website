@@ -1,5 +1,7 @@
 {
   "Home": "Home",
+  "tech-radar-title": "Tech radar",
+  "tech-radar-description": "My feeling, opinion and preference over some technos, on a Kiviat-style radar inspired by the Zalando tech radar. The closer to the center, the more I enjoy working with it.",
   "report-note-error": "Found an error? Report it to <a href=\"mailto:contact@itsalex.fr\">contact@itsalex.fr</a>.",
   "error-not-found-title": "Page not found",
   "error-not-found-description": "The page you are looking for does not exist or has been moved.",
