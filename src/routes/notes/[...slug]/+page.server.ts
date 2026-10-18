@@ -95,9 +95,7 @@ export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent)
   if (typeof passwordString === 'string' && passwordString !== '') {
     const urlPassword = url.searchParams.get('password')
     if (urlPassword !== passwordString) {
-      console.log(
-        `Password required or incorrect for protected note ${urlPassword} does not match ${passwordString}`
-      )
+      console.log(`Password required or incorrect for protected note ${objectName}`)
       sveltekitError(404)
     }
   }
