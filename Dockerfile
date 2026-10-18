@@ -1,5 +1,5 @@
 # Build from other image
-FROM node:26.2-alpine AS builder
+FROM node:26.12-alpine AS builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ ADD pnpm-workspace.yaml /app/
 ADD tsconfig.json /app/
 ADD vite.config.ts /app/
 
-RUN npm install -g pnpm@11.5.0 \
+RUN npm install -g pnpm@12.14.0 \
     && pnpm install --frozen-lockfile \
     && pnpm run build
 

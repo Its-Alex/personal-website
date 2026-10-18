@@ -5,7 +5,7 @@ Personal website. SvelteKit 3 + Svelte 5 + Tailwind 4, SSR. Single package, no m
 ## Toolchain
 
 - Node + pnpm versions are pinned by `.mise.toml` (`mise install` to match CI). `package.json#engines` requires `>=22.17` (SvelteKit 3); CI matrix tests Node 24/25/26 alpine.
-- `pnpm` is required (`.npmrc` sets `engine-strict=true`, `packageManager: pnpm@11.5.0`). Do not introduce npm/yarn lockfiles.
+- `pnpm` is required (`.npmrc` sets `engine-strict=true`, `packageManager: pnpm@12.14.0`). Do not introduce npm/yarn lockfiles.
 - Secrets for local dev come from `gopass` via `.envrc` (`direnv allow`). The repository ships its own age-backed gopass store in `passwords/`, selected through the `GOPASS_CONFIG_*` variables in `.mise.toml`. All runtime env vars are prefixed `PERSONAL_WEBSITE_MINIO_*`. Without them, the `/notes/*` route is disabled (redirects to `/`).
 
 ## Commands
@@ -43,4 +43,4 @@ Prettier rules (`.prettierrc`): no semicolons, single quotes, no tabs, `printWid
 
 ## Release
 
-Pushes to `master` on `Its-Alex/personal-website` build and push `itsalex/personal-website:stable` via the `release` job. Dockerfile is multi-stage: `node:26.2-alpine` builder → `gcr.io/distroless/nodejs26-debian13:nonroot` runtime; `node` is the entrypoint, `CMD` is `/build/index.js`.
+Pushes to `master` on `Its-Alex/personal-website` build and push `itsalex/personal-website:stable` via the `release` job. Dockerfile is multi-stage: `node:26.12-alpine` builder → `gcr.io/distroless/nodejs26-debian13:nonroot` runtime; `node` is the entrypoint, `CMD` is `/build/index.js`.

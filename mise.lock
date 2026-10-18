@@ -2,11 +2,6 @@
 
 lockfile_version = 3
 
-[[tools."asdf:Cybolic/asdf-pass"]]
-version = "1.7.4"
-backend = "asdf:Cybolic/asdf-pass"
-specifiers = ["1.7.4"]
-
 [[tools.direnv]]
 version = "2.37.1"
 backend = "asdf:direnv"
@@ -17,76 +12,124 @@ version = "1.17.2"
 backend = "aqua:gopasspw/gopass"
 specifiers = ["1.17.2"]
 
+[tools.gopass."platforms.linux-arm64"]
+checksum = "sha256:d3c1385bc5f4c69eaefe6cf0ffae172e94c0a3ab1ffd2a72eaecd2d69c602e3a"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209024"
+provenance = "cosign"
+
+[tools.gopass."platforms.linux-arm64-musl"]
+checksum = "sha256:d3c1385bc5f4c69eaefe6cf0ffae172e94c0a3ab1ffd2a72eaecd2d69c602e3a"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209024"
+provenance = "cosign"
+
+[tools.gopass."platforms.linux-x64"]
+checksum = "sha256:95df834e451dec445565b8132efd4d9d18cb889b56d0fc65382d4ac3efdefb08"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209290"
+provenance = "cosign"
+
+[tools.gopass."platforms.linux-x64-musl"]
+checksum = "sha256:95df834e451dec445565b8132efd4d9d18cb889b56d0fc65382d4ac3efdefb08"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209290"
+provenance = "cosign"
+
+[tools.gopass."platforms.macos-arm64"]
+checksum = "sha256:26c73a234e0004e3e85aa191a851d02d47cc410d759c29782103fdb1428ff448"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209252"
+provenance = "cosign"
+
+[tools.gopass."platforms.macos-x64"]
+checksum = "sha256:9ff90e8fe1dd4fd135f8031065b2a6d309f81196ed9b9285f01d4b020407ecab"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-darwin-amd64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209054"
+provenance = "cosign"
+
+[tools.gopass."platforms.windows-x64"]
+checksum = "sha256:d64e205f6681ef407dd36fbee0417a5914e3777752a5e3a45d52933fb3c6551d"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.17.2/gopass-1.17.2-windows-amd64.zip"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/555209347"
+provenance = "cosign"
+
 [[tools.node]]
-version = "26.2.0"
+version = "26.12.0"
 backend = "core:node"
-specifiers = ["26.2"]
+specifiers = ["26.12"]
 
 [tools.node."platforms.linux-arm64"]
-checksum = "sha256:bf52461d25017479cdc549642c4e7a2303ac5c5395d7c3d026d5d8b3fa283c05"
-url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-linux-arm64.tar.gz"
+checksum = "sha256:ec53c915c3fdd8786c5685abd25ae3fe9fba0692307f9811d7caaadea1bcaf03"
+url = "https://nodejs.org/dist/v26.12.0/node-v26.12.0-linux-arm64.tar.gz"
 
 [tools.node."platforms.linux-arm64-musl"]
-checksum = "sha256:4593d822012fe3238814721909408c66f2a82955e0141457643a7a4c84e132fd"
-url = "https://unofficial-builds.nodejs.org/download/release/v26.2.0/node-v26.2.0-linux-arm64-musl.tar.gz"
+checksum = "sha256:2e70b6d5adbae94546c4d7e01de7b64c50bf8d3dbfaad2bb0774942e9da902b8"
+url = "https://unofficial-builds.nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-arm64-musl.tar.gz"
 
 [tools.node."platforms.linux-x64"]
-checksum = "sha256:8e5b4b969bb2414aca2ff84d2b99608511aedca32bf8a8427e6187dbdd703bbe"
-url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-linux-x64.tar.gz"
+checksum = "sha256:d9f88af72ad34f7ddf8e67289829f1698f54b6254f7d4f54b7453117ff1a3d2c"
+url = "https://nodejs.org/dist/v26.12.0/node-v26.12.0-linux-x64.tar.gz"
 
 [tools.node."platforms.linux-x64-musl"]
-checksum = "sha256:9efc99332e1cf70eeb85618398467c9d339bc208be65115380c611dda4c28407"
-url = "https://unofficial-builds.nodejs.org/download/release/v26.2.0/node-v26.2.0-linux-x64-musl.tar.gz"
+checksum = "sha256:48ba1cdf21e684f13f38b6295f43bfea951f1ffd008b4cf93361c966b33f6938"
+url = "https://unofficial-builds.nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-x64-musl.tar.gz"
 
 [tools.node."platforms.macos-arm64"]
-checksum = "sha256:2d8575b6a749c0bc66cc6ecd22a952f7d9bbf3b0ea76fcb0ed3ce858018afff7"
-url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-darwin-arm64.tar.gz"
+checksum = "sha256:2a154d4a5458930e0a2d6a1ecf64eddf5a2b3e1c13636b609c2ecb042e8c4553"
+url = "https://nodejs.org/dist/v26.12.0/node-v26.12.0-darwin-arm64.tar.gz"
 
 [tools.node."platforms.macos-x64"]
-checksum = "sha256:26a5480d0dd952be86beae83e6636dacd7a3ffd17ef51d0b26bc9b260f2b42e9"
-url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-darwin-x64.tar.gz"
+checksum = "sha256:878ecede191c7abc1bff01d3fb81f7ed81aa1161040dba18776b8ff8593614b1"
+url = "https://nodejs.org/dist/v26.12.0/node-v26.12.0-darwin-x64.tar.gz"
 
 [tools.node."platforms.windows-x64"]
-checksum = "sha256:371071a4f7e2c8a5dd280730049c685911feecc59f50ebc488d675dc1087c69c"
-url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-win-x64.zip"
+checksum = "sha256:50efaf01a08c520b4bbe499c09a8c5a5c370002c419c0d9da2c6815d3066a453"
+url = "https://nodejs.org/dist/v26.12.0/node-v26.12.0-win-x64.zip"
 
 [[tools.pnpm]]
-version = "11.5.0"
+version = "12.14.0"
 backend = "aqua:pnpm/pnpm"
-specifiers = ["11.5.0"]
+specifiers = ["12.14.0"]
 
 [tools.pnpm."platforms.linux-arm64"]
-checksum = "sha256:f817841be043e2be465cb8b8c7ddd19dcedf3120214783dc473a6da7f8c84da9"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.5.0/pnpm-linux-arm64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/433138832"
+checksum = "sha256:cfc780b9e690549e6633e1045fb1fb6ef84e390711e2099e6ccbae91c32456ea"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957409"
 provenance = "github-attestations"
 
 [tools.pnpm."platforms.linux-arm64-musl"]
-checksum = "sha256:6733e0f4295a09e3465224639d212cb0c01cc438e3db1b2e47d61e49fd3f4d0a"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.5.0/pnpm-linux-arm64-musl.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/433138833"
+checksum = "sha256:511a54809bdfd28270d30011d1697f582c8130d555b4fa0e2856b1a7534c98bf"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-linux-arm64-musl.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957416"
 provenance = "github-attestations"
 
 [tools.pnpm."platforms.linux-x64"]
-checksum = "sha256:d45c4338299cae5b7fcaf5e95294643edb10de98258fc0b1d566ffa00b0c353c"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.5.0/pnpm-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/433138834"
+checksum = "sha256:3910c3852136bed5bc1511b9137a45fd4357ed6b3970d9d08893641e9005867e"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957410"
 provenance = "github-attestations"
 
 [tools.pnpm."platforms.linux-x64-musl"]
-checksum = "sha256:f114fa068bb5b45472e3389b19722feb9cb47b72ca656fb5a5cbb7d5fbb7ed06"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.5.0/pnpm-linux-x64-musl.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/433138828"
+checksum = "sha256:d7115e2f2791d79bf9e7e448609537595bb7787de1ef5292ce91ff3d1be2629e"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-linux-x64-musl.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957412"
 provenance = "github-attestations"
 
 [tools.pnpm."platforms.macos-arm64"]
-checksum = "sha256:966f2ed3587457e1135b7102569b08f21c717f49d5676d63f9435bac9682c45b"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.5.0/pnpm-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/433138829"
+checksum = "sha256:50f48e0e17508952790a3fbf58fcf14f3b82efa5f594ca04ad904e29aaf854b0"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957413"
+provenance = "github-attestations"
+
+[tools.pnpm."platforms.macos-x64"]
+checksum = "sha256:2c412e07382049b4edb04fa6da78f3d4ef7810b75853c80544dcfb7c0ed79880"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-darwin-x64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957411"
 provenance = "github-attestations"
 
 [tools.pnpm."platforms.windows-x64"]
-checksum = "sha256:f85f5c399caa41e2fbce8a2127b69ea4d2ab9b45296756a557b26110d01dcefd"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.5.0/pnpm-win32-x64.zip"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/433138830"
+checksum = "sha256:6f0f38e917c8ce76ef31db528c357e2bfa354a1bcb16464e3cdec39e6530d784"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-win32-x64.zip"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957404"
 provenance = "github-attestations"
