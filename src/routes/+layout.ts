@@ -1,15 +1,3 @@
-import type { LayoutLoad } from './$types'
+import { load as i18nLoad } from '#lib/translations/index.js'
 
-import { addTranslations, setLocale, setRoute } from '#lib/translations/index.js'
-
-export const load: LayoutLoad = async ({ data }) => {
-  const { i18n, translations } = data
-  const { locale, route } = i18n
-
-  addTranslations(translations)
-
-  await setRoute(typeof route === 'string' ? route : '')
-  await setLocale(locale)
-
-  return i18n
-}
+export const load = i18nLoad

@@ -2,11 +2,13 @@
   import { asset, resolve } from '$app/paths'
   import type { Path } from '$app/types'
 
-  import { locale, t } from '#lib/translations/index.js'
+  import { get } from '#lib/translations/index.js'
   import { page } from '$app/state'
 
+  const i18n = get()
+
   // Link straight to the localized home so the click doesn't go through the `/` -> `/{locale}` redirect.
-  const homeHref = $derived($locale === 'fr' ? resolve('/fr') : resolve('/en'))
+  const homeHref = $derived(i18n.locale === 'fr' ? resolve('/fr') : resolve('/en'))
 
   const crumbs = $derived.by(() => {
     // Remove zero-length tokens.
@@ -48,8 +50,8 @@
     <li class="flex items-center">
       <a
         href={homeHref}
-        aria-label={$t('common.Home')}
-        title={$t('common.Home')}
+        aria-label={i18n.t('common.Home')}
+        title={i18n.t('common.Home')}
         class="flex items-center justify-center rounded-md p-1 transition-colors hover:bg-gray-200 hover:text-gray-900"
       >
         <img src={asset('favicon/favicon.svg')} alt="" class="h-5 w-5" />

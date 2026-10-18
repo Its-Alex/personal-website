@@ -1,12 +1,3 @@
-import type { ServerLoad } from '@sveltejs/kit'
+import { load as i18nLoad } from '#lib/translations/index.js'
 
-import { translations } from '#lib/translations/index.js'
-
-export const load: ServerLoad = async ({ locals, url }) => {
-  const { pathname } = url
-
-  return {
-    i18n: { locale: locals.locale, route: pathname },
-    translations: translations.get()
-  }
-}
+export const load = i18nLoad

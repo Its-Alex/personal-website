@@ -2,17 +2,19 @@
   import { resolve } from '$app/paths'
 
   import { page } from '$app/state'
-  import { locale, t } from '#lib/translations/index.js'
+  import { get } from '#lib/translations/index.js'
+
+  const i18n = get()
 
   const isNotFound = $derived(page.status === 404)
   const title = $derived(
-    isNotFound ? $t('common.error-not-found-title') : $t('common.error-generic-title')
+    isNotFound ? i18n.t('common.error-not-found-title') : i18n.t('common.error-generic-title')
   )
   const description = $derived(
-    isNotFound ? $t('common.error-not-found-description') : (page.error?.message ?? '')
+    isNotFound ? i18n.t('common.error-not-found-description') : (page.error?.message ?? '')
   )
   // Link straight to the localized home so the click doesn't go through the `/` -> `/{locale}` redirect.
-  const homeHref = $derived($locale === 'fr' ? resolve('/fr') : resolve('/en'))
+  const homeHref = $derived(i18n.locale === 'fr' ? resolve('/fr') : resolve('/en'))
 </script>
 
 <svelte:head>
@@ -26,6 +28,6 @@
     {#if description !== ''}
       <p class="mt-2 text-base text-gray-600">{description}</p>
     {/if}
-    <a href={homeHref} class="mt-6 text-base">{$t('common.error-back-home')}</a>
+    <a href={homeHref} class="mt-6 text-base">{i18n.t('common.error-back-home')}</a>
   </div>
 </div>

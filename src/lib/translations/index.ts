@@ -1,32 +1,20 @@
-import I18n from 'sveltekit-i18n'
-import type { Config } from 'sveltekit-i18n'
+import { defineI18n } from 'sveltekit-i18n/kit'
 
-const config: Config = {
+export const config = {
+  initLocale: 'en',
   fallbackLocale: 'en',
-  fallbackValue: 'en',
   loaders: [
     {
-      locale: 'en',
-      key: 'common',
-      loader: async () => (await import('./locales/en.json')).default
-    },
-    {
-      locale: 'fr',
-      key: 'common',
-      loader: async () => (await import('./locales/fr.json')).default
+      locale: ['en', 'fr'],
+      namespace: 'common',
+      loader: async ({ locale }: { locale: string }) =>
+        (await import(`./locales/${locale}.json`)).default
     }
   ]
 }
 
-export const defaultLocale = 'en'
-export const {
-  t,
-  loading,
-  locales,
-  locale,
-  translations,
-  loadTranslations,
-  addTranslations,
-  setLocale,
-  setRoute
-} = new I18n(config)
+// Resolution order: ?queryLanguage → `lang` cookie → Accept-Language → initLocale.
+export const { handle, load, use, get } = defineI18n(config, {
+  preferredLocale: (event) =>
+    event.url.searchParams.get('queryLanguage') ?? event.cookies?.get('lang')
+})

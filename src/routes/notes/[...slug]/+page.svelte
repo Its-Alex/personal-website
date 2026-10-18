@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { t } from '#lib/translations/index.js'
+  import { get } from '#lib/translations/index.js'
+
+  const i18n = get()
 
   /* eslint-disable svelte/no-at-html-tags */
   interface Props {
@@ -23,7 +25,7 @@
   </article>
   <footer>
     <p class="pt-3 text-center text-sm text-gray-500">
-      {@html $t('common.report-note-error')}
+      {@html i18n.t('common.report-note-error')}
     </p>
   </footer>
 </div>

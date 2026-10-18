@@ -3,7 +3,9 @@
 
   import type { PageServerData } from './$types'
 
-  import { locale } from '#lib/translations/index.js'
+  import { get } from '#lib/translations/index.js'
+
+  const i18n = get()
 
   interface Props {
     data: PageServerData
@@ -12,7 +14,7 @@
   const { data }: Props = $props()
 
   const dateFormatter = $derived(
-    new Intl.DateTimeFormat($locale ?? undefined, {
+    new Intl.DateTimeFormat(i18n.locale, {
       year: 'numeric',
       month: 'short',
       day: 'numeric'

@@ -1,6 +1,8 @@
-import type { ServerLoad } from '@sveltejs/kit'
 import { redirect } from '@sveltejs/kit'
 
-export const load: ServerLoad = ({ locals }) => {
-  redirect(307, `/${locals.locale}`)
+import type { PageServerLoad } from './$types'
+
+export const load: PageServerLoad = async ({ parent }) => {
+  const { i18n } = await parent()
+  redirect(307, `/${i18n.locale}`)
 }
