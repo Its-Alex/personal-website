@@ -1,7 +1,12 @@
 <script lang="ts">
   import { layoutRadar, type RadarData, type RadarLegendQuadrant } from './radar'
+  import { get } from '#lib/translations/index.js'
 
   const { data }: { data: RadarData } = $props()
+
+  const i18n = get()
+  const quadrantLabel = (name: string) => i18n.t(`common.tech-radar-quadrant-${name.toLowerCase()}`)
+  const ringLabel = (name: string) => i18n.t(`common.tech-radar-ring-${name.toLowerCase()}`)
 
   const radius = 330
   const labelMargin = 45
@@ -29,14 +34,14 @@
 
 {#snippet quadrantLegend(quadrant: RadarLegendQuadrant)}
   <div>
-    <h2 class="mb-2 text-xl font-bold text-gray-900">{quadrant.name}</h2>
+    <h2 class="mb-2 text-xl font-bold text-gray-900">{quadrantLabel(quadrant.name)}</h2>
     {#each quadrant.rings as ring (ring.name)}
       {#if ring.entries.length > 0}
         <h3
           class="mt-3 mb-1 text-xs font-bold tracking-widest uppercase"
           style="color: {ring.color}"
         >
-          {ring.name}
+          {ringLabel(ring.name)}
         </h3>
         <ol class="space-y-0.5">
           {#each ring.entries as entry (entry.id)}
@@ -95,7 +100,7 @@
         text-anchor="middle"
         class="fill-gray-500 stroke-gray-100 stroke-[6px] text-[15px] font-bold tracking-wider uppercase [paint-order:stroke]"
       >
-        {ring.name}
+        {ringLabel(ring.name)}
       </text>
     {/each}
 
@@ -107,7 +112,7 @@
         text-anchor="middle"
         class="fill-gray-700 text-[19px] font-bold lg:hidden"
       >
-        {quadrant}
+        {quadrantLabel(quadrant)}
       </text>
     {/each}
 
@@ -117,7 +122,7 @@
         onmouseenter={() => (hovered = dot.id)}
         onmouseleave={() => (hovered = null)}
       >
-        <title>{dot.name} — {dot.ring}</title>
+        <title>{dot.name} — {ringLabel(dot.ring)}</title>
         <circle
           cx={dot.x}
           cy={dot.y}

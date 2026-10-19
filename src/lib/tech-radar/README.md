@@ -1,7 +1,8 @@
 # Tech radar
 
-The `/tech-radar` page renders a Zalando-inspired tech radar from `technos.json`. Everything shown
-on the radar comes from that single file — editing it is all that is needed to update the page.
+The `/tech-radar` page renders a Zalando-inspired tech radar from `technos.json`. Technos, quadrants
+and rings come from that single file; quadrant and ring labels are translated in
+`src/lib/translations/locales/*.json`.
 
 ## Editing `technos.json`
 
