@@ -73,7 +73,7 @@
     aria-label="Tech radar"
   >
     {#each layout.ringRadii as ringRadius (ringRadius)}
-      <circle cx="0" cy="0" r={ringRadius} fill="none" stroke="#d1d5db" stroke-width="1.5" />
+      <circle cx="0" cy="0" r={ringRadius} class="fill-none stroke-gray-300 stroke-[1.5px]" />
     {/each}
     {#each layout.sectorAngles as sector (sector.start)}
       <line
@@ -81,8 +81,7 @@
         y1="0"
         x2={radius * Math.cos(sector.start)}
         y2={radius * Math.sin(sector.start)}
-        stroke="#d1d5db"
-        stroke-width="1.5"
+        class="stroke-gray-300 stroke-[1.5px]"
       />
     {/each}
 
@@ -94,7 +93,7 @@
           2}
         y="5"
         text-anchor="middle"
-        class="ring-label"
+        class="fill-gray-500 stroke-gray-100 stroke-[6px] text-[15px] font-bold tracking-wider uppercase [paint-order:stroke]"
       >
         {ring.name}
       </text>
@@ -106,7 +105,7 @@
         x={(radius + labelMargin) * Math.cos(layout.sectorAngles[quadrantIndex].mid)}
         y={(radius + labelMargin) * Math.sin(layout.sectorAngles[quadrantIndex].mid) + 6}
         text-anchor="middle"
-        class="quadrant-label lg:hidden"
+        class="fill-gray-700 text-[19px] font-bold lg:hidden"
       >
         {quadrant}
       </text>
@@ -125,9 +124,16 @@
           r={hovered === dot.id ? 15 : 12}
           fill={dot.color}
           stroke={hovered === dot.id ? '#111827' : 'none'}
-          stroke-width="2"
+          class="stroke-2"
         />
-        <text x={dot.x} y={dot.y + 4} text-anchor="middle" class="dot-number">{dot.id}</text>
+        <text
+          x={dot.x}
+          y={dot.y + 4}
+          text-anchor="middle"
+          class="pointer-events-none fill-white text-[11px] font-bold"
+        >
+          {dot.id}
+        </text>
       </g>
     {/each}
   </svg>
@@ -144,29 +150,3 @@
     {@render quadrantLegend(quadrant)}
   {/each}
 </div>
-
-<style>
-  .ring-label {
-    fill: #6b7280;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    stroke: #f3f4f6;
-    stroke-width: 6px;
-    paint-order: stroke;
-  }
-
-  .quadrant-label {
-    fill: #374151;
-    font-size: 19px;
-    font-weight: 700;
-  }
-
-  .dot-number {
-    fill: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    pointer-events: none;
-  }
-</style>
