@@ -20,6 +20,8 @@ jobs:
           version: 12.14.0
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Audit dependencies
+        run: pnpm audit --audit-level high
       - name: Typescript
         run: pnpm run check
       - name: Eslint
