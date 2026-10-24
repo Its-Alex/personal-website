@@ -34,8 +34,8 @@
     "@tailwindcss/typography": "0.5.20",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.6.5",
-    "@typescript-eslint/eslint-plugin": "8.71.2",
-    "@typescript-eslint/parser": "8.71.2",
+    "@typescript-eslint/eslint-plugin": "8.72.0",
+    "@typescript-eslint/parser": "8.72.0",
     "eslint": "10.13.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-promise": "7.3.0",
@@ -60,10 +60,10 @@
     "tailwindcss": "4.3.3",
     "tslib": "2.8.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.71.2",
+    "typescript-eslint": "8.72.0",
     "unified": "11.0.5",
     "vfile": "6.0.3",
-    "vite": "8.3.4"
+    "vite": "8.3.5"
   },
   "type": "module",
   "imports": {
