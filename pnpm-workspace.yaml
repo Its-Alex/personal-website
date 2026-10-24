@@ -2,3 +2,5 @@ allowBuilds:
   esbuild: true
 packages:
   - .
+# Keeps pnpm-lock.yaml to a single document; see the dependency updates section in AGENTS.md.
+pmOnFail: ignore

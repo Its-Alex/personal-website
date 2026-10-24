@@ -24,6 +24,14 @@ CI (`.github/workflows/main.yml`) runs `pnpm check` then `pnpm lint`. There are 
 
 Prettier rules (`.prettierrc`): no semicolons, single quotes, no tabs, `printWidth: 100`. ESLint uses flat config and reads `.gitignore` via `includeIgnoreFile`.
 
+## Dependencies
+
+`.github/dependabot.yml` covers pnpm, workflow actions and both container base images, weekly.
+
+`pnpm-workspace.yaml` sets `pmOnFail: ignore` deliberately. pnpm 12 prefixes `pnpm-lock.yaml` with an environment document, and GitHub's dependency graph parses only that first document: it then reports 0 dependencies, Dependabot alerts stay silent and existing ones get closed as fixed ([dependabot-core#15904](https://github.com/dependabot/dependabot-core/issues/15904)). The setting keeps the lockfile single-document; pnpm stays pinned by `.mise.toml`, `pnpm/action-setup` and the Dockerfile instead. A `pnpm` command or a lockfile regeneration that restores the two-document form re-breaks scanning without any visible error — `grep -c '^---$' pnpm-lock.yaml` must print `0`.
+
+`pnpm audit --audit-level high` runs in CI, so a new high or critical advisory fails the build until it is fixed or explicitly downgraded.
+
 ## Architecture quirks an agent will get wrong
 
 - **Config lives in `vite.config.ts`** (SvelteKit 3 dropped `svelte.config.js`; do not recreate it): `sveltekit({...})` options, mdsvex preprocessing and the adapter. `$lib` no longer exists — use `#lib/...` with the file extension (`package.json#imports`).
