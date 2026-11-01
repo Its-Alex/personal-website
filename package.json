@@ -20,6 +20,7 @@
     "format": "prettier --write . && eslint . --fix"
   },
   "devDependencies": {
+    "@bradenmacdonald/s3-lite-client": "1.0.1",
     "@eslint/compat": "2.1.1",
     "@eslint/js": "10.0.1",
     "@shikijs/core": "4.5.0",
@@ -43,7 +44,6 @@
     "globals": "17.13.0",
     "gray-matter": "4.0.3",
     "mdsvex": "0.12.8",
-    "minio": "8.0.7",
     "prettier": "3.9.10",
     "prettier-plugin-svelte": "4.1.1",
     "prettier-plugin-tailwindcss": "0.8.1",

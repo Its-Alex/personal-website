@@ -1,7 +1,5 @@
-import type { Readable } from 'node:stream'
-
+import { S3Client, S3Errors } from '@bradenmacdonald/s3-lite-client'
 import { error as sveltekitError } from '@sveltejs/kit'
-import { Client } from 'minio'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
@@ -22,64 +20,43 @@ interface ArticleMetadata {
 }
 
 const BUCKET_NAME = process.env.PERSONAL_WEBSITE_MINIO_BUCKET_NAME ?? ''
+const ENDPOINT = process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT ?? ''
+const ACCESS_KEY = process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY ?? ''
+const SECRET_KEY = process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY ?? ''
+const PORT = process.env.PERSONAL_WEBSITE_MINIO_PORT
+const USE_SSL = process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'true'
 
-const minioClient =
-  typeof process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT === 'string' &&
-  process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT !== '' &&
-  typeof BUCKET_NAME === 'string' &&
-  BUCKET_NAME !== '' &&
-  typeof process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY === 'string' &&
-  process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY !== '' &&
-  typeof process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY === 'string' &&
-  process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY !== ''
-    ? new Client({
-        endPoint: process.env.PERSONAL_WEBSITE_MINIO_ENDPOINT ?? '',
-        port: Number(process.env.PERSONAL_WEBSITE_MINIO_PORT) || 443,
-        useSSL:
-          typeof process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'string' &&
-          process.env.PERSONAL_WEBSITE_MINIO_USE_SSL === 'true',
-        accessKey: process.env.PERSONAL_WEBSITE_MINIO_ACCESS_KEY ?? '',
-        secretKey: process.env.PERSONAL_WEBSITE_MINIO_SECRET_KEY ?? '',
-        pathStyle: true,
-        region: process.env.PERSONAL_WEBSITE_MINIO_REGION ?? ''
+const s3Client =
+  ENDPOINT !== '' && BUCKET_NAME !== '' && ACCESS_KEY !== '' && SECRET_KEY !== ''
+    ? new S3Client({
+        endPoint: `${USE_SSL ? 'https' : 'http'}://${ENDPOINT}${PORT ? `:${PORT}` : ''}`,
+        accessKey: ACCESS_KEY,
+        secretKey: SECRET_KEY,
+        region: process.env.PERSONAL_WEBSITE_MINIO_REGION || 'us-east-1',
+        pathStyle: true
       })
     : null
 
 export const load: PageServerLoad = async ({ params, url }: PageServerLoadEvent) => {
-  if (minioClient === null) {
-    console.log('minioClient is null')
+  if (s3Client === null) {
+    console.log('s3Client is null')
     sveltekitError(404)
   }
 
-  const objectName = Array.isArray(params.slug)
-    ? params.slug.join('/')
-    : typeof params.slug === 'string'
-      ? params.slug
-      : ''
+  const objectName = Array.isArray(params.slug) ? params.slug.join('/') : (params.slug ?? '')
   let data = ''
 
   try {
-    const dataStream: Readable = await minioClient.getObject(
-      BUCKET_NAME,
-      typeof objectName === 'string' ? `${objectName}.md` : ''
-    )
-    for await (const chunk of dataStream) {
-      data += chunk
-    }
+    const response = await s3Client.getObject(`${objectName}.md`, {
+      bucketName: BUCKET_NAME
+    })
+    data = await response.text()
   } catch (error) {
-    if (error !== null && error instanceof Error) {
-      if (
-        error.message.includes('The specified key does not exist') ||
-        error.message.includes('Key not found')
-      ) {
-        sveltekitError(404)
-      }
+    if (error instanceof S3Errors.ServerError && error.statusCode === 404) {
+      sveltekitError(404)
     }
     console.error('Error fetching file from S3', error)
-    sveltekitError(
-      500,
-      error !== null && error instanceof Error ? error.message : 'Internal server error'
-    )
+    sveltekitError(500, error instanceof Error ? error.message : 'Internal server error')
   }
 
   const { data: meta, content } = matter(data)
