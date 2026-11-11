@@ -7,11 +7,27 @@
   const i18n = get()
   const quadrantLabel = (name: string) => i18n.t(`common.tech-radar-quadrant-${name.toLowerCase()}`)
   const ringLabel = (name: string) => i18n.t(`common.tech-radar-ring-${name.toLowerCase()}`)
+  const quadrantDescription = (name: string) =>
+    i18n.t(`common.tech-radar-quadrant-${name.toLowerCase()}-description`)
+  const ringDescription = (name: string) =>
+    i18n.t(`common.tech-radar-ring-${name.toLowerCase()}-description`)
 
   const radius = 330
   const labelMargin = 45
   const viewBoxSize = (radius + labelMargin + 25) * 2
   const layout = $derived(layoutRadar(data, radius))
+
+  const ringWidth = (name: string) => {
+    const index = data.rings.findIndex((ring) => ring.name === name)
+    const inner = index === 0 ? 0 : layout.ringRadii[index - 1]
+    return ((layout.ringRadii[index] - inner) / layout.ringRadii[layout.ringRadii.length - 1]) * 100
+  }
+
+  // Cell of a 2x2 grid matching where the sector sits on the radar, read top-left to bottom-right.
+  const quadrantCell = (index: number) => {
+    const mid = layout.sectorAngles[index].mid
+    return (Math.sin(mid) >= 0 ? 2 : 0) + (Math.cos(mid) >= 0 ? 2 : 1)
+  }
 
   // On wide screens the quadrant lists sit around the circle, Zalando-style,
   // each on the side and vertical position of its sector.
@@ -64,7 +80,43 @@
   </div>
 {/snippet}
 
-<div class="lg:flex lg:items-stretch lg:gap-8">
+<div class="mt-6 border-t border-gray-200 pt-6">
+  <h2 class="text-xl font-bold text-gray-900">{i18n.t('common.tech-radar-how-to-read')}</h2>
+
+  <h3 class="mt-4 text-xs font-bold tracking-widest text-gray-500 uppercase">
+    {i18n.t('common.tech-radar-rings-title')}
+  </h3>
+  <!-- Segments sized like the real ring bands, so the bar reads as the radar's scale. -->
+  <div class="mt-2 flex h-1.5 overflow-hidden" aria-hidden="true">
+    {#each data.rings as ring (ring.name)}
+      <div
+        class="h-full"
+        style="width: {ringWidth(ring.name)}%; background-color: {ring.color}"
+      ></div>
+    {/each}
+  </div>
+  <div class="mt-1 flex justify-between text-xs tracking-wider text-gray-500 uppercase">
+    <span>{i18n.t('common.tech-radar-center')}</span>
+    <span>{i18n.t('common.tech-radar-edge')}</span>
+  </div>
+  <dl class="mt-4 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+    {#each data.rings as ring (ring.name)}
+      <div>
+        <dt class="flex items-center gap-2 font-bold text-gray-900">
+          <span
+            class="h-2.5 w-2.5 shrink-0 rounded-[2px]"
+            style="background-color: {ring.color}"
+            aria-hidden="true"
+          ></span>
+          {ringLabel(ring.name)}
+        </dt>
+        <dd class="mt-1 text-sm leading-relaxed text-gray-600">{ringDescription(ring.name)}</dd>
+      </div>
+    {/each}
+  </dl>
+</div>
+
+<div class="mt-8 lg:flex lg:items-stretch lg:gap-8">
   <div class="hidden lg:flex lg:w-44 lg:shrink-0 lg:flex-col lg:justify-between lg:gap-10">
     {#each legendSides.left as side (side.quadrant.name)}
       {@render quadrantLegend(side.quadrant)}
@@ -155,3 +207,22 @@
     {@render quadrantLegend(quadrant)}
   {/each}
 </div>
+
+<h3 class="mt-10 text-xs font-bold tracking-widest text-gray-500 uppercase">
+  {i18n.t('common.tech-radar-quadrants-title')}
+</h3>
+<dl class="mt-4 grid gap-x-10 sm:grid-cols-2">
+  {#each data.quadrants as quadrant, index (quadrant)}
+    <div class="border-t border-gray-200 py-3">
+      <dt class="flex items-center gap-2 font-bold text-gray-900">
+        <span class="grid h-4 w-4 shrink-0 grid-cols-2 grid-rows-2 gap-px" aria-hidden="true">
+          {#each [1, 2, 3, 4] as cell (cell)}
+            <span class={quadrantCell(index) === cell ? 'bg-gray-700' : 'bg-gray-300'}></span>
+          {/each}
+        </span>
+        {quadrantLabel(quadrant)}
+      </dt>
+      <dd class="mt-1 text-sm leading-relaxed text-gray-600">{quadrantDescription(quadrant)}</dd>
+    </div>
+  {/each}
+</dl>
