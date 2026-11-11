@@ -46,6 +46,12 @@
   })
 
   let hovered: number | null = $state(null)
+
+  const activeDot = $derived(layout.dots.find((dot) => dot.id === hovered))
+
+  // Clamped so a long name on a dot near the edge stays inside the graph's width.
+  const labelLeft = (dot: { x: number }) =>
+    Math.min(85, Math.max(15, ((dot.x + viewBoxSize / 2) / viewBoxSize) * 100))
 </script>
 
 {#snippet quadrantLegend(quadrant: RadarLegendQuadrant)}
@@ -62,9 +68,11 @@
         <ol class="space-y-0.5">
           {#each ring.entries as entry (entry.id)}
             <li
-              class="text-base {hovered === entry.id ? 'font-bold' : ''}"
-              onmouseenter={() => (hovered = entry.id)}
-              onmouseleave={() => (hovered = null)}
+              class="-ml-2 border-l-2 border-transparent pl-2 text-base"
+              class:bg-gray-200={hovered === entry.id}
+              style={hovered === entry.id ? 'border-left-color: #111827' : ''}
+              onpointerenter={() => (hovered = entry.id)}
+              onpointerleave={() => (hovered = null)}
             >
               <span class="text-gray-400 tabular-nums">{entry.id}.</span>
               {#if entry.link}
@@ -123,77 +131,94 @@
     {/each}
   </div>
 
-  <svg
-    viewBox="{-viewBoxSize / 2} {-viewBoxSize / 2} {viewBoxSize} {viewBoxSize}"
-    class="h-auto w-full lg:min-w-0 lg:flex-1"
-    role="img"
-    aria-label="Tech radar"
-  >
-    {#each layout.ringRadii as ringRadius (ringRadius)}
-      <circle cx="0" cy="0" r={ringRadius} class="fill-none stroke-gray-300 stroke-[1.5px]" />
-    {/each}
-    {#each layout.sectorAngles as sector (sector.start)}
-      <line
-        x1="0"
-        y1="0"
-        x2={radius * Math.cos(sector.start)}
-        y2={radius * Math.sin(sector.start)}
-        class="stroke-gray-300 stroke-[1.5px]"
-      />
-    {/each}
-
-    <!-- Alternate sides because outer rings are too thin for adjacent labels. -->
-    {#each data.rings as ring, ringIndex (ring.name)}
-      <text
-        x={((ringIndex % 2 === 0 ? 1 : -1) *
-          ((ringIndex === 0 ? 0 : layout.ringRadii[ringIndex - 1]) + layout.ringRadii[ringIndex])) /
-          2}
-        y="5"
-        text-anchor="middle"
-        class="fill-gray-500 stroke-gray-100 stroke-[6px] text-[15px] font-bold tracking-wider uppercase [paint-order:stroke]"
-      >
-        {ringLabel(ring.name)}
-      </text>
-    {/each}
-
-    <!-- Hidden on wide screens: the legend headings label the corners there. -->
-    {#each data.quadrants as quadrant, quadrantIndex (quadrant)}
-      <text
-        x={(radius + labelMargin) * Math.cos(layout.sectorAngles[quadrantIndex].mid)}
-        y={(radius + labelMargin) * Math.sin(layout.sectorAngles[quadrantIndex].mid) + 6}
-        text-anchor="middle"
-        class="fill-gray-700 text-[19px] font-bold lg:hidden"
-      >
-        {quadrantLabel(quadrant)}
-      </text>
-    {/each}
-
-    {#each layout.dots as dot (dot.id)}
-      <g
-        role="presentation"
-        onmouseenter={() => (hovered = dot.id)}
-        onmouseleave={() => (hovered = null)}
-      >
-        <title>{dot.name} — {ringLabel(dot.ring)}</title>
-        <circle
-          cx={dot.x}
-          cy={dot.y}
-          r={hovered === dot.id ? 15 : 12}
-          fill={dot.color}
-          stroke={hovered === dot.id ? '#111827' : 'none'}
-          class="stroke-2"
+  <div class="relative lg:min-w-0 lg:flex-1">
+    <svg
+      viewBox="{-viewBoxSize / 2} {-viewBoxSize / 2} {viewBoxSize} {viewBoxSize}"
+      class="h-auto w-full"
+      role="group"
+      aria-label="Tech radar"
+    >
+      {#each layout.ringRadii as ringRadius (ringRadius)}
+        <circle cx="0" cy="0" r={ringRadius} class="fill-none stroke-gray-300 stroke-[1.5px]" />
+      {/each}
+      {#each layout.sectorAngles as sector (sector.start)}
+        <line
+          x1="0"
+          y1="0"
+          x2={radius * Math.cos(sector.start)}
+          y2={radius * Math.sin(sector.start)}
+          class="stroke-gray-300 stroke-[1.5px]"
         />
+      {/each}
+
+      <!-- Alternate sides because outer rings are too thin for adjacent labels. -->
+      {#each data.rings as ring, ringIndex (ring.name)}
         <text
-          x={dot.x}
-          y={dot.y + 4}
+          x={((ringIndex % 2 === 0 ? 1 : -1) *
+            ((ringIndex === 0 ? 0 : layout.ringRadii[ringIndex - 1]) +
+              layout.ringRadii[ringIndex])) /
+            2}
+          y="5"
           text-anchor="middle"
-          class="pointer-events-none fill-white text-[11px] font-bold"
+          class="fill-gray-500 stroke-gray-100 stroke-[6px] text-[15px] font-bold tracking-wider uppercase [paint-order:stroke]"
         >
-          {dot.id}
+          {ringLabel(ring.name)}
         </text>
-      </g>
-    {/each}
-  </svg>
+      {/each}
+
+      <!-- Hidden on wide screens: the legend headings label the corners there. -->
+      {#each data.quadrants as quadrant, quadrantIndex (quadrant)}
+        <text
+          x={(radius + labelMargin) * Math.cos(layout.sectorAngles[quadrantIndex].mid)}
+          y={(radius + labelMargin) * Math.sin(layout.sectorAngles[quadrantIndex].mid) + 6}
+          text-anchor="middle"
+          class="fill-gray-700 text-[19px] font-bold lg:hidden"
+        >
+          {quadrantLabel(quadrant)}
+        </text>
+      {/each}
+
+      {#each layout.dots as dot (dot.id)}
+        <g
+          role="img"
+          aria-label="{dot.name}, {ringLabel(dot.ring)}"
+          onpointerenter={() => (hovered = dot.id)}
+          onpointerleave={() => (hovered = null)}
+        >
+          <!-- Wider than the dot: a 12-unit dot is a 6px target on a phone. -->
+          <circle cx={dot.x} cy={dot.y} r="22" fill="transparent" />
+          <circle
+            cx={dot.x}
+            cy={dot.y}
+            r={hovered === dot.id ? 15 : 12}
+            fill={dot.color}
+            stroke={hovered === dot.id ? '#111827' : 'none'}
+            class="stroke-2"
+          />
+          <text
+            x={dot.x}
+            y={dot.y + 4}
+            text-anchor="middle"
+            class="pointer-events-none fill-white text-[11px] font-bold"
+          >
+            {dot.id}
+          </text>
+        </g>
+      {/each}
+    </svg>
+
+    {#if activeDot}
+      <!-- HTML, not an SVG text: in-SVG text shrinks with the viewBox, ~7px on a phone. -->
+      <span
+        class="pointer-events-none absolute border border-gray-300 bg-white px-1.5 py-0.5 text-xs font-bold whitespace-nowrap text-gray-900"
+        style="left: {labelLeft(activeDot)}%; top: {((activeDot.y + viewBoxSize / 2) /
+          viewBoxSize) *
+          100}%; transform: translate(-50%, calc(-100% - 16px))"
+      >
+        {activeDot.name}
+      </span>
+    {/if}
+  </div>
 
   <div class="hidden lg:flex lg:w-44 lg:shrink-0 lg:flex-col lg:justify-between lg:gap-10">
     {#each legendSides.right as side (side.quadrant.name)}
